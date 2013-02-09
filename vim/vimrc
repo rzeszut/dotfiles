@@ -1,0 +1,210 @@
+" Vundle required settings
+""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+"
+" Brief help
+" :BundleList          - list configured bundles
+" :BundleInstall(!)    - install(update) bundles
+" :BundleSearch(!) foo - search(or refresh cache first) for foo
+" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+"
+" see :h vundle for more details or wiki for FAQ
+" NOTE: comments after Bundle command are not allowed..
+
+    " Bundles
+    """"""""""""""""""
+    Bundle 'Townk/vim-autoclose'
+    Bundle 'fholgado/minibufexpl.vim'
+    Bundle 'vim-scripts/taglist.vim'
+    Bundle 'vim-scripts/TaskList.vim'
+    Bundle 'msanders/snipmate.vim'
+
+    " Support for xml files
+    Bundle 'sukima/xmledit'
+    
+    " Shows syntax errors on several types of files
+    Bundle 'scrooloose/syntastic'
+
+    " File manager
+    Bundle 'scrooloose/nerdtree'
+
+    " comments
+    Bundle 'scrooloose/nerdcommenter'
+    
+    " Tab to indent or autocomplete depending on context
+    Bundle 'ervandew/supertab'
+
+    " Updated ruby syntax and such
+    Bundle 'vim-ruby/vim-ruby'
+    
+    " Vim Markdown runtime files
+    Bundle 'tpope/vim-markdown'
+    
+    " vim powerline -  The ultimate vim statusline utility
+    Bundle 'Lokaltog/vim-powerline'
+
+    " Haskell mode
+    Bundle 'lukerandall/haskellmode-vim'
+
+filetype plugin indent on
+
+" General settings
+""""""""""""""""""""""""""""
+" Set to auto read when a file is changed from the outside
+set autoread
+
+set history=200
+set number "enable line numbers
+set so=7
+
+set wildmenu "Turn on WiLd menu
+
+set ruler "Always show current position
+
+set cmdheight=1 "The commandbar height
+
+set hid "Change buffer - without saving
+
+" Set backspace config
+set backspace=eol,start,indent
+set whichwrap+=<,>,h,l
+
+set ignorecase "Ignore case when searching
+set infercase "make insert-matching preserve the already written characters
+set smartcase
+
+set hlsearch "Highlight search things
+set incsearch "Make search act like search in modern browsers
+"set nolazyredraw "Don't redraw while executing macros 
+
+set magic "Set magic on, for regular expressions
+
+set showmatch "Show matching bracets when text indicator is over them
+set mat=2 "How many tenths of a second to blink
+
+" No sound on errors
+set noerrorbells
+set novisualbell
+set laststatus=2   " Always show the statusline
+
+let mapleader = ','
+let g:mapleader = ','
+
+" Colors and fonts
+"""""""""""""""""""""""
+syntax on
+
+set background=dark
+colorscheme Tomorrow-Night
+set gfn=Monospace\ 10
+set shell=/bin/bash
+
+if has("gui_running")
+    set guioptions-=T
+    set t_Co=256
+    set mouse=a
+endif
+
+set encoding=utf8
+set ffs=unix
+
+" Backups and undo
+"""""""""""""""""""""""""""""
+set backup
+set wb
+set swapfile
+
+" Persistent undo
+try
+    set undodir=~/.vim_runtime/undodir
+    set undofile
+catch
+endtry
+
+" Indenting
+"""""""""""""""""""""
+set expandtab
+set shiftwidth=4
+set tabstop=4
+set smarttab
+set softtabstop=4
+
+set lbr
+set tw=500
+
+set ai "Auto indent
+set si "Smart indet
+set wrap "Wrap lines
+
+" Key mappings
+"""""""""""""""""""""""
+map <silent> <leader><cr> :noh<cr>
+
+" Smart way to move btw. windows
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
+
+" Close the current buffer
+map <leader>bd :bd<cr>
+" Fast save
+map <leader>w :w<cr>
+
+map <leader>ve :edit ~/.vimrc<cr>
+map <leader>vs :source ~/.vimrc<cr>
+
+" Omnicomplete
+"""""""""""""""""""""
+set completeopt+=menuone,preview
+
+" Plugins
+"""""""""""""""""""""""""""""""
+    " NERD tree
+    """"""""""""""""""""""""""""""
+    map <silent> <F1> :NERDTreeToggle<CR>
+    
+    " taglist
+    """"""""""""""""""""""""""""""
+    map <silent><F2> :TlistToggle<CR>
+
+    " tasklist
+    """"""""""""""""""""""""""""""
+    map <silent> <F3> :TaskList<CR>
+    
+    " minibufexpl plugin
+    """"""""""""""""""""""""""""""
+    map <silent><F4> :TMiniBufExplorer<CR>
+    let g:miniBufExplMaxSize = 2
+    let g:miniBufExplMapWindowNavVim = 1
+    let g:miniBufExplMapWindowNavArrows = 1
+    let g:miniBufExplMapCTabSwitchBufs = 1
+    let g:miniBufExplUseSingleClick = 1
+    let g:miniBufExplShowBufNumbers = 0
+
+    autocmd BufRead,BufNew :call UMiniBufExplorer
+
+    " Powerline
+    """""""""""""""""""
+    let g:Powerline_symbols = 'unicode'
+    let g:Powerline_stl_path_style = 'short'
+
+" Language-specific options
+"""""""""""""""""""""""
+    " Haskell
+    """"""""""""""""""""""""""
+    au BufEnter *.hs compiler ghc
+
+
+" Other
+"""""""""""""""""""
+    " ctags
+    """"""""""""""""""""""""""""""
+    let Tlist_Ctags_Cmd='/usr/bin/ctags'
+
+

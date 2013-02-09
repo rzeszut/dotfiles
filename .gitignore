@@ -1,0 +1,20 @@
+# backup/autosave files
+*~
+*.swp
+
+## haskell/xmonad
+# haskell compiled files
+*.hi
+*.o
+
+# xmonad .errors file
+*.errors
+
+# binaries
+xmonad-x86*
+
+## vim
+# vundle files
+vim/vim/bundle
+vim/vim/view
+vim/vim/haskellmode.config

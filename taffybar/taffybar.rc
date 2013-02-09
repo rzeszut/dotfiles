@@ -1,0 +1,19 @@
+style "default" {
+  bg[NORMAL] = "#1d1f21"
+  fg[NORMAL] = "#c5c8c6"
+  text[NORMAL] = "#c5c8c6"
+  font_name = "DejaVu Sans Mono Bold 10.5"
+}
+
+style "notification-button" = "default" {
+  text[NORMAL] = "#cc6666"
+  fg[NORMAL] = "#cc6666"
+}
+
+gtk-xft-hinting = 1
+gtk-xft-hintstyle = hintslight
+gtk-xft-antialias = 1
+gtk-xft-rgba = rgb
+
+widget "Taffybar*" style "default"
+widget "*NotificationCloseButton" style "notification-button"
