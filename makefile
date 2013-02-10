@@ -1,6 +1,6 @@
 CFGROOT = $(shell pwd)
 
-all: bash fonts git taffybar xinitrc xmonad xresources
+all: bash fonts git taffybar vim xinitrc xmonad xresources
 
 bash:
 	@echo "Installing bashrc..."
@@ -19,7 +19,7 @@ taffybar:
 	@mkdir -p ${HOME}/.config
 	@ln -fs $(CFGROOT)/taffybar ${HOME}/.config/taffybar
 
-vim:
+vim: git
 	@echo "Installing vim..."
 	@ln -fs $(CFGROOT)/vim/vimrc ${HOME}/.vimrc
 	@ln -fs $(CFGROOT)/vim/vim ${HOME}/.vim
