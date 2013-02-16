@@ -106,3 +106,10 @@ xscreensaver.passwd.thermometer.background:  #111111
 xscreensaver.passwd.thermometer.width:       8
 !datestamp format--see the strftime(3) manual page for details
 xscreensaver.dateFormat:    %I:%M%P %a %b %d, %Y
+
+!! gnuplot
+gnuplot*background: white
+gnuplot*textColor: black
+gnuplot*borderColor: black
+gnuplot*axisColor: black
+gnuplot*line2Color: blue

@@ -1,10 +1,14 @@
 CFGROOT = $(shell pwd)
 
-all: bash fonts git taffybar vim xinitrc xmonad xresources
+all: bash fonts git octave sqlite taffybar vim xinitrc xmonad xresources
 
 bash:
 	@echo "Installing bashrc..."
 	@ln -fs $(CFGROOT)/bashrc ${HOME}/.bashrc
+
+emacs:
+	@echo "Installing emacs..."
+	@ln -fs $(CFGROOT)/emacs ${HOME}/.emacs.d
 
 fonts:
 	@echo "Installing fonts.conf..."
@@ -13,6 +17,14 @@ fonts:
 git:
 	@echo "Installing gitconfig..."
 	@ln -fs $(CFGROOT)/gitconfig ${HOME}/.gitconfig
+
+octave:
+	@echo "Installing octave..."
+	@ln -fs $(CFGROOT)/octaverc ${HOME}/.octaverc
+
+sqlite:
+	@echo "Installing sqlite..."
+	@ln -fs $(CFGROOT)/sqliterc ${HOME}/.sqliterc
 
 taffybar:
 	@echo "Installing taffybar..."
@@ -46,8 +58,11 @@ xresources:
 uninstall:
 	@echo "Removing all the links..."
 	@unlink ${HOME}/.bashrc
+	@unlink ${HOME}/.emacs.d
 	@unlink ${HOME}/.fonts.conf
 	@unlink ${HOME}/.gitconfig
+	@unlink ${HOME}/.octaverc
+	@unlink ${HOME}/.sqliterc
 	@unlink ${HOME}/.config/taffybar
 	@unlink ${HOME}/.vim
 	@unlink ${HOME}/.vimrc

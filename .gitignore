@@ -18,3 +18,10 @@ xmonad-x86*
 vim/vim/bundle
 vim/vim/view
 vim/vim/haskellmode.config
+
+## emacs
+# elpa
+emacs/elpa
+# savefiles
+emacs/savefile
+emacs/auto-save-list

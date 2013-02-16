@@ -243,7 +243,16 @@ nnoremap <silent> <leader>f zA
     """""""""""""""""""
     let g:vimwiki_list = [{'path': '~/wiki/',
                          \ 'path_html': '~/wiki_html/',
-                         \ 'auto_export': 1
+                         \ 'auto_export': 1,
+                         \ 'template_path': '~/wiki_html/templates/',
+                         \ 'template_default': 'default',
+                         \ 'template_ext': '.xml'
+                         \},
+                         \{'path': '~/testwiki/',
+                         \ 'path_html': 'testwiki_html',
+                         \ 'auto_export': 1,
+                         \ 'syntax': 'markdown',
+                         \ 'ext': '.md'
                          \}]
     let g:vimwiki_html_header_numbering = 2
     let g:vimwiki_dir_link = 'index'
