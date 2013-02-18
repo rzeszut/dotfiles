@@ -169,6 +169,8 @@ map <leader>bd :bd<cr>
 map <leader>w :wa<cr>
 " Fast close
 map <leader>q :q<cr>
+" Remove  line endings
+map <leader>rr :%s///g<cr>
 
 " fast vimrc editing/sourcing
 map <leader>ve :edit ~/.vimrc<cr>
@@ -276,6 +278,10 @@ nnoremap <silent> <leader>f zA
 
     " correct ruby indent
     au FileType ruby setl sw=2 ts=2 sts=2 
+
+    " C++
+    """"""""""""""""""""""""""
+    au BufEnter {*.cpp,*.hpp,*.cc,*.hh} set ft=cpp
 
 " Other
 """""""""""""""""""
