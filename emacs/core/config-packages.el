@@ -28,6 +28,7 @@
     undo-tree
     volatile-highlights
     haskell-mode
+    markdown-mode
     rainbow-delimiters)
   "A list of packages that need to be installed.")
 

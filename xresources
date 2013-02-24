@@ -65,10 +65,13 @@ URxvt*.keysym.C-Down: \033[1;5B
 URxvt*.keysym.C-Left: \033[1;5D
 URxvt*.keysym.C-Right: \033[1;5C
 ! tabs colors: -1 is the background color
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: -1
-URxvt.tabbed.tab-fg: 3
-URxvt.tabbed.tab-bg: -1
+URxvt*.tabbed.tabbar-fg: 2
+URxvt*.tabbed.tabbar-bg: -1
+URxvt*.tabbed.tab-fg: 3
+URxvt*.tabbed.tab-bg: -1
+! ibus input
+URxvt*.inputMethod: ibus
+URxvt*.preeditType: OverTheSpot
 
 !! xscreensaver ---------------------------------------------------------------
 xscreensaver.splash: false
@@ -113,3 +116,6 @@ gnuplot*textColor: black
 gnuplot*borderColor: black
 gnuplot*axisColor: black
 gnuplot*line2Color: blue
+
+!! emacs
+Emacs*useXIM: false

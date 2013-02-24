@@ -119,5 +119,13 @@
 (require 'eshell)
 (setq eshell-directory-name (expand-file-name "eshell" *savefile-dir*))
 
+;; ibus-mode
+(require 'ibus)
+(add-hook 'after-init-hook 'ibus-mode-on)
+(ibus-define-common-key ?\C-\s nil)
+(ibus-define-common-key ?\C-/ nil)
+(global-set-key (kbd "s-i") 'ibus-toggle)
+;(setq ibus-cursor-color '("red" "blue" "limegreen"))
+
 (provide 'config-editor)
 ;;; config-editor.el ends here

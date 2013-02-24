@@ -55,6 +55,11 @@ if [ -x /usr/bin/thunar ] ; then
     thunar --daemon &
 fi
 
+# ibus daemon - for japanese input
+if [ -x /usr/bin/ibus-daemon ] ; then
+    ibus-daemon --xim -r &
+fi
+
 # run xmonad 
 exec xmonad
 

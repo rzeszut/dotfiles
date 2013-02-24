@@ -23,6 +23,11 @@ Just install git
 
     sudo apt-get install git
 
+### ibus
+Install ibus-mozc and python-xlib:
+
+    sudo apt-get install ibus-mozc python-xlib
+
 ### vim
 Install vim (preferably gvim)
 
