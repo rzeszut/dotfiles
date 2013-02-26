@@ -3,7 +3,7 @@
 ;; Copyright (C) 2012 Mateusz Rzeszutek
      
 ;; Author: Mateusz Rzeszutek <rzeszutekm@gmail.com>
-;; Created: 12 Feb 2013
+;; Created: 24 Feb 2013
 ;; Keywords: config, markdown
 
 ;; This file is not part of GNU Emacs.

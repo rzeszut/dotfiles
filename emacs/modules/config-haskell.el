@@ -22,6 +22,7 @@
                                (turn-on-haskell-doc-mode)))
 
 (setq haskell-font-lock-symbols 'unicode)
+
 (define-key haskell-mode-map (kbd "C-c v") 'inferior-haskell-load-file)
 
 (provide 'config-haskell)

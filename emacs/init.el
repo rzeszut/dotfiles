@@ -29,6 +29,9 @@
 (defvar *vendor-dir* (expand-file-name "vendor" *root-dir*)
   "Contains packages not available in (M)ELPA.")
 
+(defvar *local-bin* "~/bin"
+  "Directory containing local binaries and scripts.")
+
 ;; create savefile directory if it doesn't exist
 (unless (file-exists-p *savefile-dir*)
   (make-directory *savefile-dir*))
@@ -50,6 +53,9 @@ Emacs load path. Borrowed from prelude."
 
 (add-to-list 'custom-theme-load-path *themes-dir*)
 
+;; adds ~/bin to emacs path
+(add-to-list 'exec-path *local-bin*)
+
 ;; core
 (require 'config-packages)
 (require 'config-core)
@@ -61,6 +67,7 @@ Emacs load path. Borrowed from prelude."
 (require 'config-org)
 (require 'config-emacs-lisp)
 (require 'config-haskell)
+(require 'config-clojure)
 (require 'config-octave)
 (require 'config-markdown)
 

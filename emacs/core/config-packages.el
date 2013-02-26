@@ -29,7 +29,10 @@
     volatile-highlights
     haskell-mode
     markdown-mode
-    rainbow-delimiters)
+    rainbow-delimiters
+    clojure-mode
+    clojure-test-mode
+    nrepl)
   "A list of packages that need to be installed.")
 
 (defun all-packages-installed-p ()

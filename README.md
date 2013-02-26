@@ -18,6 +18,16 @@ To uninstall the config
 Prerequisites
 -------------
 
+### clojure
+Install clojure and leiningen 2:
+
+    sudo apt-get install clojure leiningen
+    
+If lein2 is not available, use the download script from [here](http://leiningen.org/)
+
+### emacs
+Install emacs 24 uisng instructions from [emacs-wiki](http://wikemacs.org/wiki/Installing_Emacs_on_GNU/Linux).
+
 ### git
 Just install git
 
