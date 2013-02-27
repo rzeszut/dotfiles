@@ -36,7 +36,7 @@
 (unless (file-exists-p *savefile-dir*)
   (make-directory *savefile-dir*))
 
-(defun config/add-subfolders-to-load-path (parent-dir)
+(defun config/add-all-subfolders-to-load-path (parent-dir)
   "Adds all first level `parent-dir' subdirs to the
 Emacs load path. Borrowed from prelude."
   (dolist (f (directory-files parent-dir))
@@ -44,12 +44,13 @@ Emacs load path. Borrowed from prelude."
       (when (and (file-directory-p name)
                  (not (equal f ".."))
                  (not (equal f ".")))
-        (add-to-list 'load-path name)))))
+        (add-to-list 'load-path name)
+        (config/add-all-subfolders-to-load-path name)))))
 
 (add-to-list 'load-path *core-dir*)
 (add-to-list 'load-path *modules-dir*)
 (add-to-list 'load-path *vendor-dir*)
-(config/add-subfolders-to-load-path *vendor-dir*)
+(config/add-all-subfolders-to-load-path *vendor-dir*)
 
 (add-to-list 'custom-theme-load-path *themes-dir*)
 

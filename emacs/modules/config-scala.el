@@ -15,6 +15,7 @@
 
 (require 'config-programming)
 (require 'scala-mode2)
+(require 'ensime)
 
 (defun config/scala-hook ()
   (local-set-key (kbd "RET") 'newline-and-indent)
@@ -23,6 +24,7 @@
   (subword-mode +1))
 
 (add-hook 'scala-mode-hook 'config/scala-hook)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
 (setq scala-indent:indent-value-expression t)
 (setq scala-indent:align-parameters t)
