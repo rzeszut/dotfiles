@@ -71,6 +71,7 @@ Emacs load path. Borrowed from prelude."
 (require 'config-clojure)
 (require 'config-octave)
 (require 'config-markdown)
+(require 'config-scala)
 
 ;; config changes made through the customize UI will be store here
 (setq custom-file (expand-file-name "custom.el" *root-dir*)) 

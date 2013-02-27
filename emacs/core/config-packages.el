@@ -32,7 +32,9 @@
     rainbow-delimiters
     clojure-mode
     clojure-test-mode
-    nrepl)
+    nrepl
+    scala-mode2
+    org-bullets)
   "A list of packages that need to be installed.")
 
 (defun all-packages-installed-p ()
