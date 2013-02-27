@@ -1,6 +1,6 @@
 CFGROOT = $(shell pwd)
 
-all: bash fonts git octave sqlite taffybar vim xinitrc xmonad xresources
+all: bash emacs fonts git octave sqlite taffybar vim xinitrc xmonad xresources
 
 bash:
 	@echo "Installing bashrc..."

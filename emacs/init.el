@@ -64,6 +64,7 @@ Emacs load path. Borrowed from prelude."
 (require 'config-keybindings)
 
 ;; modules
+(require 'config-ibus)
 (require 'config-org)
 (require 'config-emacs-lisp)
 (require 'config-haskell)

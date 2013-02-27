@@ -23,8 +23,6 @@
                                (clojure-test-mode +1)
                                (config/lisp-hook)))
 
-(setq nrepl-lein-command "~/bin/lein")
-
 (add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-hook 'nrepl-mode-hook (lambda ()
                              (subword-mode +1)

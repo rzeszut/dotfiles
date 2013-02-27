@@ -23,7 +23,8 @@ Install clojure and leiningen 2:
 
     sudo apt-get install clojure leiningen
     
-If lein2 is not available, use the download script from [here](http://leiningen.org/)
+If lein2 is not available, use the download script from [here](http://leiningen.org/).
+Note: when using emacs with clojure, start it from terminal by hand (no dmenu!). Otherwise, it can't see leiningen executable and nrepl fails.
 
 ### emacs
 Install emacs 24 uisng instructions from [emacs-wiki](http://wikemacs.org/wiki/Installing_Emacs_on_GNU/Linux).
@@ -33,32 +34,29 @@ Just install git
 
     sudo apt-get install git
 
-### ibus
-Install ibus-mozc and python-xlib:
-
-    sudo apt-get install ibus-mozc python-xlib
-
-### vim
-Install vim (preferably gvim)
-
-    sudo apt-get install gvim
-
-Then install the vundle packages
-
-    :BundleInstall
-
 ### haskell-platform
 For xmonad and taffybar you're gonna need ghc and cabal. Run
 
     sudo apt-get install ghc cabal
     sudo cabal update
 
-### xmonad
-Install xmonad from cabal - the cabal version is almost certainly newer than the one at apt-get repo.
+### ibus
+Install ibus-mozc and python-xlib:
 
-    sudo cabal install xmonad xmonad-contrib
+    sudo apt-get install ibus-mozc python-xlib
+
+### octave
+Just install octave:
+
+    sudo apt-get install octave
+
+### sqlite
+Install sqlite3:
+
+    sudo apt-get install sqlite3
 
 ### taffybar
+Requires haskell-platform.
 If you haven't already, you must install required gtk libraries:
 
     sudo apt-get install libgtk2.0-dev libpango1.0-dev
@@ -84,6 +82,22 @@ You can now install taffybar:
 
     sudo cabal install taffybar
 
+### vim
+Requires git.
+Install vim (preferably gvim)
+
+    sudo apt-get install gvim
+
+Then install the vundle packages
+
+    :BundleInstall
+
+### xmonad
+Requires haskell-platform.
+Install xmonad from cabal - the cabal version is almost certainly newer than the one at apt-get repo.
+
+    sudo cabal install xmonad xmonad-contrib
+
 Restarting xmonad and/or taffybar
 ---------------------------------
 For restarting xmonad or taffybar:
@@ -94,4 +108,3 @@ For restarting xmonad or taffybar:
 Update .Xresources:
 
     make update-xresources
-
