@@ -50,6 +50,20 @@ Just install octave:
 
     sudo apt-get install octave
 
+### scala and sbt
+Download the latest version of scala from [here](http://www.scala-lang.org/downloads)
+and extract it into ~/bin.
+Run:
+
+    cd ~/bin
+    rm scala-*.tgz
+    ln -fs scala-* scala
+
+Then download the latest version of sbt-launch from [here](http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html) and extract it into ~/bin.
+Run:
+
+    chmod +x ~/bin/sbt/bin/sbt
+
 ### sqlite
 Install sqlite3:
 

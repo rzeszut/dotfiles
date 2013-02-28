@@ -60,6 +60,9 @@ if [ -x /usr/bin/ibus-daemon ] ; then
     ibus-daemon --xim -r &
 fi
 
+# emacs daemon mode
+emacs --daemon &
+
 # run xmonad 
 exec xmonad
 

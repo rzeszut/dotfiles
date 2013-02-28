@@ -10,14 +10,18 @@ alias df='df -h'
 alias ls='ls -h --color=auto'
 alias ll='ls -lhF'
 alias la='ls -lahF'
+alias emc='emacsclient -c'
 
 ## Path section
 PATH=$PATH:$HOME/.cabal/bin:$HOME/bin
 
-if [ -e $HOME/bin/sbt ]; then
+if [ -e $HOME/bin/scala ]; then
+    PATH=$PATH:$HOME/bin/scala/bin
+fi
+if [ -d $HOME/bin/sbt ]; then
     PATH=$PATH:$HOME/bin/sbt/bin
 fi
-if [ -e $HOME/bin/maven/bin ]; then
+if [ -e $HOME/bin/maven ]; then
     PATH=$PATH:$HOME/bin/maven/bin
 fi
 if [ -e $HOME/bin/eclipse ]; then

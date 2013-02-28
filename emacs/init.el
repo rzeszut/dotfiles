@@ -58,21 +58,22 @@ Emacs load path. Borrowed from prelude."
 (add-to-list 'exec-path *local-bin*)
 
 ;; core
-(require 'config-packages)
 (require 'config-core)
-(require 'config-ui)
 (require 'config-editor)
 (require 'config-keybindings)
+(require 'config-packages)
+(require 'config-ui)
 
 ;; modules
-(require 'config-ibus)
-(require 'config-org)
+(require 'config-clojure)
 (require 'config-emacs-lisp)
 (require 'config-haskell)
-(require 'config-clojure)
-(require 'config-octave)
+(require 'config-ibus)
 (require 'config-markdown)
+(require 'config-octave)
+(require 'config-org)
 (require 'config-scala)
+(require 'config-xml)
 
 ;; config changes made through the customize UI will be store here
 (setq custom-file (expand-file-name "custom.el" *root-dir*)) 

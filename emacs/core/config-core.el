@@ -22,5 +22,16 @@
                            (progn (setq old-fullscreen current-value)
                                   'fullboth)))))
 
+(defun config/move-line-up ()
+  (interactive)
+  (transpose-lines 1)
+  (previous-line 2))
+
+(defun config/move-line-down ()
+  (interactive)
+  (next-line 1)
+  (transpose-lines 1)
+  (previous-line 1))
+
 (provide 'config-core)
 ;;; config-core.el ends here

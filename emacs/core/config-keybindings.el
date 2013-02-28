@@ -25,5 +25,8 @@
 (global-set-key [f11] 'eshell)
 (global-set-key [f12] 'config/toggle-fullscreen)
 
+(global-set-key (kbd "M-<down>") 'config/move-line-down)
+(global-set-key (kbd "M-<up>") 'config/move-line-up)
+
 (provide 'config-keybindings)
 ;;; config-keybindings.el ends here
