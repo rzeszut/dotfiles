@@ -1,6 +1,6 @@
 CFGROOT = $(shell pwd)
 
-all: bash emacs fonts git octave sqlite taffybar vim xinitrc xmonad xresources
+all: bash emacs fonts git mplayer octave sqlite taffybar vim xinitrc xmonad xresources
 
 bash:
 	@echo "Installing bashrc..."
@@ -17,6 +17,10 @@ fonts:
 git:
 	@echo "Installing gitconfig..."
 	@ln -fs $(CFGROOT)/gitconfig ${HOME}/.gitconfig
+
+mplayer:
+	@echo "Installing mplayer..."
+	@ln -fs $(CFGROOT)/mplayer ${HOME}/.mplayer
 
 octave:
 	@echo "Installing octave..."

@@ -58,10 +58,10 @@ Emacs load path. Borrowed from prelude."
 (add-to-list 'exec-path *local-bin*)
 
 ;; core
+(require 'config-packages)
 (require 'config-core)
 (require 'config-editor)
 (require 'config-keybindings)
-(require 'config-packages)
 (require 'config-ui)
 
 ;; modules
