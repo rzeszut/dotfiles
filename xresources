@@ -47,7 +47,7 @@ Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.font: xft:DejaVu Sans Mono
-Xft.size: 10
+Xft.size: 11
 
 !! URxvt resources
 URxvt*.depth: 32
@@ -55,9 +55,9 @@ URxvt*.background: [95]#1d1f21
 !URxvt*.foreground: White
 URxvt*.buffered: true
 URxvt*.scrollBar: false
-URxvt*.font: xft:Monospace:size=10:antialias=true,xft:Droid Sans Fallback:size=9:antialias=true
+URxvt*.font: xft:DejaVu Sans Mono:size=10.5:antialias=true,xft:Droid Sans Fallback:size=9:antialias=true
 URxvt*.perl-ext-common: default,matcher,tabbed
-URxvt*.url-launcher: /usr/bin/chromium-browser
+URxvt*.url-launcher: /usr/bin/conkeror
 URxvt*.matcher.button: 1
 ! ctrl+arrows fix
 URxvt*.keysym.C-Up: \033[1;5A

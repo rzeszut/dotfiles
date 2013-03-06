@@ -7,7 +7,10 @@ import XMonad.Actions.CycleWS
 import XMonad.Actions.SpawnOn
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers (composeOne, (-?>), isFullscreen, doFullFloat)
+import XMonad.Hooks.SetWMName
 import XMonad.Hooks.UrgencyHook
+import XMonad.Layout.Fullscreen
 import XMonad.Layout.Gaps
 import XMonad.Layout.Grid
 import XMonad.Layout.Named
@@ -278,12 +281,12 @@ myMouseBindings (XConfig {XMonad.modMask = modMask}) =
 
 -- smartBorders -- borders are not visible when only one window is present
 -- avoidStruts -- layout provides space for the status bar at the top of the screen
-myFullLayout        = named "F"  $ noBorders Full
-myMirrorTiledLayout = named "MT" $ myTiledLayout
-myFloatingLayout    = named "Fl" $ simplestFloat
-myGridLayout        = named "G"  $ spacing 5 $ Grid
-myHalfScreen        = named "H"  $ gaps [(L, 800)] $ myFullLayout
-myTiledLayout       = named "T"  $ spacing 5 $ ResizableTall nmaster delta ratio []
+myFullLayout        = named "[]"   $ noBorders Full
+myMirrorTiledLayout = named "M[]=" $ myTiledLayout
+myFloatingLayout    = named ">=>"  $ simplestFloat
+myGridLayout        = named "#"    $ spacing 5 $ Grid
+myHalfScreen        = named "-]"   $ gaps [(L, 800)] $ myFullLayout
+myTiledLayout       = named "[]="  $ spacing 5 $ ResizableTall nmaster delta ratio []
   where
     nmaster = 1        -- The default number of windows in the master pane
     ratio   = 1/2      -- Default proportion of screen occupied by master pane
@@ -335,13 +338,15 @@ myManageHook = manageDocks <+>
                 , [resource  =? r --> doIgnore                        | r <- ignores]
                 , [title     =? t --> doFloat                         | t <- floatsByTitle]
                 ])
+               <+> composeOne [ isFullscreen -?> doFullFloat ]
+--               <+> fullScreenManageHook
                <+> manageHook defaultConfig
                  where
                    -- classNames
                    floatsByClass = ["MPlayer", "Gimp", "Download"]
                    ims           = ["Pidgin", "Buddy List", "transmission-gtk"]
-                   webs          = ["Firefox", "Chromium", "Chromium-browser"]
-                   mail          = ["Mail", "Thunderbird"]
+                   webs          = ["Firefox", "Chromium", "Chromium-browser", "Conkeror"]
+                   mail          = ["Mail", "Thunderbird", "Icedove"]
                    emacs         = ["Emacs"]
                    music         = ["Banshee"]
 
@@ -413,6 +418,6 @@ main = do
     -- hooks, layouts
     , layoutHook         = myLayout
     , manageHook         = myManageHook
-    , logHook            = myLogHook client
+    , logHook            = myLogHook client >> setWMName "LG3D"
     , startupHook        = myStartupHook
     } `additionalKeysP` myAdditionalKeys

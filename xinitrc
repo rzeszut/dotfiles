@@ -1,13 +1,16 @@
 #!/bin/bash
  
 # run dbus - not needed as for now
-#eval `dbus-launch --auto-syntax`
+eval `dbus-launch --auto-syntax`
 
 # Load resources
 xrdb -merge .Xresources
+
+# turn off that annoying beep
+xset b off
  
 # Set the background color
-feh --bg-scale /home/mateusz/Obrazy/cherry-blossom.jpg
+feh --bg-scale /home/mateusz/img/cherry-blossom.jpg
  
 ## Fire up apps
 # xcompmgr
@@ -40,9 +43,8 @@ if [ -x /usr/bin/gnome-sound-applet ] ; then
 fi
 
 # xflux - Kraków coordinates
-if [ -x /usr/bin/xflux ] ; then
-    killall xflux
-    xflux -l 50.0614 -g 19.9372 &
+if [ -x /usr/bin/gtk-redshift ] ; then
+    gtk-redshift -l 50.0614:19.9372 &
 fi
  
 # dropbox
@@ -64,5 +66,5 @@ fi
 emacs --daemon &
 
 # run xmonad 
-exec xmonad
+exec ~/.cabal/bin/xmonad
 

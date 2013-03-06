@@ -72,6 +72,7 @@ Emacs load path. Borrowed from prelude."
 (require 'config-markdown)
 (require 'config-octave)
 (require 'config-org)
+(require 'config-python)
 (require 'config-scala)
 (require 'config-xml)
 

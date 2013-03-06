@@ -20,6 +20,8 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
+(setq org-agenda-files (list "~/gtd.org"))
+
 (add-hook 'org-mode-hook (lambda ()
                            (org-bullets-mode 1)))
 

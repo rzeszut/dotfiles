@@ -115,6 +115,12 @@
 (add-to-list 'yas-snippet-dirs *snippets-dir*)
 (yas-global-mode 1)
 
+;; autocomplete
+(require 'auto-complete-config)
+(ac-config-default)
+(global-auto-complete-mode t)
+(setq ac-comphist (expand-file-name "ac-comphist.dat" *savefile-dir*))
+
 ;; eshell
 (require 'eshell)
 (setq eshell-directory-name (expand-file-name "eshell" *savefile-dir*))

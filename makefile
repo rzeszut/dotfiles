@@ -6,6 +6,10 @@ bash:
 	@echo "Installing bashrc..."
 	@ln -fs $(CFGROOT)/bashrc ${HOME}/.bashrc
 
+conkeror:
+	@echo "Installing conkeror..."
+	@ln -fs $(CFGROOT)/conkerorrc ${HOME}/.conkerorrc
+
 emacs:
 	@echo "Installing emacs..."
 	@ln -fs $(CFGROOT)/emacs ${HOME}/.emacs.d

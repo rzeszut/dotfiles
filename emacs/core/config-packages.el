@@ -25,6 +25,8 @@
 
 (defvar *packages*
   '(yasnippet
+    auto-complete
+    jedi
     undo-tree
     volatile-highlights
     haskell-mode
