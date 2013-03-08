@@ -36,7 +36,12 @@ If lein2 is not available, use the download script from [here](http://leiningen.
 Note: when using emacs with clojure, start it from terminal by hand (no dmenu!). Otherwise, it can't see leiningen executable and nrepl fails.
 
 ### emacs
-Install emacs 24 uisng instructions from [emacs-wiki](http://wikemacs.org/wiki/Installing_Emacs_on_GNU/Linux).
+Install emacs 24 using instructions from [emacs-wiki](http://wikemacs.org/wiki/Installing_Emacs_on_GNU/Linux).
+
+For syntax highlighting in orgmode LaTeX export:
+
+    sudo pip install Pygments
+    sudo apt-get install epstool
 
 ### git
 Just install git
@@ -53,6 +58,11 @@ For xmonad and taffybar you're gonna need ghc and cabal. Run
 Install ibus-mozc and python-xlib:
 
     sudo apt-get install ibus-mozc python-xlib
+
+### LaTeX
+Install texlive-full:
+
+    sudo apt-get install texlive-full
 
 ### mplayer
 Install mplayer:
@@ -72,6 +82,10 @@ Python should be installed by default. Install pip:
 Install jedi and epc (needed for emacs auto-completion):
 
     sudo pip install jedi epc
+
+Install numpy and scipy:
+
+    sudo pip install numpy blas scipy matplotlib pandas
 
 ### scala and sbt
 Download the latest version of scala from [here](http://www.scala-lang.org/downloads)

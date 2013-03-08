@@ -119,7 +119,7 @@
 (require 'auto-complete-config)
 (ac-config-default)
 (global-auto-complete-mode t)
-(setq ac-comphist (expand-file-name "ac-comphist.dat" *savefile-dir*))
+(setq ac-comphist-file (expand-file-name "ac-comphist.dat" *savefile-dir*))
 
 ;; eshell
 (require 'eshell)
