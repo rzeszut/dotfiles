@@ -35,6 +35,11 @@ Install clojure and leiningen 2:
 If lein2 is not available, use the download script from [here](http://leiningen.org/).
 Note: when using emacs with clojure, start it from terminal by hand (no dmenu!). Otherwise, it can't see leiningen executable and nrepl fails.
 
+### conkeror
+Install:
+
+    sudo apt-get install conkeror
+
 ### emacs
 Install emacs 24 using instructions from [emacs-wiki](http://wikemacs.org/wiki/Installing_Emacs_on_GNU/Linux).
 

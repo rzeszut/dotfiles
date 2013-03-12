@@ -37,8 +37,8 @@
   (make-directory *savefile-dir*))
 
 (defun config/add-all-subfolders-to-load-path (parent-dir)
-  "Adds all first level `parent-dir' subdirs to the
-Emacs load path. Borrowed from prelude."
+  "Adds all `parent-dir' subdirs recursively to the
+Emacs load path."
   (dolist (f (directory-files parent-dir))
     (let ((name (expand-file-name f parent-dir)))
       (when (and (file-directory-p name)
@@ -58,15 +58,17 @@ Emacs load path. Borrowed from prelude."
 (add-to-list 'exec-path *local-bin*)
 
 ;; core
-(require 'config-packages)
 (require 'config-core)
+(require 'config-packages)
 (require 'config-editor)
 (require 'config-keybindings)
 (require 'config-ui)
 
 ;; modules
-(require 'config-clojure)
+(require 'config-c)
+;(require 'config-clojure)
 (require 'config-emacs-lisp)
+(require 'config-erc)
 (require 'config-haskell)
 (require 'config-ibus)
 (require 'config-markdown)

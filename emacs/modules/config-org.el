@@ -24,11 +24,19 @@
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
 
-(setq org-agenda-files (list "~/gtd.org"))
 (setq org-completion-use-ido t)
 
 (add-hook 'org-mode-hook (lambda ()
                            (org-bullets-mode 1)))
+
+;; org agenda
+(setq org-agenda-files (list "~/gtd.org"))
+(setq org-agenda-restore-windows-after-quit t)
+(setq org-agenda-skip-scheduled-if-done t)
+(setq org-agenda-skip-deadline-if-done t)
+(setq org-agenda-skip-timestamp-if-done t)
+(setq org-agenda-start-on-weekday 1)
+(setq org-scheduled-past-days 0)
 
 ;; babel
 (setq org-confirm-babel-evaluate nil)
@@ -36,6 +44,19 @@
 ;; orgmode latex export settings
 (unless (boundp 'org-export-latex-classes)
   (setq org-export-latex-classes nil))
+
+(add-to-list 'org-export-latex-default-packages-alist '("utf8" "inputenc" t))
+
+(add-to-list 'org-export-latex-classes
+             '("book"
+               "\\documentclass[11pt]{mwbk}
+                \\usepackage{polski}
+                \\usepackage[polish]{babel}"
+               ("\\part{%s}" . "\\part*{%s}")
+               ("\\chapter{%s}" . "\\chapter*{%s}")
+               ("\\section{%s}" . "\\section*{%s}")
+               ("\\subsection{%s}" . "\\subsection*{%s}")
+               ("\\subsubsection{%s}" . "\\subsubsection*{%s}")))            
 
 (add-to-list 'org-export-latex-classes
              '("article-pl"

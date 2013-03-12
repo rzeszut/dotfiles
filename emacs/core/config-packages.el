@@ -14,7 +14,6 @@
 ;;; Code:
 
 (require 'package)
-(require 'config-utils)
 
 ;; adds melpa repo
 (add-to-list 'package-archives

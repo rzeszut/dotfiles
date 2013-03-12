@@ -1,7 +1,9 @@
 // -*- mode: js -*-
 
-require("new-tabs.js");
 require("session.js")
+session_auto_save_auto_load = true;
+
+require("new-tabs.js");
 require("clicks-in-new-buffer.js");
 clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND; 
 clicks_in_new_buffer_button = 1; //  midclick links in new buffers with
