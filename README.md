@@ -69,6 +69,11 @@ Install texlive-full:
 
     sudo apt-get install texlive-full
 
+### MATLAB
+MATLAB requires libXp:
+
+    sudo apt-get  install  libxp-dev
+
 ### mplayer
 Install mplayer:
 

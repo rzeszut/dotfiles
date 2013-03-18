@@ -86,7 +86,8 @@
 
 (add-to-list 'org-export-latex-classes
              '("book"
-               "\\documentclass[11pt]{book}"
+               "\\documentclass[11pt]{book}
+                \\usepackage[hmargin=3cm,vmargin=3cm]{geometry}"
                ("\\part{%s}" . "\\part*{%s}")
                ("\\chapter{%s}" . "\\chapter*{%s}")
                ("\\section{%s}" . "\\section*{%s}")

@@ -1,3 +1,4 @@
+# -*- mode: shell-script -*-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -52,6 +53,11 @@ if [ -e $HOME/bin/maven ]; then
 fi
 if [ -e $HOME/bin/eclipse ]; then
     PATH=$PATH:$HOME/bin/eclipse
+fi
+
+# add matlab path
+if [ -e /usr/local/MATLAB/R2011a/bin ]; then
+    PATH=$PATH:/usr/local/MATLAB/R2011a/bin
 fi
 
 PS1="\[\e[1;32m\]${debian_chroot:+($debian_chroot)}\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
