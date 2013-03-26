@@ -71,6 +71,7 @@ Emacs load path."
 (require 'config-erc)
 (require 'config-haskell)
 (require 'config-ibus)
+(require 'config-js)
 (require 'config-markdown)
 (require 'config-octave)
 (require 'config-org)

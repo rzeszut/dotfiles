@@ -48,11 +48,17 @@ fi
 if [ -d $HOME/bin/sbt ]; then
     PATH=$PATH:$HOME/bin/sbt/bin
 fi
+if [ -e $HOME/bin/play ] ; then
+    PATH=$PATH:$HOME/bin/play
+fi
 if [ -e $HOME/bin/maven ]; then
     PATH=$PATH:$HOME/bin/maven/bin
 fi
 if [ -e $HOME/bin/eclipse ]; then
     PATH=$PATH:$HOME/bin/eclipse
+fi
+if [ -e $HOME/bin/idea ]; then
+    PATH=$PATH:$HOME/bin/idea/bin
 fi
 
 # add matlab path
@@ -66,6 +72,7 @@ export PATH
 export PS1
 export GDK_USE_XFT=1
 export EDITOR="emacsclient -c"
+export JAVA_HOME="/usr/lib/jvm/jdk1.7.0"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

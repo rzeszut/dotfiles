@@ -64,6 +64,21 @@ Install ibus-mozc and python-xlib:
 
     sudo apt-get install ibus-mozc python-xlib
 
+### intellij idea
+Unpack intellij archive to bin and run:
+
+    ln -fs idea-* idea
+
+### Java from Oracle
+Download java from [here](http://www.oracle.com/technetwork/java/javase/downloads). Extract it to ~/bin and run:
+
+    sudo ln -fs ~/bin/jdk1.7.0*/ /usr/lib/jvm/jdk1.7.0
+    su
+    for j in java javac javaws javadoc javah javap; do update-alternatives --install "/usr/bin/$j" "$j" "/usr/lib/jvm/jdk1.7.0/bin/$j" 1200; done
+    update-alternatives --config java
+    update-alternatives --config javac
+    update-alternatives --config javaws
+
 ### LaTeX
 Install texlive-full:
 
@@ -78,6 +93,12 @@ MATLAB requires libXp:
 Install mplayer:
 
     sudo apt-get install mplayer
+
+### node.js
+Install nodee using the instruction from [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
+Then run
+
+    sudo ln -fs `which node` /usr/bin/node
 
 ### octave
 Just install octave:

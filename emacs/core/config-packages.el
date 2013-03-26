@@ -35,7 +35,9 @@
     clojure-test-mode
     nrepl
     scala-mode2
-    org-bullets)
+    org-bullets
+    js2-mode
+    js-comint)
   "A list of packages that need to be installed.")
 
 (defun all-packages-installed-p ()

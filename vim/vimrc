@@ -56,6 +56,10 @@ Bundle 'gmarik/vundle'
 
     " vimwiki
     Bundle 'vimwiki'
+    
+    " scala
+    Bundle 'derekwyatt/vim-scala'
+    Bundle 'gre/play2vim'
 
 filetype plugin indent on
 

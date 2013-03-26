@@ -1,3 +1,18 @@
+;;; config-c.el --- Config for C/C++ programming.
+
+;; Copyright (C) 2013 Mateusz Rzeszutek
+     
+;; Author: Mateusz Rzeszutek <rzeszutekm@gmail.com>
+;; Created: 12 Mar 2013
+;; Keywords: config, c, c++
+
+;; This file is not part of GNU Emacs.
+
+;;; Commentary:
+;; C/C++ config.
+
+;;; Code:
+
 (require 'config-programming)
 (require 'cc-mode)
 (require 'cedet)
@@ -5,6 +20,7 @@
 (require 'semantic/db)
 (require 'semantic/bovine/gcc)
 (require 'srecode)
+(require 'srecode/cpp)
 (require 'doc-mode)
 
 ;; Semantic
@@ -27,9 +43,12 @@
   (c-toggle-hungry-state 1)
   (subword-mode t)
   (add-to-list 'ac-sources 'ac-source-semantic)
-  (semantic-mode t))
+  (semantic-mode t)
+  (srecode-minor-mode 1))
 
 (setq doc-mode-template-keyword-char "\\")
+
+(setq srecode-map-save-file "~/.emacs.d/savefile/srecode-map.el")
 
 (add-hook 'c-mode-common-hook 'config/c-mode-hook)
 (add-hook 'c-mode-common-hook 'doc-mode)
@@ -41,3 +60,4 @@
 (define-key c-mode-base-map (kbd "C-c r") 'doc-mode-remove-tag-doc)
 
 (provide 'config-c)
+;;; config-c.el ends here
