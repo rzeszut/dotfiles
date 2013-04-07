@@ -60,5 +60,8 @@
 ;; load tomorrow night theme
 (load-theme 'tomorrow-night t)
 
+(setq whitespace-action '(auto-cleanup))
+(setq whitespace-style '(spaces tabs space-mark tab-mark))
+
 (provide 'config-ui)
 ;;; config-ui.el ends here

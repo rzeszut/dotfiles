@@ -16,8 +16,14 @@
 (require 'config-programming)
 (require 'js2-mode)
 (require 'js-comint)
+(require 'coffee-mode)
 
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . javascript-mode))
+(add-to-list 'auto-mode-alist '("\\.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+
+(add-to-list 'ac-modes 'coffee-mode)
 
 (setq inferior-js-program-command "node")
 
@@ -37,11 +43,14 @@
                (lambda (output)
                  (replace-regexp-in-string "\033\\[[0-9]+[GK]" "" output))))
 
+(defun config/coffee-mode-hook ()
+  (set (make-local-variable 'tab-width) 2))
+
 (add-hook 'js2-mode-hook 'config/js-mode-hook)
 
 (add-hook 'inferior-js-mode-hook 'config/inferior-js-mode-hook)
 
-;(define-key 'js2-mode-map (kbd "RET") 'newline-and-indent)
+(add-hook 'coffee-mode-hook 'config/coffee-mode-hook)
 
 (provide 'config-js)
 ;;; config-js.el ends here

@@ -37,7 +37,10 @@
     scala-mode2
     org-bullets
     js2-mode
-    js-comint)
+    js-comint
+    coffee-mode
+    auctex
+    less-css-mode)
   "A list of packages that need to be installed.")
 
 (defun all-packages-installed-p ()

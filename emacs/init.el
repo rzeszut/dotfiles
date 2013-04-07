@@ -66,7 +66,8 @@ Emacs load path."
 
 ;; modules
 (require 'config-c)
-;(require 'config-clojure)
+                                        ;(require 'config-clojure)
+(require 'config-css)
 (require 'config-emacs-lisp)
 (require 'config-erc)
 (require 'config-haskell)
