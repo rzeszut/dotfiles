@@ -1,7 +1,7 @@
 ;;; config-org.el --- Orgmode configuration.
 
 ;; Copyright (C) 2012 Mateusz Rzeszutek
-     
+
 ;; Author: Mateusz Rzeszutek <rzeszutekm@gmail.com>
 ;; Created: 12 Feb 2013
 ;; Keywords: orgmode, org
@@ -18,6 +18,7 @@
 (require 'org-special-blocks)
 
 (require 'ob-octave)
+(require 'ob-ditaa)
 
 (add-to-list 'auto-mode-alist '("\\.org\\’" . org-mode))
 (global-set-key "\C-cl" 'org-store-link)
@@ -40,6 +41,12 @@
 
 ;; babel
 (setq org-confirm-babel-evaluate nil)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((ditaa . t)))
+
+(setq org-ditaa-jar-path "~/bin/ditaa0_9.jar")
 
 ;; orgmode latex export settings
 (unless (boundp 'org-export-latex-classes)

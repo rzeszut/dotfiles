@@ -47,6 +47,8 @@ For syntax highlighting in orgmode LaTeX export:
 
     sudo pip install Pygments
     sudo apt-get install epstool
+    
+For ditaa support download ditaa from [here](http://ditaa.sourceforge.net/) and put the jar into ~/bin.
 
 ### git
 Just install git
@@ -87,7 +89,7 @@ Install texlive-full:
 ### MATLAB
 MATLAB requires libXp:
 
-    sudo apt-get  install  libxp-dev
+    sudo apt-get install libxp-dev
 
 ### mplayer
 Install mplayer:
@@ -95,7 +97,7 @@ Install mplayer:
     sudo apt-get install mplayer
 
 ### node.js
-Install nodee using the instruction from [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
+Install nodee using the instructions from [here](https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager).
 Then run
 
     sudo ln -fs `which node` /usr/bin/node
