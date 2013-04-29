@@ -114,7 +114,7 @@ myDmenuCommand = unwords $ "dmenu":(unite opts colorsEscaped)
                  
 -- Screenshots dir
 --
-myScreenshotsDir = "~/Obrazy/screenshots/"
+myScreenshotsDir = "~/img/screenshots/"
 
 -- Shutdown/reboot/sleep prompt.
 -- All of these are the IO type, not X.
@@ -244,6 +244,10 @@ myAdditionalKeys =
   , ("<XF86AudioLowerVolume>", spawn "amixer set Master 3%- unmute")
     --  , ("<XF86AudioMute>", spawn "amixer set Master toggle") -- doesn't work because pulseaudio
 
+    -- Brightness control
+  , ("<XF86MonBrightnessUp>",   spawn "xbacklight + 5")
+  , ("<XF86MonBrightnessDown>", spawn "xbacklight - 5")
+
     -- ncmpcpp control
   , ("<XF86AudioPlay>", spawn "ncmpcpp toggle")
   , ("<XF86AudioStop>", spawn "ncmpcpp stop")
@@ -298,7 +302,7 @@ myLayout = smartBorders $ avoidStruts $ workspaceDir "~"
            $ onWorkspaces [getWsId "im"]    myFloatingLayout
            $ onWorkspaces [getWsId "web"]   myFullLayout
            $ onWorkspaces [getWsId "emacs"] myEmacsLayouts
---           $ onWorkspaces [getWsId "anime"] myAnimeLayouts
+--           $ onWorkspaces [getWsId "anime"] myVideoLayouts
            $ allLayouts
              where
                allLayouts     = myFullLayout
@@ -310,7 +314,7 @@ myLayout = smartBorders $ avoidStruts $ workspaceDir "~"
                myEmacsLayouts = myFullLayout 
                                 ||| myHalfScreen
                                 
-               myAnimeLayouts = workspaceDir "/windows/Filmy/" allLayouts
+               myVideoLayouts = workspaceDir "~/video/" allLayouts
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -345,7 +349,7 @@ myManageHook = manageDocks <+>
                    -- classNames
                    floatsByClass = ["MPlayer", "Gimp", "Download"]
                    ims           = ["Pidgin", "Buddy List", "transmission-gtk"]
-                   webs          = ["Firefox", "Chromium", "Chromium-browser", "Conkeror"]
+                   webs          = ["Firefox", "Chromium", "Chromium-browser", "Conkeror", "Iceweasel"]
                    mail          = ["Mail", "Thunderbird", "Icedove"]
                    emacs         = ["Emacs"]
                    music         = ["Banshee"]

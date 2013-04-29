@@ -118,5 +118,10 @@
       '(;;("frame" "lines")
         ("fontsize" "\\scriptsize")))
 
+(setq org-latex-to-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+
 (provide 'config-org)
 ;;; config-org.el ends here

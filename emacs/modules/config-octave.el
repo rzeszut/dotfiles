@@ -14,7 +14,7 @@
 ;;; Code:
 
 (require 'config-programming)
-(require 'octave-mod)
+(require 'octave)
 
 (defun config/inferior-octave-listening-p ()
   "True if inferior octave is running and ready to receive input.
