@@ -66,9 +66,19 @@ if [ -e /usr/local/MATLAB/R2011a/bin ]; then
     PATH=$PATH:/usr/local/MATLAB/R2011a/bin
 fi
 
+# add nvidia cuda path
+if [ -e /usr/local/cuda/bin ]; then
+    PATH=$PATH:/usr/local/cuda/bin
+fi
+# add nvidia cuda linker path
+#if [ -e /usr/local/cuda/lib ]; then
+#    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib:/usr/local/cuda/lib64
+#fi
+
 PS1="\[\e[1;32m\]${debian_chroot:+($debian_chroot)}\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
 
 export PATH
+#export LD_LIBRARY_PATH
 export PS1
 export GDK_USE_XFT=1
 export EDITOR="emacsclient -c"

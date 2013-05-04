@@ -197,6 +197,7 @@ After xmonad, install sume useful things:
 
     sudu apt-get install dmenu
     sudo apt-get install thunar thunar-volman thunar-archive-plugin 
+    sudo apt-get install xbacklight
 
 Restarting xmonad and/or taffybar
 ---------------------------------
