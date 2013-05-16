@@ -22,6 +22,7 @@
 ;; replace buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
+(global-set-key [f8] 'config/minimap-toggle)
 (global-set-key [f11] 'eshell)
 (global-set-key [f12] 'config/toggle-fullscreen)
 

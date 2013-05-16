@@ -44,7 +44,8 @@
 
 (org-babel-do-load-languages
  'org-babel-load-languages
- '((ditaa . t)))
+ '((ditaa . t)
+   (octave . t)))
 
 (setq org-ditaa-jar-path "~/bin/ditaa0_9.jar")
 

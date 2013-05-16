@@ -40,6 +40,7 @@
     js-comint
     coffee-mode
     auctex
+    minimap
     less-css-mode)
   "A list of packages that need to be installed.")
 
