@@ -66,7 +66,6 @@ Emacs load path."
 
 ;; modules
 (require 'config-c)
-                                        ;(require 'config-clojure)
 (require 'config-css)
 (require 'config-emacs-lisp)
 (require 'config-erc)
@@ -78,6 +77,7 @@ Emacs load path."
 (require 'config-org)
 (require 'config-python)
 (require 'config-scala)
+(require 'config-scheme)
 (require 'config-xml)
 
 ;; config changes made through the customize UI will be store here
