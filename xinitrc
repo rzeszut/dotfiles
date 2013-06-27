@@ -10,7 +10,7 @@ xrdb -merge .Xresources
 xset b off
  
 # Set the background color
-feh --bg-scale /home/mateusz/img/cherry-blossom.jpg
+feh --bg-scale /home/mateusz/img/wallpapers/Green-Maple-Leaves-1080x1920.jpg
  
 ## Fire up apps
 # xcompmgr

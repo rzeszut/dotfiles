@@ -125,5 +125,11 @@
 (require 'eshell)
 (setq eshell-directory-name (expand-file-name "eshell" *savefile-dir*))
 
+;; minimap
+(require 'minimap)
+
+;; tramp settings
+(setq tramp-default-method "ssh")
+
 (provide 'config-editor)
 ;;; config-editor.el ends here

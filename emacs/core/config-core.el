@@ -12,7 +12,6 @@
 ;; Core function definitions.
 
 ;;; Code:
-;(require 'minimap)
 
 (defun config/toggle-fullscreen (&optional f)
   "Toggles fullscreen mode."

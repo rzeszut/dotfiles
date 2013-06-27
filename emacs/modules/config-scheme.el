@@ -13,7 +13,9 @@
 
 ;;; Code:
 
-(require 'config-scheme)
+(require 'config-lisp)
+
+(setq scheme-program-name "guile")
 
 (add-hook 'scheme-mode-hook 'config/lisp-hook)
 

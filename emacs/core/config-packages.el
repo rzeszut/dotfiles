@@ -41,7 +41,8 @@
     coffee-mode
     auctex
     minimap
-    less-css-mode)
+    less-css-mode
+    powerline)
   "A list of packages that need to be installed.")
 
 (defun all-packages-installed-p ()

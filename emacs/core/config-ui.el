@@ -63,5 +63,9 @@
 (setq whitespace-action '(auto-cleanup))
 (setq whitespace-style '(spaces tabs space-mark tab-mark))
 
+;; load powerline
+(require 'powerline)
+(powerline-center-theme)
+
 (provide 'config-ui)
 ;;; config-ui.el ends here

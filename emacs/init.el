@@ -79,8 +79,11 @@ Emacs load path."
 (require 'config-scala)
 (require 'config-scheme)
 (require 'config-xml)
+(require 'bnf-mode)
 
 ;; config changes made through the customize UI will be store here
 (setq custom-file (expand-file-name "custom.el" *root-dir*)) 
 
 ;;; init.el ends here
+(put 'upcase-region 'disabled nil)
+(put 'narrow-to-region 'disabled nil)

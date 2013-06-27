@@ -46,6 +46,7 @@ vim: git
 	@echo "Installing vundle..."
 	@mkdir -p ${HOME}/.vim/bundle
 	@git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+	@echo "Now run vim command :BundleInstall"
 
 xinitrc:
 	@echo "Installing xinitrc..."
