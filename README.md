@@ -120,6 +120,16 @@ Install numpy and scipy:
 
     sudo pip install numpy blas scipy matplotlib pandas
 
+### Ruby and Rails
+First have node.js (or any other JS runtime) installed.
+Install ruby, and gem:
+
+    sudo apt-get install ruby ruby-dev build-essential rubygems libsqlite3-dev
+
+Install rails:
+
+    sudo gem install rails
+
 ### scala and sbt
 Download the latest version of scala from [here](http://www.scala-lang.org/downloads)
 and extract it into ~/bin.

@@ -76,6 +76,7 @@ Emacs load path."
 (require 'config-octave)
 (require 'config-org)
 (require 'config-python)
+(require 'config-ruby)
 (require 'config-scala)
 (require 'config-scheme)
 (require 'config-xml)

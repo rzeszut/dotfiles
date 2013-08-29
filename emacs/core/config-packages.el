@@ -42,7 +42,11 @@
     auctex
     minimap
     less-css-mode
-    powerline)
+    powerline
+    ruby-tools
+    ruby-end
+    rinari
+    rhtml-mode)
   "A list of packages that need to be installed.")
 
 (defun all-packages-installed-p ()
