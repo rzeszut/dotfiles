@@ -20,7 +20,7 @@ Prerequisites
 
 First, some essential things:
 
-    sudo apt-get install automake autoconf
+    sudo apt-get install automake autoconf tree cmake checkinstall
 
 ### c++
 Install g++ and valgrind:
@@ -49,6 +49,10 @@ For syntax highlighting in orgmode LaTeX export:
     sudo apt-get install epstool
     
 For ditaa support download ditaa from [here](http://ditaa.sourceforge.net/) and put the jar into ~/bin.
+
+Install jedi and epc (needed for emacs auto-completion):
+
+    sudo pip install jedi epc
 
 ### git
 Just install git
@@ -108,17 +112,13 @@ Just install octave:
     sudo apt-get install octave
 
 ### python
-Python should be installed by default. Install pip:
+Python should be installed by default. Install pip and ipython:
 
-    sudo apt-get install python-pip
+    sudo apt-get install python-pip ipython
 
-Install jedi and epc (needed for emacs auto-completion):
+Install virtualenv:
 
-    sudo pip install jedi epc
-
-Install numpy and scipy:
-
-    sudo pip install numpy blas scipy matplotlib pandas
+    sudo pip install virtualenv
 
 ### Ruby and Rails
 First have node.js (or any other JS runtime) installed.
@@ -182,6 +182,12 @@ Requires git.
 Install vim (preferably gvim)
 
     sudo apt-get install vim-gnome exuberant-ctags
+
+Install libraries required for YouCompleteMe (full instruction [here](https://github.com/Valloric/YouCompleteMe)):
+
+    sudo apt-get install build-essential cmake python-dev
+
+YouCompleteMe requires compiling vim by hand (in most cases), if you want to use it then don't install vim using apt-get.
 
 Then install the vundle packages
 

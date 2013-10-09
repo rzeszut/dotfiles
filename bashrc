@@ -60,6 +60,9 @@ fi
 if [ -e $HOME/bin/idea ]; then
     PATH=$PATH:$HOME/bin/idea/bin
 fi
+if [ -e $HOME/bin/pycharm ]; then
+    PATH=$PATH:$HOME/bin/pycharm/bin
+fi
 
 # add matlab path
 if [ -e /usr/local/MATLAB/R2011a/bin ]; then

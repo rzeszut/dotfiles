@@ -1,4 +1,5 @@
 CFGROOT = $(shell pwd)
+RM = rm -rf
 
 all: bash emacs fonts git mplayer octave sqlite taffybar vim xinitrc xmonad xresources
 
@@ -41,8 +42,7 @@ taffybar:
 
 vim: git
 	@echo "Installing vim..."
-	@ln -fs $(CFGROOT)/vim/vimrc ${HOME}/.vimrc
-	@ln -fs $(CFGROOT)/vim/vim ${HOME}/.vim
+	@ln -fs $(CFGROOT)/vimrc ${HOME}/.vimrc
 	@echo "Installing vundle..."
 	@mkdir -p ${HOME}/.vim/bundle
 	@git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
@@ -73,7 +73,7 @@ uninstall:
 	@unlink ${HOME}/.octaverc
 	@unlink ${HOME}/.sqliterc
 	@unlink ${HOME}/.config/taffybar
-	@unlink ${HOME}/.vim
+	@ ${RM} ${HOME}/.vim
 	@unlink ${HOME}/.vimrc
 	@unlink ${HOME}/.xinitrc
 	@unlink ${HOME}/.xsession
