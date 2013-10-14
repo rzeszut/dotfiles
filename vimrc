@@ -39,6 +39,12 @@ Bundle 'klen/python-mode'
 
 " Ctrl-P
 Bundle 'kien/ctrlp.vim'
+
+" UltiSnips
+Bundle 'SirVer/ultisnips'
+
+" undotree
+Bundle 'mbbill/undotree'
 "}}}2
 
 filetype plugin indent on
@@ -159,6 +165,9 @@ let mapleader=","
 " uppercases the word
 inoremap <leader>u <esc>viwUi
 nnoremap <leader>u viwU
+" lowercases the word
+inoremap <leader>l <esc>viwui
+nnoremap <leader>l viwu
 
 " open and edit vimrc
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
@@ -241,6 +250,10 @@ nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 noremap <silent><F2> :TagbarToggle<cr>
 " }}}2
 
+" undotree {{{2
+nnoremap <silent><F3> :UndotreeToggle<cr>
+" }}}2
+
 "}}}1
 
 "" Command mappings {{{1
@@ -289,6 +302,23 @@ let g:ctrlp_custom_ignore = {
   \ }
 " }}}2
 
+" YouCompleteMe {{{2
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_confirm_extra_conf = 0
+let g:ycm_global_ycm_extra_conf = '/home/mateusz/.ycm_extra_conf.py'
+" }}}2
+
+" UltiSnips {{{2
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" }}}2
+
 "}}}1
 
 "" Languages {{{1
@@ -323,6 +353,15 @@ augroup ft_python
     autocmd FileType python set nowrap
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Grey
     autocmd FileType python match Excess /\%120v.*/
+augroup END
+" }}}2
+
+" TeX {{{2
+augroup ft_tex
+    autocmd!
+    autocmd BufRead,BufNewFile *.tex set filetype=tex
+    autocmd FileType tex nnoremap <leader>c :w<cr>:!rubber --pdf --warn all %<cr>
+    autocmd FileType tex nnoremap <leader>v :!mupdf %:r.pdf &<cr><cr>
 augroup END
 " }}}2
 

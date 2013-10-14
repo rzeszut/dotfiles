@@ -56,7 +56,7 @@
 (add-to-list 'org-export-latex-default-packages-alist '("utf8" "inputenc" t))
 
 (add-to-list 'org-export-latex-classes
-             '("book"
+             '("book-pl"
                "\\documentclass[11pt]{mwbk}
                 \\usepackage{polski}
                 \\usepackage[polish]{babel}"

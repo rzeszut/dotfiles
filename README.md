@@ -193,6 +193,10 @@ Then install the vundle packages
 
     :BundleInstall
 
+Installing mupdf and rubber is recommended when editing LaTeX files:
+
+    sudo apt-get mupdf rubber
+
 ### xmonad
 Requires haskell-platform.
 First install X11 dependencies:
