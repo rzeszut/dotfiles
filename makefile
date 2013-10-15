@@ -53,6 +53,11 @@ xinitrc:
 	@ln -fs $(CFGROOT)/xinitrc ${HOME}/.xinitrc
 	@ln -fs $(CFGROOT)/xinitrc ${HOME}/.xsession
 
+xmodmap:
+	@echo "Installing Xmodmap..."
+	@ln -fs $(CFGROOT)/xmodmap ${HOME}/.Xmodmap
+	@xmodmap ${HOME}/.Xmodmap
+
 xmonad: taffybar xinitrc
 	@echo "Installing xmonad..."
 	@ln -fs $(CFGROOT)/xmonad ${HOME}/.xmonad

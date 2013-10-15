@@ -14,9 +14,6 @@ Bundle 'nanotech/jellybeans.vim'
 " NERDTree file manager
 Bundle 'scrooloose/nerdtree'
 
-" Autoclose
-Bundle 'Townk/vim-autoclose'
-
 " Powereline
 Bundle 'Lokaltog/vim-powerline'
 
@@ -106,6 +103,10 @@ set laststatus=2
 " utf8, unix line endings
 set encoding=utf8
 set ffs=unix
+
+set timeout
+set timeoutlen=1000
+set ttimeoutlen=100
 "}}}1
 
 "" Appearance {{{1
@@ -162,6 +163,9 @@ set foldmethod=marker
 "" Key mappings {{{1
 let mapleader=","
 
+" jk escapes
+inoremap jk <esc>
+
 " uppercases the word
 inoremap <leader>u <esc>viwUi
 nnoremap <leader>u viwU
@@ -188,10 +192,6 @@ vnoremap K gg
 " quick save and close
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
-
-" replace <esc> by jk combination
-inoremap jk <esc>
-inoremap <esc> <nop>
 
 " smart way of moving between windows
 noremap <C-j> <C-W>j
