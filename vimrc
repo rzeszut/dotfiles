@@ -298,7 +298,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.(git|hg|svn)$',
-  \ 'file': '(\.exe|\.so|\.dll|\.pyc|\.swo|\.swp|\~)$',
+  \ 'file': '(\.so|\.pyc|\.swo|\.swp|\~)$',
   \ }
 " }}}2
 
@@ -334,7 +334,7 @@ augroup ft_cpp
     autocmd!
     autocmd FileType {cpp,c,java,javascript} setlocal fo=croq
     autocmd FileType {cpp,c,java,javascript} setlocal cindent
-    autocmd FileType {cpp,c,java,javascript} setlocal cino=:0,g0,N-s,(0
+    autocmd FileType {cpp,c,java} setlocal cino=:0,g0,N-s,(0
 augroup END
 " }}}2
 
