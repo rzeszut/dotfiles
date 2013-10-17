@@ -42,6 +42,9 @@ Bundle 'SirVer/ultisnips'
 
 " undotree
 Bundle 'mbbill/undotree'
+
+" smartinput -- closes matching braces, quotes, parentheses etc.
+Bundle 'kana/vim-smartinput'
 "}}}2
 
 filetype plugin indent on
@@ -163,8 +166,8 @@ set foldmethod=marker
 "" Key mappings {{{1
 let mapleader=","
 
-" jk escapes
-inoremap jk <esc>
+" escape clears highlight in normal mode
+nnoremap <esc> :noh<cr>
 
 " uppercases the word
 inoremap <leader>u <esc>viwUi
@@ -280,6 +283,10 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_auto_loc_list=1
 let g:syntastic_cpp_compiler_options = ' -std=c++11'
+let g:syntastic_mode_map = { 'mode': 'active',
+	\ 'active_filetypes': [],
+	\ 'passive_filetypes': ['html', 'tex']
+    \}
 "}}}2
 
 " Tagbar {{{2
