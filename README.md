@@ -62,7 +62,7 @@ Just install git
 ### haskell-platform
 For xmonad and taffybar you're gonna need ghc and cabal. Run
 
-    sudo apt-get install ghc cabal
+    sudo apt-get install ghc cabal-install
     sudo cabal update
 
 ### ibus
@@ -201,7 +201,7 @@ Installing mupdf and rubber is recommended when editing LaTeX files:
 Requires haskell-platform.
 First install X11 dependencies:
 
-    sudo pat-get install libxrandr-dev libxinerama-dev
+    sudo apt-get install libxrandr-dev libxinerama-dev
 
 Install xmonad from cabal - the cabal version is almost certainly newer than the one at apt-get repo.
 
