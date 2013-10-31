@@ -86,9 +86,9 @@ Download java from [here](http://www.oracle.com/technetwork/java/javase/download
     update-alternatives --config javaws
 
 ### LaTeX
-Install texlive-full:
+Install texlive-full and rubber:
 
-    sudo apt-get install texlive-full
+    sudo apt-get install texlive-full rubber
 
 ### MATLAB
 MATLAB requires libXp:

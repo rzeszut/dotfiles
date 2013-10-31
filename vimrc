@@ -212,11 +212,24 @@ nnoremap <C-w>k :topleft new<cr>
 nnoremap <leader>O O<esc>
 nnoremap <leader>o o<esc>
 
+" easy newline
+inoremap <c-j> <cr>
+inoremap <c-k> <c-o>O
+" delete
+inoremap <c-l> <Del>
+
 " disable arrows
-noremap <left> <nop>
-noremap <right> <nop>
-noremap <up> <nop>
-noremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+" disable enter and backspace in insert mode
+inoremap <cr> <nop>
+inoremap <backspace> <nop>
 
 " open the fold o do the default space thing
 nnoremap <silent> <space> @=(foldlevel('.') ? 'za' : "\<Space>")<CR>
