@@ -256,8 +256,8 @@ nnoremap <silent> <leader>gc :Gcommit<CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
-nnoremap <silent> <leader>gr :Gread<CR>:GitGutter<CR>
-nnoremap <silent> <leader>gw :Gwrite<CR>:GitGutter<CR>
+nnoremap <silent> <leader>gf :Git fetch<CR>
+nnoremap <silent> <leader>gr :Git rebase<CR>
 nnoremap <silent> <leader>ge :Gedit<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
 "}}}2
@@ -270,6 +270,32 @@ noremap <silent><F2> :TagbarToggle<cr>
 nnoremap <silent><F3> :UndotreeToggle<cr>
 " }}}2
 
+"}}}1
+
+"" Additional config {{{1
+" default rsync server for interactive rsync
+let g:default_rsync_server = "bank@37.187.85.6:~/public_html/_mateusz/"
+"}}}1
+
+"" Functions {{{1
+if !exists("g:default_rsync_server")
+    let g:default_rsync_server = ""
+endif
+
+function! RsyncCwdInteractive()
+    call inputsave()
+    let serverAddress = input('Enter server address: ', g:default_rsync_server)
+    call inputrestore()
+    let cwd = getcwd()
+    silent !clear
+    execute "!rsync -ruv " . cwd . "/* " . serverAddress
+endfunction
+
+function! RsyncCwd(serverAddress)
+    let cwd = getcwd()
+    silent !clear
+    execute "!rsync -ruv " . cwd . "/* " . a:serverAddress
+endfunction
 "}}}1
 
 "" Command mappings {{{1
@@ -384,5 +410,12 @@ augroup ft_tex
     autocmd FileType tex nnoremap <leader>v :!mupdf %:r.pdf &<cr><cr>
 augroup END
 " }}}2
+
+" PHP {{{2
+augroup ft_php
+    autocmd!
+    autocmd FileType php nnoremap <F6> :call RsyncCwdInteractive()<cr>
+augroup END
+"}}}2
 
 "}}}1
