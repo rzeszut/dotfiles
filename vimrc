@@ -110,6 +110,9 @@ set ffs=unix
 set timeout
 set timeoutlen=1000
 set ttimeoutlen=100
+
+" Shell
+set shell=/bin/bash
 "}}}1
 
 "" Appearance {{{1
@@ -118,7 +121,6 @@ set number numberwidth=4
 " colors and fonts
 set background=dark
 colorscheme jellybeans
-set shell=/bin/bash
 
 " gui settings
 if has("gui_running")
@@ -167,7 +169,7 @@ set foldmethod=marker
 let mapleader=","
 
 " escape clears highlight in normal mode
-nnoremap <esc> :noh<cr>
+nnoremap <esc> <esc>:noh<cr>
 
 " uppercases the word
 inoremap <leader>u <esc>viwUi
@@ -196,6 +198,24 @@ vnoremap K gg
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
 
+" adding line up/down
+nnoremap <leader>O O<esc>
+nnoremap <leader>o o<esc>
+
+" easy newline
+inoremap <c-j> <cr>
+inoremap <c-k> <c-o>O
+" delete
+inoremap <c-l> <Del>
+
+" open the fold o do the default space thing
+nnoremap <silent> <space> @=(foldlevel('.') ? 'za' : "\<Space>")<CR>
+
+" visual shifting (doesn't exit c-mode)
+vnoremap < <gv
+vnoremap > >gv
+
+" windows {{{2
 " smart way of moving between windows
 noremap <C-j> <C-W>j
 noremap <C-k> <C-W>k
@@ -207,17 +227,9 @@ nnoremap <C-w>h :topleft vnew<cr>
 nnoremap <C-w>l :botright vnew<cr>
 nnoremap <C-w>j :botright new<cr>
 nnoremap <C-w>k :topleft new<cr>
+" }}}2
 
-" adding line up/down
-nnoremap <leader>O O<esc>
-nnoremap <leader>o o<esc>
-
-" easy newline
-inoremap <c-j> <cr>
-inoremap <c-k> <c-o>O
-" delete
-inoremap <c-l> <Del>
-
+" disabled {{{2
 " disable arrows
 inoremap <left> <nop>
 inoremap <right> <nop>
@@ -227,16 +239,11 @@ nnoremap <left> <nop>
 nnoremap <right> <nop>
 nnoremap <up> <nop>
 nnoremap <down> <nop>
+
 " disable enter and backspace in insert mode
 inoremap <cr> <nop>
 inoremap <backspace> <nop>
-
-" open the fold o do the default space thing
-nnoremap <silent> <space> @=(foldlevel('.') ? 'za' : "\<Space>")<CR>
-
-" visual shifting (doesn't exit c-mode)
-vnoremap < <gv
-vnoremap > >gv
+" }}}2
 
 " buffers {{{2
 nnoremap <leader>bd :bd<cr>
@@ -251,15 +258,16 @@ noremap <silent><F1> :NERDTreeToggle<cr>
 
 " Fugitive {{{2
 nnoremap <silent> <leader>gs :Gstatus<CR>
-nnoremap <silent> <leader>gd :Gdiff<CR>
 nnoremap <silent> <leader>gc :Gcommit<CR>
-nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <silent> <leader>gl :Glog<CR>
 nnoremap <silent> <leader>gp :Git push<CR>
 nnoremap <silent> <leader>gf :Git fetch<CR>
 nnoremap <silent> <leader>gr :Git rebase<CR>
+
 nnoremap <silent> <leader>ge :Gedit<CR>
 nnoremap <silent> <leader>gg :GitGutterToggle<CR>
+nnoremap <silent> <leader>gd :Gdiff<CR>
+nnoremap <silent> <leader>gb :Gblame<CR>
 "}}}2
 
 " Tagbar {{{2
@@ -388,7 +396,7 @@ augroup END
 augroup ft_xml
     autocmd!
     autocmd BufWritePre,BufRead {*.xml,*.html} :normal gg=G
-    autocmd FileType {xml,html} inoremap <leader>/ </<c-x><c-o>
+    autocmd FileType {xml,html,php} inoremap <leader>/ </<c-x><c-o>
 augroup END
 " }}}2
 

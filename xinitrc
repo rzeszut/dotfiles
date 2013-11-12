@@ -3,6 +3,9 @@
 # run dbus - not needed as for now
 eval `dbus-launch --auto-syntax`
 
+# Remap keys
+xmodmap .Xmodmap
+
 # Load resources
 xrdb -merge .Xresources
 
@@ -10,8 +13,8 @@ xrdb -merge .Xresources
 xset b off
  
 # Set the background color
-feh --bg-scale /home/mateusz/img/wallpapers/Green-Maple-Leaves-1080x1920.jpg
- 
+feh --bg-scale /home/mateusz/img/wallpaper 
+
 ## Fire up apps
 # xcompmgr
 if [ -x /usr/bin/xcompmgr ] ; then
@@ -42,9 +45,13 @@ if [ -x /usr/bin/gnome-sound-applet ] ; then
     gnome-sound-applet &
 fi
 
-# xflux - Kraków coordinates
-if [ -x /usr/bin/gtk-redshift ] ; then
-    gtk-redshift -l 50.0614:19.9372 &
+# flux or redshift - Kraków coordinates
+if [ -x /usr/bin/fluxgui ] ; then
+    fluxgui &
+else
+    if [ -x /usr/bin/gtk-redshift ] ; then
+        gtk-redshift -l 50.0614:19.9372 &
+    fi
 fi
  
 # dropbox
@@ -63,7 +70,7 @@ if [ -x /usr/bin/ibus-daemon ] ; then
 fi
 
 # emacs daemon mode
-emacs --daemon &
+#emacs --daemon &
 
 # run xmonad 
 exec ~/.cabal/bin/xmonad

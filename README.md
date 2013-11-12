@@ -153,8 +153,7 @@ Install sqlite3:
 Requires haskell-platform.
 If you haven't already, you must install required gtk libraries:
 
-    sudo apt-get install libgtk2.0-dev libpango1.0-dev
-    sudo apt-get install libglib2.0-dev libcairo2-dev
+    sudo apt-get install libgtk2.0-dev libpango1.0-dev libglib2.0-dev libcairo2-dev
     
 taffybar requires gtk2hs-buildtools -- can be installed through cabal.
 First you must install alex, happy adn libxml2:
@@ -207,16 +206,14 @@ Install xmonad from cabal - the cabal version is almost certainly newer than the
 
     sudo cabal install xmonad xmonad-contrib
     
-Alert: last time I installed xmonad-contrib, there was a bug with X11 `getAtomName` function - I had to install xmonad-contrib from darcs repo:
+You need to install some applications if you want xmonad to be usable:
 
-    darcs get http://code.haskell.org/XMonadContrib
-    cd XMonadContrib
-    cabal install
-    
+    sudo apt-get install feh rxvt-unicode dmenu
+    sudo apt-get install xcompmgr xscreensaver thunar nm-applet gnome-sound-applet
+
 After xmonad, install sume useful things:
 
-    sudu apt-get install dmenu
-    sudo apt-get install thunar thunar-volman thunar-archive-plugin 
+    sudo apt-get install thunar-volman thunar-archive-plugin 
     sudo apt-get install xbacklight
 
 Restarting xmonad and/or taffybar
