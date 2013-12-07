@@ -28,7 +28,8 @@ if executable('ctags')
     Bundle 'majutsushi/tagbar'
 endif
 
-" YouCompleteMe - the ultimate syntax completion engine
+" YouCompleteMe - the ultimate syntax completion engine - requires additional
+" config
 Bundle 'Valloric/YouCompleteMe'
 
 " Python mode
@@ -40,11 +41,23 @@ Bundle 'kien/ctrlp.vim'
 " UltiSnips
 Bundle 'SirVer/ultisnips'
 
-" undotree
-Bundle 'mbbill/undotree'
-
 " smartinput -- closes matching braces, quotes, parentheses etc.
 Bundle 'kana/vim-smartinput'
+
+" JADE templating engine
+Bundle 'digitaltoad/vim-jade'
+
+" JS syntax
+Bundle 'jelera/vim-javascript-syntax'
+
+" Indent Guides
+Bundle 'nathanaelkane/vim-indent-guides'
+
+" Vim JS Mode
+Bundle 'pangloss/vim-javascript'
+
+" Tern - Javascript code completion - requires additional config
+Bundle 'marijnh/tern_for_vim'
 "}}}2
 
 filetype plugin indent on
@@ -165,6 +178,32 @@ endtry
 set foldmethod=marker
 "}}}1
 
+"" Additional config {{{1
+" default rsync server for interactive rsync
+let g:default_rsync_server = "rzeszut@student.agh.edu.pl:~/public_html/"
+"}}}1
+
+"" Functions {{{1
+if !exists("g:default_rsync_server")
+    let g:default_rsync_server = ""
+endif
+
+function! RsyncCwdInteractive()
+    call inputsave()
+    let serverAddress = input('Enter server address: ', g:default_rsync_server)
+    call inputrestore()
+    let cwd = getcwd()
+    silent !clear
+    execute "!rsync -ruv " . cwd . "/* " . serverAddress
+endfunction
+
+function! RsyncCwd(serverAddress)
+    let cwd = getcwd()
+    silent !clear
+    execute "!rsync -ruv " . cwd . "/* " . a:serverAddress
+endfunction
+"}}}1
+
 "" Key mappings {{{1
 let mapleader=","
 
@@ -214,6 +253,11 @@ nnoremap <silent> <space> @=(foldlevel('.') ? 'za' : "\<Space>")<CR>
 " visual shifting (doesn't exit c-mode)
 vnoremap < <gv
 vnoremap > >gv
+
+" make
+nnoremap <F5> :make<cr>
+" rsync
+nnoremap <F6> :call RsyncCwdInteractive()<cr>
 
 " windows {{{2
 " smart way of moving between windows
@@ -274,36 +318,6 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 noremap <silent><F2> :TagbarToggle<cr>
 " }}}2
 
-" undotree {{{2
-nnoremap <silent><F3> :UndotreeToggle<cr>
-" }}}2
-
-"}}}1
-
-"" Additional config {{{1
-" default rsync server for interactive rsync
-let g:default_rsync_server = "bank@37.187.85.6:~/public_html/_mateusz/"
-"}}}1
-
-"" Functions {{{1
-if !exists("g:default_rsync_server")
-    let g:default_rsync_server = ""
-endif
-
-function! RsyncCwdInteractive()
-    call inputsave()
-    let serverAddress = input('Enter server address: ', g:default_rsync_server)
-    call inputrestore()
-    let cwd = getcwd()
-    silent !clear
-    execute "!rsync -ruv " . cwd . "/* " . serverAddress
-endfunction
-
-function! RsyncCwd(serverAddress)
-    let cwd = getcwd()
-    silent !clear
-    execute "!rsync -ruv " . cwd . "/* " . a:serverAddress
-endfunction
 "}}}1
 
 "" Command mappings {{{1
@@ -418,12 +432,5 @@ augroup ft_tex
     autocmd FileType tex nnoremap <leader>v :!mupdf %:r.pdf &<cr><cr>
 augroup END
 " }}}2
-
-" PHP {{{2
-augroup ft_php
-    autocmd!
-    autocmd FileType php nnoremap <F6> :call RsyncCwdInteractive()<cr>
-augroup END
-"}}}2
 
 "}}}1

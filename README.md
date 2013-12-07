@@ -196,6 +196,15 @@ Installing mupdf and rubber is recommended when editing LaTeX files:
 
     sudo apt-get mupdf rubber
 
+When using vim for JS coding, install jshint (node required):
+
+    sudo npm install -g jshint
+
+Tern requires additional step: getting dependenciel using npm:
+
+    cd ~/.vim/bundle/tern*
+    npm install
+
 ### xmonad
 Requires haskell-platform.
 First install X11 dependencies:
