@@ -188,10 +188,6 @@ Install libraries required for YouCompleteMe (full instruction [here](https://gi
 
 YouCompleteMe requires compiling vim by hand (in most cases), if you want to use it then don't install vim using apt-get.
 
-Then install the vundle packages
-
-    :BundleInstall
-
 Installing mupdf and rubber is recommended when editing LaTeX files:
 
     sudo apt-get mupdf rubber

@@ -58,6 +58,9 @@ Bundle 'pangloss/vim-javascript'
 
 " Tern - Javascript code completion - requires additional config
 Bundle 'marijnh/tern_for_vim'
+
+" LESS
+Bundle 'groenewege/vim-less'
 "}}}2
 
 filetype plugin indent on
@@ -401,7 +404,7 @@ augroup END
 augroup ft_cpp
     autocmd!
     autocmd FileType {cpp,c,java,javascript} setlocal fo=croq
-    autocmd FileType {cpp,c,java,javascript} setlocal cindent
+    autocmd FileType {cpp,c,java} setlocal cindent
     autocmd FileType {cpp,c,java} setlocal cino=:0,g0,N-s,(0
 augroup END
 " }}}2

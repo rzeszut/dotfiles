@@ -41,12 +41,7 @@ taffybar:
 	@ln -fs $(CFGROOT)/taffybar ${HOME}/.config/taffybar
 
 vim: git
-	@echo "Installing vim..."
-	@ln -fs $(CFGROOT)/vimrc ${HOME}/.vimrc
-	@echo "Installing vundle..."
-	@mkdir -p ${HOME}/.vim/bundle
-	@git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-	@echo "Now run vim command :BundleInstall"
+	@bash scripts/install_vim.sh
 
 xinitrc:
 	@echo "Installing xinitrc..."
@@ -78,7 +73,7 @@ uninstall:
 	@unlink ${HOME}/.octaverc
 	@unlink ${HOME}/.sqliterc
 	@unlink ${HOME}/.config/taffybar
-	@ ${RM} ${HOME}/.vim
+	@${RM} ${HOME}/.vim
 	@unlink ${HOME}/.vimrc
 	@unlink ${HOME}/.xinitrc
 	@unlink ${HOME}/.xsession
