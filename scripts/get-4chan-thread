@@ -1,0 +1,54 @@
+#!/usr/bin/ruby
+
+## https://github.com/4chan/4chan-API
+
+require 'net/http'
+require 'json'
+
+if ARGV.length < 1
+  puts "usage: ruby 4chan_get_thread.rb thread_url"
+  exit
+end
+
+thread_data = ARGV[0].scan(/.*\/(.+)\/res\/(\d{2,})/)[0]
+board_name = thread_data[0]
+thread_id = thread_data[1]
+
+url = "http://api.4chan.org/#{board_name}/res/#{thread_id}.json"
+
+json = Net::HTTP.get(URI(url))
+if json == "" 
+  puts "404"
+  exit
+end
+
+unless File.directory?(thread_id) then 
+  Dir.mkdir(thread_id)
+  puts "Created directory #{thread_id}."
+end
+
+image_count = 0;
+Dir.chdir(thread_data[1]) do
+  puts "Changed directory to #{thread_id}."
+
+  data = JSON.parse(json)
+  data["posts"].each do |post| 
+    if post["filename"] then 
+      im_url = "http://images.4chan.org/#{thread_data[0]}/src/#{post["tim"].to_s + post["ext"]}"
+      im_filename = post["filename"] + post["ext"]
+
+      puts "Getting #{im_url} ..."
+      im_data = Net::HTTP.get(URI(im_url))
+
+      puts "Saving #{im_filename} ..."
+      File.open(im_filename, "w") do |file|
+        file.write(im_data)
+      end
+
+      puts "Done."
+      image_count += 1
+    end
+  end
+end
+
+puts "\nSaved #{image_count} images."

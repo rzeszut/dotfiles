@@ -3,7 +3,7 @@
 CFGROOT=$(pwd)
 
 echo "Installing vim ..."
-ln -fs ${CFGROOT}/vimrc ${HOME}/.vimrc
+ln -fs ${CFGROOT}/vim/vimrc ${HOME}/.vimrc
 
 echo "Installing Vundle..."
 mkdir -p ${HOME}/.vim/bundle
@@ -16,9 +16,9 @@ echo "Compiling YCM ..."
 cd ${HOME}/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
 
-echo "Installing tern ..."
-cd ${HOME}/.vim/bundle/tern_for_vim
-if [ -e /usr/local/bin/npm ]; then
+if [[ ! -z `command -v npm` ]]; then
+    echo "Installing tern ..."
+    cd ${HOME}/.vim/bundle/tern_for_vim
     npm install
 fi
 

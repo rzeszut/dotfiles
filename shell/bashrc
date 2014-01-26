@@ -84,8 +84,7 @@ export PATH
 #export LD_LIBRARY_PATH
 export PS1
 export GDK_USE_XFT=1
-export EDITOR="emacsclient -c"
-export JAVA_HOME="/usr/lib/jvm/jdk1.7.0"
+export EDITOR="gvim"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

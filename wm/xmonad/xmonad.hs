@@ -66,7 +66,7 @@ myWorkspaces = map f $ zip [1..l] ws
     f  = (\(x, y) -> show(x) ++ if null y
                                 then ""
                                 else ":" ++ y)
-    ws = ["web", "emacs", "term", "mail", "im", "dev", "dev", "misc", "anime", "music"]
+    ws = ["web", "mail", "dev", "dev", "im", "dev", "dev", "misc", "video", "music"]
     l  = length ws
 
 getWsId :: String -> String
@@ -301,8 +301,7 @@ myTiledLayout       = named "[]="  $ spacing 5 $ ResizableTall nmaster delta rat
 myLayout = smartBorders $ avoidStruts $ workspaceDir "~"
            $ onWorkspaces [getWsId "im"]    myFloatingLayout
            $ onWorkspaces [getWsId "web"]   myFullLayout
-           $ onWorkspaces [getWsId "emacs"] myEmacsLayouts
---           $ onWorkspaces [getWsId "anime"] myVideoLayouts
+--           $ onWorkspaces [getWsId "video"] myVideoLayouts
            $ allLayouts
              where
                allLayouts     = myFullLayout
@@ -337,7 +336,6 @@ myManageHook = manageDocks <+>
                 , [className =? c --> doF (W.shift $ getWsId "im")    | c <- ims]
                 , [className =? c --> doF (W.shift $ getWsId "web")   | c <- webs]
                 , [className =? c --> doF (W.shift $ getWsId "mail")  | c <- mail]
-                , [className =? c --> doF (W.shift $ getWsId "emacs") | c <- emacs]
                 , [className =? c --> doF (W.shift $ getWsId "music") | c <- music]
                 , [resource  =? r --> doIgnore                        | r <- ignores]
                 , [title     =? t --> doFloat                         | t <- floatsByTitle]
@@ -351,7 +349,6 @@ myManageHook = manageDocks <+>
                    ims           = ["Pidgin", "Buddy List", "transmission-gtk"]
                    webs          = ["Firefox", "Chromium", "Chromium-browser", "Conkeror", "Iceweasel"]
                    mail          = ["Mail", "Thunderbird", "Icedove"]
-                   emacs         = ["Emacs"]
                    music         = ["Banshee"]
 
                    -- resources
@@ -425,3 +422,4 @@ main = do
     , logHook            = myLogHook client >> setWMName "LG3D"
     , startupHook        = myStartupHook
     } `additionalKeysP` myAdditionalKeys
+

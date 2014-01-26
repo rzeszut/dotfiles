@@ -45,13 +45,9 @@ if [ -x /usr/bin/gnome-sound-applet ] ; then
     gnome-sound-applet &
 fi
 
-# flux or redshift - Kraków coordinates
-if [ -x /usr/bin/fluxgui ] ; then
-    fluxgui &
-else
-    if [ -x /usr/bin/gtk-redshift ] ; then
-        gtk-redshift -l 50.0614:19.9372 &
-    fi
+# redshift - Kraków coordinates
+if [ -x /usr/bin/gtk-redshift ] ; then
+    gtk-redshift -l 50.0614:19.9372 &
 fi
  
 # dropbox
@@ -68,9 +64,6 @@ fi
 if [ -x /usr/bin/ibus-daemon ] ; then
     ibus-daemon --xim -r &
 fi
-
-# emacs daemon mode
-#emacs --daemon &
 
 # run xmonad 
 exec ~/.cabal/bin/xmonad
