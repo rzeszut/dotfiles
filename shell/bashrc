@@ -30,57 +30,13 @@ if [ -e /etc/bash.bashrc ]; then
 fi
 
 ## Aliases
-alias df='df -h'
-
-alias ls='ls -h --color=auto'
-alias l='ls -h --color=auto'
-alias lsd='ls -h --color=auto -d */'
-alias ll='ls -lhF'
-alias la='ls -lahF'
-alias emc='emacsclient -c'
+source $HOME/.shell-aliases
 
 ## Path section
-PATH=$PATH:$HOME/.cabal/bin:$HOME/bin
-
-if [ -e $HOME/bin/scala ]; then
-    PATH=$PATH:$HOME/bin/scala/bin
-fi
-if [ -d $HOME/bin/sbt ]; then
-    PATH=$PATH:$HOME/bin/sbt/bin
-fi
-if [ -e $HOME/bin/play ] ; then
-    PATH=$PATH:$HOME/bin/play
-fi
-if [ -e $HOME/bin/maven ]; then
-    PATH=$PATH:$HOME/bin/maven/bin
-fi
-if [ -e $HOME/bin/eclipse ]; then
-    PATH=$PATH:$HOME/bin/eclipse
-fi
-if [ -e $HOME/bin/idea ]; then
-    PATH=$PATH:$HOME/bin/idea/bin
-fi
-if [ -e $HOME/bin/pycharm ]; then
-    PATH=$PATH:$HOME/bin/pycharm/bin
-fi
-
-# add matlab path
-if [ -e /usr/local/MATLAB/R2011a/bin ]; then
-    PATH=$PATH:/usr/local/MATLAB/R2011a/bin
-fi
-
-# add nvidia cuda path
-if [ -e /usr/local/cuda/bin ]; then
-    PATH=$PATH:/usr/local/cuda/bin
-fi
-# add nvidia cuda linker path
-#if [ -e /usr/local/cuda/lib ]; then
-#    LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib:/usr/local/cuda/lib64
-#fi
+source $HOME/.shell-path
 
 PS1="\[\e[1;32m\]${debian_chroot:+($debian_chroot)}\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
 
-export PATH
 #export LD_LIBRARY_PATH
 export PS1
 export GDK_USE_XFT=1
@@ -97,5 +53,3 @@ if ! shopt -oq posix; then
   fi
 fi
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"

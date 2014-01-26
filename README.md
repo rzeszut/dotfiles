@@ -117,6 +117,13 @@ Install sqlite3:
     sudo apt-get install sqlite3
 
 
+Zsh
+---
+Install zsh
+
+    sudo apt-get install zsh zsh-doc
+
+
 Emacs
 -----
 Install emacs 24 using instructions from [emacs-wiki](http://wikemacs.org/wiki/Installing_Emacs_on_GNU/Linux).

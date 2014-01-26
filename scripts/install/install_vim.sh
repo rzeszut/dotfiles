@@ -5,11 +5,11 @@ CFGROOT=$(pwd)
 echo "Installing vim ..."
 ln -fs ${CFGROOT}/vim/vimrc ${HOME}/.vimrc
 
-echo "Installing Vundle..."
+echo "Installing Vundle ..."
 mkdir -p ${HOME}/.vim/bundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 
-echo "Downloading plugins..."
+echo "Downloading plugins ..."
 vim +BundleClean! +BundleInstall! +qall
 
 echo "Compiling YCM ..."
