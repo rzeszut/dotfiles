@@ -419,7 +419,7 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 " Markdown {{{2
 augroup ft_markdown
     autocmd!
-    autocmd BufRead,BufNewFile {*.md,*.markdown,*.mkd} set filetype=markdown
+    autocmd BufRead,BufNewFile {*.md,*.markdown,*.mkd} setlocal filetype=markdown
 augroup END
 "}}}2
 
@@ -435,8 +435,16 @@ augroup END
 " XML/HTML {{{2
 augroup ft_xml
     autocmd!
-    autocmd BufWritePre,BufRead {*.xml,*.html} :normal gg=G
-    autocmd FileType {xml,html,php} inoremap <leader>/ </<c-x><c-o>
+    autocmd FileType {xml,html} inoremap <buffer> <leader>/ </<c-x><c-o>
+    autocmd FileType {xml,html} setlocal omnifunc=htmlcomplete#CompleteTags
+augroup END
+" }}}2
+
+" PHP {{{2
+augroup ft_php
+    autocmd!
+    autocmd FileType php inoremap <buffer> <leader>/ </<c-x><c-o>
+    autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
 augroup END
 " }}}2
 
@@ -454,22 +462,30 @@ augroup END
 augroup ft_tex
     autocmd!
     autocmd BufRead,BufNewFile *.tex set filetype=tex
-    autocmd FileType tex nnoremap <leader>c :w<cr>:!rubber --pdf --warn all %<cr>
-    autocmd FileType tex nnoremap <leader>v :!mupdf %:r.pdf &<cr><cr>
+    autocmd FileType tex nnoremap <buffer> <leader>c :w<cr>:!rubber --pdf --warn all %<cr>
+    autocmd FileType tex nnoremap <buffer> <leader>v :!mupdf %:r.pdf &<cr><cr>
 augroup END
 " }}}2
 
 " JADE {{{2
 augroup ft_jade
     autocmd!
-    autocmd FileType jade :setlocal sw=2 ts=2 et
+    autocmd FileType jade setlocal sw=2 ts=2 et
 augroup END
 " }}}2
 
 " Ruby {{{2
 augroup ft_ruby
     autocmd!
-    autocmd FileType ruby :setlocal sw=2 ts=2 et
+    autocmd FileType ruby setlocal sw=2 ts=2 et
+    autocmd FileType {ruby,eruby} setlocal omnifunc=rubycomplete#Complete
+augroup END
+" }}}2
+
+" CSS {{{2
+augroup ft_css
+    autocmd!
+    autocmd FileType {css,less} setlocal omnifunc=csscomplete#CompleteCSS
 augroup END
 " }}}2
 
