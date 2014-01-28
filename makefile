@@ -31,7 +31,7 @@ shell-common:
 	@ln -fs $(CFGROOT)/shell/shell-aliases.sh ${HOME}/.shell-aliases
 
 # Vim configuration
-vim: xmodmap ctags
+vim: vim-xmodmap vim-ctags
 	@bash scripts/install/install_vim.sh
 
 vim-xmodmap:

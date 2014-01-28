@@ -9,6 +9,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 """ Bundles {{{2
+" color scheme
 Bundle 'nanotech/jellybeans.vim'
 
 " NERDTree file manager
@@ -150,8 +151,8 @@ set ttimeoutlen=100
 " Shell
 set shell=/bin/bash
 
-" Ctags location
-set tags=.tags,tags,.ctags,ctags,$HOME/.ctags
+" Ctags file location
+set tags=tags
 "}}}1
 
 "" Appearance {{{1
@@ -200,16 +201,13 @@ catch
 endtry
 "}}}1
 
-"" Folding {{{1
-set foldmethod=marker
-"}}}1
-
 "" Additional config {{{1
 " default rsync server for interactive rsync
 let g:default_rsync_server = "rzeszut@student.agh.edu.pl:~/public_html/"
 "}}}1
 
 "" Functions {{{1
+" Rsync {{{2
 if !exists("g:default_rsync_server")
     let g:default_rsync_server = ""
 endif
@@ -228,6 +226,25 @@ function! RsyncCwd(serverAddress)
     silent !clear
     execute "!rsync -ruv " . cwd . "/* " . a:serverAddress
 endfunction
+"}}}2
+
+" UltiSnips completion function {{{2
+function! g:UltiSnips_Complete()
+    call UltiSnips_ExpandSnippet()
+    if g:ulti_expand_res == 0
+        if pumvisible()
+            return "\<C-n>"
+        else
+            call UltiSnips_JumpForwards()
+            if g:ulti_jump_forwards_res == 0
+                return "\<TAB>"
+            endif
+        endif
+    endif
+    return ""
+endfunction
+" }}}2
+
 "}}}1
 
 "" Key mappings {{{1
@@ -392,8 +409,9 @@ let g:ctrlp_custom_ignore = {
 " }}}2
 
 " YouCompleteMe {{{2
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
@@ -403,9 +421,16 @@ let g:ycm_global_ycm_extra_conf = '/home/mateusz/.ycm_extra_conf.py'
 " }}}2
 
 " UltiSnips {{{2
+" IMPORTANT: it's not explicitly written here, but <c-tab> activates the
+" chosen snippet.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+augroup ultiSnips
+    autocmd!
+    autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+augroup END
 " }}}2
 
 " indent-guides {{{2
@@ -416,6 +441,17 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 "}}}1
 
 "" Languages {{{1
+" default folding settings
+set foldmethod=marker
+set foldlevelstart=99
+
+" Vimscript {{{2
+augroup ft_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}2
+
 " Markdown {{{2
 augroup ft_markdown
     autocmd!
@@ -426,9 +462,18 @@ augroup END
 " C/C++ {{{2
 augroup ft_cpp
     autocmd!
-    autocmd FileType {cpp,c,java,javascript} setlocal fo=croq
+    autocmd FileType {cpp,c} setlocal foldmethod=syntax
+    autocmd FileType {cpp,c,java} setlocal fo=croq
     autocmd FileType {cpp,c,java} setlocal cindent
     autocmd FileType {cpp,c,java} setlocal cino=:0,g0,N-s,(0
+augroup END
+" }}}2
+
+" JavaScript {{{2
+augroup ft_js
+    autocmd!
+    autocmd FileType javascript setlocal fo=croq
+    autocmd FileType javascript setlocal foldmethod=marker foldmarker={,}
 augroup END
 " }}}2
 
@@ -445,6 +490,7 @@ augroup ft_php
     autocmd!
     autocmd FileType php inoremap <buffer> <leader>/ </<c-x><c-o>
     autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
+    autocmd FileType php setlocal foldmethod=marker foldmarker={,}
 augroup END
 " }}}2
 
@@ -486,6 +532,7 @@ augroup END
 augroup ft_css
     autocmd!
     autocmd FileType {css,less} setlocal omnifunc=csscomplete#CompleteCSS
+    autocmd FileType {css,less} setlocal foldmethod=marker foldmarker={,}
 augroup END
 " }}}2
 
