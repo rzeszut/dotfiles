@@ -435,8 +435,8 @@ augroup END
 " XML/HTML {{{2
 augroup ft_xml
     autocmd!
-    autocmd FileType {xml,html} inoremap <buffer> <leader>/ </<c-x><c-o>
-    autocmd FileType {xml,html} setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType {xml,html,play2-html} inoremap <buffer> <leader>/ </<c-x><c-o>
+    autocmd FileType {xml,html,play2-html} setlocal omnifunc=htmlcomplete#CompleteTags
 augroup END
 " }}}2
 
@@ -486,6 +486,13 @@ augroup END
 augroup ft_css
     autocmd!
     autocmd FileType {css,less} setlocal omnifunc=csscomplete#CompleteCSS
+augroup END
+" }}}2
+
+" Scala {{{2
+augroup ft_scala
+    autocmd!
+    autocmd FileType scala :setlocal sw=2 ts=2 et
 augroup END
 " }}}2
 
