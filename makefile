@@ -57,7 +57,7 @@ wm-taffybar:
 	@mkdir -p ${HOME}/.config
 	@ln -fs $(CFGROOT)/wm/taffybar ${HOME}/.config/taffybar
 
-wm-xmonad: taffybar xinitrc
+wm-xmonad: wm-taffybar wm-xinitrc
 	@echo "Installing xmonad ..."
 	@ln -fs $(CFGROOT)/wm/xmonad ${HOME}/.xmonad
 

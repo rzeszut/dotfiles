@@ -19,13 +19,13 @@ import XMonad.Layout.PerWorkspace
 import XMonad.Layout.SimplestFloat
 import XMonad.Layout.Spacing
 import XMonad.Layout.ResizableTile
-import XMonad.Layout.WorkspaceDir 
+import XMonad.Layout.WorkspaceDir
 import XMonad.Prompt
 import XMonad.Prompt.Input
 import XMonad.Util.EZConfig
 import XMonad.Util.Run
 
-import DBus.Client.Simple
+import DBus.Client
 import System.Taffybar.XMonadLog
 
 import System.Exit
@@ -85,9 +85,9 @@ split :: [a] -> ([a], [a])
 split []       = ([], [])
 split [x]      = ([x], [])
 split (x:y:xys) = (x:xs, y:ys)
-  where 
+  where
     (xs, ys) = split xys
-    
+
 -- Unite is opposite to split - it kinda zips the two lists together,
 -- alternating elements.
 unite :: [a] -> [a] -> [a]
@@ -96,7 +96,7 @@ unite (x:_) []      = [x]
 unite (x:xs) (y:ys) = x:y:(unite xs ys)
 
 -- Dmenu default options
---                 
+--
 dmenuOpts = [ "-nb", colorBackground
             , "-nf", colorForeground
             , "-sb", colorBrightYellow
@@ -104,14 +104,14 @@ dmenuOpts = [ "-nb", colorBackground
             , "-fn", bitmapMediumFont
             , "-b"
             ]
-            
+
 -- Dmenu command as a string - used to run programs
 --
 myDmenuCommand = unwords $ "dmenu":(unite opts colorsEscaped)
   where
     (opts, colors) = split dmenuOpts
     colorsEscaped  = foldr (\col acc -> ("\"" ++ col ++ "\""):acc) [] colors
-                 
+
 -- Screenshots dir
 --
 myScreenshotsDir = "~/img/screenshots/"
@@ -134,13 +134,13 @@ commands = M.fromList
            ]
 
 quitPrompt :: X ()
-quitPrompt = liftIO 
-             $ runProcessWithInput "dmenu" params opts 
+quitPrompt = liftIO
+             $ runProcessWithInput "dmenu" params opts
              >>= \key -> commands M.! key
                where
                  params = ["-l", show $ M.size commands, "-p", "Choose:"] ++ dmenuOpts
                  opts   = unlines $ M.keys commands
-  
+
 ------------------------------------------------------------------------
 -- Key bindings. Add, modify or remove key bindings here.
 --
@@ -181,7 +181,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) =
     , ((modm, xK_h), sendMessage Shrink)
       -- Expand the master area
     , ((modm, xK_l), sendMessage Expand)
-      
+
       -- Gaps: increment and decrement left gap
     , ((modm .|. shiftMask, xK_a), sendMessage $ DecGap 5 L)
     , ((modm .|. shiftMask, xK_d), sendMessage $ IncGap 5 L)
@@ -261,7 +261,7 @@ myAdditionalKeys =
 ------------------------------------------------------------------------
 -- Mouse bindings: default actions bound to mouse events
 --
-myMouseBindings (XConfig {XMonad.modMask = modMask}) = 
+myMouseBindings (XConfig {XMonad.modMask = modMask}) =
   M.fromList $ [
     -- mod-button1, Set the window to floating mode and move by dragging
     ((modMask, button1),   (\w -> focus w >> mouseMoveWindow w))
@@ -309,10 +309,10 @@ myLayout = smartBorders $ avoidStruts $ workspaceDir "~"
                                 ||| myMirrorTiledLayout
                                 ||| myFloatingLayout
                                 ||| myGridLayout
-                                
-               myEmacsLayouts = myFullLayout 
+
+               myEmacsLayouts = myFullLayout
                                 ||| myHalfScreen
-                                
+
                myVideoLayouts = workspaceDir "~/video/" allLayouts
 
 ------------------------------------------------------------------------
@@ -374,7 +374,7 @@ myPP = defaultPP { ppTitle   = taffybarColor colorWhite "" . shorten 50
                  , ppHidden  = taffybarColor colorGrey ""
                  , ppCurrent = taffybarColor colorBrightYellow "" . wrap "[" "]"
                  , ppUrgent  = taffybarColor colorBrightRed colorGrey  . wrap "{" "}"
-                 , ppLayout  = taffybarColor colorGrey "" 
+                 , ppLayout  = taffybarColor colorGrey ""
                  , ppSep     = taffybarColor colorGrey "" " | "
                  }
 
@@ -398,7 +398,7 @@ myStartupHook = return ()
 
 -- Run xmonad with the settings you specify.
 --
-main = do 
+main = do
   client <- connectSession
   spawn "/home/mateusz/.cabal/bin/taffybar"
   xmonad $ withUrgencyHook NoUrgencyHook

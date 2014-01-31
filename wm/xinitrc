@@ -1,5 +1,5 @@
 #!/bin/bash
- 
+
 # run dbus - not needed as for now
 eval `dbus-launch --auto-syntax`
 
@@ -11,9 +11,11 @@ xrdb -merge .Xresources
 
 # turn off that annoying beep
 xset b off
- 
+# key delay and repeat rate
+xset r rate 500 40
+
 # Set the background color
-feh --bg-scale /home/mateusz/img/wallpaper 
+feh --bg-scale /home/mateusz/img/wallpaper
 
 ## Fire up apps
 # xcompmgr
@@ -28,7 +30,7 @@ if [ -x /usr/bin/mpd -a -z "$MPD_RUNNING" ] ; then
 fi
 
 # xscreensaver
-if [ -x /usr/bin/xscreensaver ] ; then 
+if [ -x /usr/bin/xscreensaver ] ; then
     xscreensaver -no-splash &
 fi
 
@@ -49,9 +51,9 @@ fi
 if [ -x /usr/bin/gtk-redshift ] ; then
     gtk-redshift -l 50.0614:19.9372 &
 fi
- 
+
 # dropbox
-if [ -x /usr/bin/dropbox ] ; then 
+if [ -x /usr/bin/dropbox ] ; then
     dropbox start &
 fi
 
@@ -65,6 +67,6 @@ if [ -x /usr/bin/ibus-daemon ] ; then
     ibus-daemon --xim -r &
 fi
 
-# run xmonad 
+# run xmonad
 exec ~/.cabal/bin/xmonad
 
