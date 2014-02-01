@@ -17,24 +17,24 @@ thread_id = thread_data[1]
 url = "http://api.4chan.org/#{board_name}/res/#{thread_id}.json"
 
 json = Net::HTTP.get(URI(url))
-if json == "" 
+if json == ""
   puts "404"
   exit
 end
 
-unless File.directory?(thread_id) then 
+unless File.directory?(thread_id) then
   Dir.mkdir(thread_id)
   puts "Created directory #{thread_id}."
 end
 
 image_count = 0;
-Dir.chdir(thread_data[1]) do
+Dir.chdir(thread_id) do
   puts "Changed directory to #{thread_id}."
 
   data = JSON.parse(json)
-  data["posts"].each do |post| 
-    if post["filename"] then 
-      im_url = "http://images.4chan.org/#{thread_data[0]}/src/#{post["tim"].to_s + post["ext"]}"
+  data["posts"].each do |post|
+    if post["filename"] then
+      im_url = "http://images.4chan.org/#{board_name}/src/#{post["tim"].to_s + post["ext"]}"
       im_filename = post["filename"] + post["ext"]
 
       puts "Getting #{im_url} ..."
@@ -52,3 +52,4 @@ Dir.chdir(thread_data[1]) do
 end
 
 puts "\nSaved #{image_count} images."
+

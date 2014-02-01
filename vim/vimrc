@@ -47,6 +47,9 @@ Bundle 'kana/vim-smartinput'
 " Indent lines
 Bundle 'nathanaelkane/vim-indent-guides'
 
+" easymotion
+Bundle 'Lokaltog/vim-easymotion'
+
 """ Webdev general {{{3
 " LESS
 Bundle 'groenewege/vim-less'
@@ -157,6 +160,7 @@ set tags=tags
 
 "" Appearance {{{1
 set number numberwidth=4
+set cursorline
 
 " colors and fonts
 set background=dark
@@ -178,6 +182,7 @@ endif
 "" Formatting {{{1
 set wrap
 set linebreak
+set showbreak=↪
 
 set autoindent
 set smartindent
@@ -245,6 +250,12 @@ function! g:UltiSnips_Complete()
 endfunction
 " }}}2
 
+" Remove training whitespace {{{2
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+" }}}2
+
 "}}}1
 
 "" Key mappings {{{1
@@ -269,12 +280,6 @@ nnoremap L $
 nnoremap H 0
 vnoremap L $
 vnoremap H 0
-
-" beginning and the end of the file
-nnoremap J G
-nnoremap K gg
-vnoremap J G
-vnoremap K gg
 
 " quick save and close
 nnoremap <leader>w :w<cr>
@@ -409,15 +414,16 @@ let g:ctrlp_custom_ignore = {
 " }}}2
 
 " YouCompleteMe {{{2
-"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" IMPORTANT: it's not explicitely written here, but <c-space> runs the
+" completion based on omnifunc/external completion functions. Like in Eclipse.
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_add_preview_to_completeopt = 1
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
-let g:ycm_global_ycm_extra_conf = '/home/mateusz/.ycm_extra_conf.py'
+let g:ycm_global_ycm_extra_conf = $HOME . '/.ycm_extra_conf.py'
+let g:ycm_key_detailed_diagnostics = '<leader>yd'
 " }}}2
 
 " UltiSnips {{{2
@@ -427,7 +433,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-augroup ultiSnips
+augroup plugin_ultiSnips
     autocmd!
     autocmd BufEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
 augroup END
@@ -438,17 +444,18 @@ let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 " }}}2
 
+" Vim-Scala {{{2
+let g:scala_sort_across_groups=1
+let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\)'
+" }}}2
+
 "}}}1
 
 "" Languages {{{1
-" default folding settings
-set foldmethod=marker
-set foldlevelstart=99
-
 " Vimscript {{{2
 augroup ft_vim
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker
+    autocmd FileType vim setlocal foldmethod=marker foldlevelstart=0
 augroup END
 " }}}2
 
@@ -462,7 +469,8 @@ augroup END
 " C/C++ {{{2
 augroup ft_cpp
     autocmd!
-    autocmd FileType {cpp,c} setlocal foldmethod=syntax
+    autocmd FileType {cpp,c} setlocal foldmethod=syntax foldlevel=99
+    autocmd FileType {cpp,c} nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
     autocmd FileType {cpp,c,java} setlocal fo=croq
     autocmd FileType {cpp,c,java} setlocal cindent
     autocmd FileType {cpp,c,java} setlocal cino=:0,g0,N-s,(0
@@ -473,7 +481,8 @@ augroup END
 augroup ft_js
     autocmd!
     autocmd FileType javascript setlocal fo=croq
-    autocmd FileType javascript setlocal foldmethod=marker foldmarker={,}
+    autocmd FileType javascript setlocal foldmethod=marker foldmarker={,} foldlevelstart=99
+    autocmd FileType javascript nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
 augroup END
 " }}}2
 
@@ -490,17 +499,18 @@ augroup ft_php
     autocmd!
     autocmd FileType php inoremap <buffer> <leader>/ </<c-x><c-o>
     autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-    autocmd FileType php setlocal foldmethod=marker foldmarker={,}
+    autocmd FileType php setlocal foldmethod=marker foldmarker={,} foldlevelstart=99
 augroup END
 " }}}2
 
 " Python {{{2
 augroup ft_python
     autocmd!
-    autocmd BufWritePre *.py :%s/\s\+$//e
+    autocmd BufWritePre *.py call TrimWhiteSpace()
     autocmd FileType python set nowrap
     autocmd FileType python highlight Excess ctermbg=DarkGrey guibg=Grey
     autocmd FileType python match Excess /\%120v.*/
+    autocmd FileType python nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
 augroup END
 " }}}2
 
@@ -532,14 +542,15 @@ augroup END
 augroup ft_css
     autocmd!
     autocmd FileType {css,less} setlocal omnifunc=csscomplete#CompleteCSS
-    autocmd FileType {css,less} setlocal foldmethod=marker foldmarker={,}
+    autocmd FileType {css,less} setlocal foldmethod=marker foldmarker={,} foldlevelstart=99
 augroup END
 " }}}2
 
 " Scala {{{2
 augroup ft_scala
     autocmd!
-    autocmd FileType scala :setlocal sw=2 ts=2 et
+    autocmd FileType scala setlocal sw=2 ts=2 et
+    autocmd BufWritePre *.scala SortScalaImports
 augroup END
 " }}}2
 
