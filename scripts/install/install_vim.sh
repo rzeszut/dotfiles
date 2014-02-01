@@ -23,4 +23,3 @@ if [[ ! -z `command -v npm` ]]; then
     npm install
 fi
 
-cd $CFGROOT

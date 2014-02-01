@@ -50,6 +50,9 @@ Bundle 'nathanaelkane/vim-indent-guides'
 " easymotion
 Bundle 'Lokaltog/vim-easymotion'
 
+" vimperatorrc syntax files
+Bundle 'superbrothers/vim-vimperator'
+
 """ Webdev general {{{3
 " LESS
 Bundle 'groenewege/vim-less'
@@ -455,7 +458,7 @@ let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\)'
 " Vimscript {{{2
 augroup ft_vim
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker foldlevelstart=0
+    autocmd FileType vim,vimperator setlocal foldmethod=marker foldlevelstart=0
 augroup END
 " }}}2
 

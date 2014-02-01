@@ -1,0 +1,28 @@
+" General settings {{{1
+" autocomplete
+set complete=lsb
+
+" longest matching
+set wildmode='list:full'
+
+" no beeping
+set noerrorbells
+
+" duckduckgo as default search engine
+set defsearch=duckduckgo
+
+" use JIT
+set! javascript.option.jit.chrome=true
+" }}}1
+
+" Appearance {{{1
+colorscheme molokai
+" }}}1
+
+" Key mappings {{{1
+nnoremap ,q :q<cr>
+
+nnoremap ,b :back<cr>
+nnoremap ,f :forward<cr>
+" }}}1
+

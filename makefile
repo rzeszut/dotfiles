@@ -6,6 +6,7 @@ RM = rm -rf
 # ------------------
 all: emacs bash vim wm mplayer octave git sqlite
 
+
 # emacs configuration
 emacs:
 	@echo "Installing emacs ..."
@@ -30,6 +31,7 @@ shell-common:
 	@ln -fs $(CFGROOT)/shell/shell-path.sh ${HOME}/.shell-path
 	@ln -fs $(CFGROOT)/shell/shell-aliases.sh ${HOME}/.shell-aliases
 
+
 # Vim configuration
 vim: vim-xmodmap vim-ctags
 	@bash scripts/install/install_vim.sh
@@ -37,11 +39,15 @@ vim: vim-xmodmap vim-ctags
 vim-xmodmap:
 	@echo "Installing Xmodmap ..."
 	@ln -fs $(CFGROOT)/vim/xmodmap ${HOME}/.Xmodmap
-	@xmodmap ${HOME}/.Xmodmap
 
 vim-ctags:
 	@echo "Installing ctags ..."
 	@ln -fs $(CFGROOT)/vim/ctags ${HOME}/.ctags
+
+
+# Vimperator configuration
+vimperator:
+	@bash scripts/install/install_vimperator.sh
 
 
 # WM - xmonad configuration
