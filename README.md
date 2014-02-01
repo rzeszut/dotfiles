@@ -143,7 +143,7 @@ Install jedi and epc (needed for emacs auto-completion):
 Vim
 ---
 Requires git.
-Install vim (preferably gvim)
+Install vim 7.4 (preferably gvim):
 
     sudo apt-get install vim-gtk exuberant-ctags
 
@@ -165,6 +165,30 @@ When using vim for JS coding, install jshint (node required):
 
 Window Manager
 --------------
+
+### xmonad
+Requires haskell-platform.
+First install X11 dependencies:
+
+    sudo apt-get install libxrandr-dev libxinerama-dev libxft-dev
+
+Install xmonad from cabal - the cabal version is almost certainly newer than the one at apt-get repo.
+
+    sudo cabal install xmonad xmonad-contrib
+
+You need to install some applications if you want xmonad to be usable:
+
+    sudo apt-get install feh rxvt-unicode dmenu xfonts-terminus console-terminus
+    sudo apt-get install xcompmgr xscreensaver thunar network-manager-gnome
+
+After xmonad, install some useful things:
+
+    sudo apt-get install thunar-volman thunar-archive-plugin
+    sudo apt-get install xbacklight
+
+Add xmonad to xsessions:
+
+    sudo cp wm/xmonad.desktop /usr/share/xsessions/
 
 ### taffybar
 Requires haskell-platform.
@@ -192,26 +216,6 @@ Cairo won't compile unless you link gtk2hs* to /usr/bin.
 You can now install taffybar:
 
     cabal install taffybar
-
-### xmonad
-Requires haskell-platform.
-First install X11 dependencies:
-
-    sudo apt-get install libxrandr-dev libxinerama-dev libxft-dev
-
-Install xmonad from cabal - the cabal version is almost certainly newer than the one at apt-get repo.
-
-    sudo cabal install xmonad xmonad-contrib
-
-You need to install some applications if you want xmonad to be usable:
-
-    sudo apt-get install feh rxvt-unicode dmenu xfonts-terminus console-terminus
-    sudo apt-get install xcompmgr xscreensaver thunar network-manager-gnome
-
-After xmonad, install some useful things:
-
-    sudo apt-get install thunar-volman thunar-archive-plugin
-    sudo apt-get install xbacklight
 
 
 Various

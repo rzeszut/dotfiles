@@ -3,6 +3,7 @@
 # run dbus - not needed as for now
 eval `dbus-launch --auto-syntax`
 
+setxkbmap pl
 # Remap keys
 xmodmap .Xmodmap
 
