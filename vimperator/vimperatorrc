@@ -1,4 +1,4 @@
-" General settings {{{1
+" General {{{1
 " autocomplete
 set complete=lsb
 
@@ -17,12 +17,12 @@ set! javascript.option.jit.chrome=true
 
 " Appearance {{{1
 colorscheme molokai
+set gui=none,tabs,navigation
 " }}}1
 
 " Key mappings {{{1
-nnoremap ,q :q<cr>
+let mapleader=","
 
-nnoremap ,b :back<cr>
-nnoremap ,f :forward<cr>
+nnoremap <leader>q :q<cr>
 " }}}1
 
