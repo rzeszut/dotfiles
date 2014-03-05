@@ -1,10 +1,7 @@
 module Colors where
 
-import XMonad.Hooks.DynamicLog (wrap)
-
 -- Colors - taken from Tomorrow Night theme
 -- https://github.com/chriskempson/tomorrow-theme
---
 colorBackground    = "#1d1f21"
 colorForeground    = "#c5c8c6"
 colorBlack         = "#000000"

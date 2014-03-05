@@ -82,8 +82,8 @@ myFocusedBorderColor = colorGrey
 -- elements with odd indices go to the second.
 --
 split :: [a] -> ([a], [a])
-split []       = ([], [])
-split [x]      = ([x], [])
+split []        = ([], [])
+split [x]       = ([x], [])
 split (x:y:xys) = (x:xs, y:ys)
   where
     (xs, ys) = split xys
@@ -345,11 +345,11 @@ myManageHook = manageDocks <+>
                <+> manageHook defaultConfig
                  where
                    -- classNames
-                   floatsByClass = ["MPlayer", "Gimp", "Download"]
+                   floatsByClass = ["MPlayer", "Download"]
                    ims           = ["Pidgin", "Buddy List", "transmission-gtk"]
                    webs          = ["Firefox", "Chromium", "Chromium-browser", "Conkeror", "Iceweasel"]
                    mail          = ["Mail", "Thunderbird", "Icedove"]
-                   music         = ["Banshee"]
+                   music         = ["Banshee", "Audacious"]
 
                    -- resources
                    ignores       = ["desktop_window", "kdesktop"]

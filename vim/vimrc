@@ -1,4 +1,4 @@
-"" Vundle {{{1
+" Vundle {{{1
 set nocompatible
 filetype off
 
@@ -8,7 +8,7 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-""" Bundles {{{2
+" Bundles {{{2
 " color scheme
 Bundle 'nanotech/jellybeans.vim'
 
@@ -53,16 +53,19 @@ Bundle 'Lokaltog/vim-easymotion'
 " vimperatorrc syntax files
 Bundle 'superbrothers/vim-vimperator'
 
-""" Webdev general {{{3
+" Tabular - alignment
+Bundle 'godlygeek/tabular'
+
+" Webdev general {{{3
 " LESS
 Bundle 'groenewege/vim-less'
 
 " HTML5
 Bundle 'othree/html5.vim'
 
-"}}}3
+" }}}3
 
-""" JavaScript + related {{{3
+" JavaScript + related {{{3
 " JADE templating engine
 Bundle 'digitaltoad/vim-jade'
 
@@ -77,21 +80,35 @@ if executable('node')
     Bundle 'marijnh/tern_for_vim'
 endif
 
-"}}}3
+" }}}3
 
-""" Scala + related {{{3
+" Scala + related {{{3
 " vim scala mode
 Bundle 'derekwyatt/vim-scala'
 
 " vim play mode
 Bundle 'alswl/play2vim'
 
-"}}}3
+" }}}3
 
-"}}}2
+" Haskell {{{3
+" Haskell syntax
+Bundle 'travitch/hasksyn'
+
+" vimproc -- required for ghcmod-vim
+Bundle 'Shougo/vimproc.vim'
+
+" ghcmod-vim
+Bundle 'eagletmt/ghcmod-vim'
+
+" neco-ghc -- completion plugin
+Bundle 'eagletmt/neco-ghc'
+" }}}3
+
+" }}}2
 
 filetype plugin indent on
-"}}}1
+" }}}1
 
 "" General {{{1
 syntax on
@@ -179,6 +196,7 @@ if has("gui_running")
     set guioptions-=r
     set t_Co=256
     set mouse=a
+    set guifont=DejaVu\ Sans\ Mono\ 10
 endif
 "}}}1
 
@@ -369,6 +387,15 @@ nnoremap <silent> <leader>gb :Gblame<CR>
 noremap <silent><F2> :TagbarToggle<cr>
 " }}}2
 
+" Tabular {{{2
+nnoremap <leader>a= :Tabularize /=<cr>
+vnoremap <leader>a= :Tabularize /=<cr>
+nnoremap <leader>a: :Tabularize /:\zs<cr>
+vnoremap <leader>a: :Tabularize /:\zs<cr>
+nnoremap <leader>a` :Tabularize /`\zs<cr>
+vnoremap <leader>a` :Tabularize /`\zs<cr>
+" }}}2
+
 "}}}1
 
 "" Command mappings {{{1
@@ -452,6 +479,12 @@ let g:scala_sort_across_groups=1
 let g:scala_first_party_namespaces='\(controllers\|views\|models\|util\)'
 " }}}2
 
+" hasksyn {{{2
+let g:hasksyn_indent_search_backward = 100
+let g:hasksyn_dedent_after_return = 1
+let g:hasksyn_dedent_after_catchall_case = 1
+" }}}2
+
 "}}}1
 
 "" Languages {{{1
@@ -460,6 +493,12 @@ augroup ft_vim
     autocmd!
     autocmd FileType vim,vimperator setlocal foldmethod=marker foldlevelstart=0
 augroup END
+" }}}2
+
+" Xdefaults {{{2
+augroup ft_xdefaults
+    autocmd!
+    autocmd BufRead,BufNewFile xresources,.Xresources setlocal filetype=xdefaults
 " }}}2
 
 " Markdown {{{2
@@ -557,4 +596,13 @@ augroup ft_scala
 augroup END
 " }}}2
 
+" Haskell {{{2
+augroup ft_haskell
+    autocmd!
+    autocmd FileType haskell setlocal sw=2 ts=2 et
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+augroup END
+" }}}2
+
 "}}}1
+
