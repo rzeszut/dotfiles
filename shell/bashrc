@@ -1,4 +1,3 @@
-# -*- mode: shell-script -*-
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -29,18 +28,20 @@ if [ -e /etc/bash.bashrc ]; then
     source /etc/bash.bashrc
 fi
 
-## Aliases
+# Aliases
 source $HOME/.shell-aliases
 
-## Path section
+# Path section
 source $HOME/.shell-path
+
+# Environment variables
+source $HOME/.shell-env
 
 PS1="\[\e[1;32m\]${debian_chroot:+($debian_chroot)}\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
 
-#export LD_LIBRARY_PATH
 export PS1
 export GDK_USE_XFT=1
-export EDITOR="gvim"
+export EDITOR="vim"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile

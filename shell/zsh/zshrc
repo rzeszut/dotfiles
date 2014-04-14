@@ -39,3 +39,6 @@ source $HOME/.shell-path
 # Aliases
 source $HOME/.shell-aliases
 
+# Environment variables
+source $HOME/.shell-env
+

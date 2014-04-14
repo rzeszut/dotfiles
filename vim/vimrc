@@ -56,6 +56,9 @@ Bundle 'superbrothers/vim-vimperator'
 " Tabular - alignment
 Bundle 'godlygeek/tabular'
 
+" GLSL highlighting
+Bundle 'vim-scripts/glsl.vim'
+
 " Webdev general {{{3
 " LESS
 Bundle 'groenewege/vim-less'
@@ -516,6 +519,13 @@ augroup ft_cpp
     autocmd FileType {cpp,c,java} setlocal fo=croq
     autocmd FileType {cpp,c,java} setlocal cindent
     autocmd FileType {cpp,c,java} setlocal cino=:0,g0,N-s,(0
+augroup END
+" }}}2
+
+" GLSL {{{2
+augroup ft_glsl
+    autocmd!
+    autocmd BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl set ft=glsl
 augroup END
 " }}}2
 

@@ -14,6 +14,8 @@ emacs:
 
 
 # shell configuration
+shell: bash zsh
+
 bash: shell-scripts shell-common
 	@echo "Installing bashrc ..."
 	@ln -fs $(CFGROOT)/shell/bashrc ${HOME}/.bashrc
@@ -30,6 +32,7 @@ shell-common:
 	@echo "Installing common shell config ..."
 	@ln -fs $(CFGROOT)/shell/shell-path.sh ${HOME}/.shell-path
 	@ln -fs $(CFGROOT)/shell/shell-aliases.sh ${HOME}/.shell-aliases
+	@ln -fs $(CFGROOT)/shell/shell-env.sh ${HOME}/.shell-env
 
 
 # Vim configuration

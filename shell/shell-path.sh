@@ -19,9 +19,12 @@ if [ -e $HOME/bin/play ] ; then
     PATH=$PATH:$HOME/bin/play
 fi
 
-# maven
+# maven and gradle
 if [ -e $HOME/bin/maven ]; then
     PATH=$PATH:$HOME/bin/maven/bin
+fi
+if [ -e $HOME/bin/gradle ]; then
+    PATH=$PATH:$HOME/bin/gradle/bin
 fi
 
 # IDEs
@@ -48,6 +51,11 @@ fi
 # heroku
 if [ -e /usr/local/heroku ]; then
     PATH=$PATH:/usr/local/heroku/bin
+fi
+
+# android sdk
+if [[ -e $HOME/bin/android-sdk-linux ]]; then
+    PATH=$PATH:$HOME/bin/android-sdk-linux/tools
 fi
 
 export PATH
