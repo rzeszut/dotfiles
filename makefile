@@ -14,7 +14,7 @@ emacs:
 
 
 # shell configuration
-shell: bash zsh
+shell: bash zsh tmux
 
 bash: shell-scripts shell-common
 	@echo "Installing bashrc ..."
@@ -22,6 +22,10 @@ bash: shell-scripts shell-common
 
 zsh: shell-scripts shell-common
 	@bash scripts/install/install_zsh.sh
+
+tmux:
+	@echo "Installing tmux ..."
+	@ln -fs $(CFGROOT)/tmux/tmux.conf ${HOME}/.tmux.conf
 
 shell-scripts:
 	@echo "Installing shell scripts ..."
@@ -122,6 +126,12 @@ uninstall-vim:
 uninstall-shell:
 	@echo "Uninstalling shell config ..."
 	@unlink ${HOME}/.bashrc
+	@unlink ${HOME}/.zshrc
+	@unlink ${HOME}/.oh-my-zsh
+	@unlink ${HOME}/.tmux.conf
+	@unlink ${HOME}/.shell-path
+	@unlink ${HOME}/.shell-aliases
+	@unlink ${HOME}/.shell-env
 	@unlink ${HOME}/bin/scripts
 
 uninstall-emacs:
