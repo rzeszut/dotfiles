@@ -56,7 +56,7 @@ URxvt*.background: [95]#1d1f21
 URxvt*.buffered: true
 URxvt*.scrollBar: false
 URxvt*.font: xft:DejaVu Sans Mono:size=10:antialias=true,xft:Droid Sans Mono:size=10:antialias=true
-URxvt*.perl-ext-common: default,matcher,tabbed
+URxvt*.perl-ext-common: default,matcher
 URxvt*.url-launcher: /usr/bin/conkeror
 URxvt*.matcher.button: 1
 ! ctrl+arrows fix
