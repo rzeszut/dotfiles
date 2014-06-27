@@ -40,6 +40,7 @@ Bundle 'kien/ctrlp.vim'
 
 " UltiSnips
 Bundle 'SirVer/ultisnips'
+Bundle 'honza/vim-snippets'
 
 " smartinput -- closes matching braces, quotes, parentheses etc.
 Bundle 'kana/vim-smartinput'
@@ -58,6 +59,13 @@ Bundle 'godlygeek/tabular'
 
 " GLSL highlighting
 Bundle 'vim-scripts/glsl.vim'
+
+" Pandoc {{{3
+Bundle 'vim-pandoc/vim-pandoc-syntax'
+
+Bundle 'vim-pandoc/vim-pantondoc'
+
+" }}}3
 
 " Webdev general {{{3
 " LESS
@@ -259,12 +267,12 @@ endfunction
 
 " UltiSnips completion function {{{2
 function! g:UltiSnips_Complete()
-    call UltiSnips_ExpandSnippet()
+    call UltiSnips#ExpandSnippet()
     if g:ulti_expand_res == 0
         if pumvisible()
             return "\<C-n>"
         else
-            call UltiSnips_JumpForwards()
+            call UltiSnips#JumpForwards()
             if g:ulti_jump_forwards_res == 0
                 return "\<TAB>"
             endif
@@ -504,13 +512,6 @@ augroup ft_xdefaults
     autocmd BufRead,BufNewFile xresources,.Xresources setlocal filetype=xdefaults
 " }}}2
 
-" Markdown {{{2
-augroup ft_markdown
-    autocmd!
-    autocmd BufRead,BufNewFile {*.md,*.markdown,*.mkd} setlocal filetype=markdown
-augroup END
-"}}}2
-
 " C/C++ {{{2
 augroup ft_cpp
     autocmd!
@@ -518,7 +519,7 @@ augroup ft_cpp
     autocmd FileType {cpp,c} nnoremap <leader>d :YcmCompleter GoToDefinition<cr>
     autocmd FileType {cpp,c,java} setlocal fo=croq
     autocmd FileType {cpp,c,java} setlocal cindent
-    autocmd FileType {cpp,c,java} setlocal cino=:0,g0,N-s,(0
+    autocmd FileType {cpp,c,java} setlocal cino=:0,g0,N-s,(0,W4,j1
 augroup END
 " }}}2
 

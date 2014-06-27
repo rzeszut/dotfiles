@@ -58,4 +58,9 @@ if [[ -e $HOME/bin/android-sdk-linux ]]; then
     PATH=$PATH:$HOME/bin/android-sdk-linux/tools
 fi
 
+# CADP
+if [[ -e $HOME/bin/cadp ]]; then
+    PATH=$PATH:$HOME/bin/cadp/com/:$HOME/bin/cadp/bin.x64
+fi
+
 export PATH
