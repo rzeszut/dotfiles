@@ -11,10 +11,10 @@ ln -fs $CFGROOT/vim/vimrc $HOME/.vimrc
 
 echo "Installing Vundle ..."
 mkdir -p $HOME/.vim/bundle
-git clone https://github.com/gmarik/vundle.git $HOME/.vim/bundle/vundle
+git clone https://github.com/gmarik/Vundle.vim.git $HOME/.vim/bundle/Vundle.vim
 
 echo "Downloading plugins ..."
-vim +BundleClean! +BundleInstall! +qall
+vim +PluginClean! +PluginInstall! +qall
 
 echo "Compiling YCM ..."
 cd $HOME/.vim/bundle/YouCompleteMe
@@ -25,14 +25,5 @@ if ( is_executable npm ); then
     echo "Installing tern ..."
     cd $HOME/.vim/bundle/tern_for_vim
     npm install
-fi
-
-echo "Compiling vimproc ..."
-cd $HOME/.vim/bundle/vimproc.vim
-make
-
-if ( is_executable cabal ); then
-    echo "Installing ghc-mod ..."
-    cabal install ghc-mod
 fi
 

@@ -10,7 +10,7 @@ if ARGV.length < 1
   exit
 end
 
-thread_data = ARGV[0].scan(/.*\/(.+)\/res\/(\d{2,})/)[0]
+thread_data = ARGV[0].scan(/.*\/(.+)\/thread\/(\d{2,})/)[0]
 board_name = thread_data[0]
 thread_id = thread_data[1]
 

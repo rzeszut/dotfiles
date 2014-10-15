@@ -63,4 +63,9 @@ if [[ -e $HOME/bin/cadp ]]; then
     PATH=$PATH:$HOME/bin/cadp/com/:$HOME/bin/cadp/bin.x64
 fi
 
+# CADP
+if [[ -e $HOME/bin/teamspeak ]]; then
+    PATH=$PATH:$HOME/bin/teamspeak
+fi
+
 export PATH
