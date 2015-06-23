@@ -55,7 +55,7 @@ Add repository with Oracle Java installers:
 
 Install Java:
 
-    sudo apt-get install oracle-java7-installer
+    sudo apt-get install oracle-java8-installer
 
 ### LaTeX
 Install texlive-full and rubber:
@@ -156,7 +156,7 @@ Ubuntu 13.10 has vim 7.4, compiling it from the source is not necessary.
 
 Installing mupdf and rubber is recommended when editing LaTeX files:
 
-    sudo apt-get mupdf rubber
+    sudo apt-get install mupdf rubber
 
 When using vim for JS coding, install jshint (node required):
 

@@ -21,6 +21,14 @@ cd $HOME/.vim/bundle/YouCompleteMe
 ./install.sh --clang-completer
 ln -fs $CFGROOT/vim/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
 
+if ( is_executable cabal ); then
+    echo "Installing ghc-mod and haskell extensions..."
+    cabal update
+    cabal install ghc-mod
+    cd $HOME/.vim/bundle/vimproc.vim
+    make
+fi
+
 if ( is_executable npm ); then
     echo "Installing tern ..."
     cd $HOME/.vim/bundle/tern_for_vim

@@ -29,8 +29,9 @@ tmux:
 
 shell-scripts:
 	@echo "Installing shell scripts ..."
-	@mkdir -p ${HOME}/bin
-	@ln -fs $(CFGROOT)/scripts ${HOME}/bin/scripts
+	@mkdir -p ${HOME}/.local/bin
+	# TODO: link all scripts -- maybe separate script for installing those?
+	#@ln -fs $(CFGROOT)/scripts ${HOME}/bin/scripts
 
 shell-common:
 	@echo "Installing common shell config ..."

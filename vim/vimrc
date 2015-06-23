@@ -5,7 +5,7 @@ filetype off
 let is_windows = has('win32') || has('win64')
 " TODO: add windows support
 
-set rtp+=~/.vim/bundle/Vundle.vim
+set rtp+=~/.vim/bundle/vundle
 call vundle#begin()
 
 " let Vundle manage Vundle
@@ -47,6 +47,11 @@ Plugin 'pangloss/vim-javascript'
 if executable('node')
     Plugin 'marijnh/tern_for_vim'
 endif
+
+" Haskell
+Plugin 'eagletmt/ghcmod-vim'
+Plugin 'eagletmt/neco-ghc'
+Plugin 'Shougo/vimproc.vim'
 
 " }}}3
 
@@ -127,6 +132,14 @@ set shell=/bin/bash
 
 " Ctags file location
 set tags=tags
+
+" Path
+" add local cabal programs
+let $PATH = $PATH . ':' . expand('~/.local/bin')
+if executable('cabal')
+    let $PATH = $PATH . ':' . expand('~/.cabal/bin')
+endif
+
 "}}}1
 
 "" Appearance {{{1
@@ -247,9 +260,6 @@ nnoremap <leader>l viwu
 nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 
-" open and edit personal wiki
-nnoremap <leader>ew :e $HOME/wiki/index.md<cr>
-
 " quick save and close
 nnoremap <leader>w :w<cr>
 nnoremap <leader>q :q<cr>
@@ -318,6 +328,7 @@ command! -nargs=* -complete=help Help vertical belowright help <args>
 "}}}1
 
 "" Plugins config {{{1
+
 " NERDTree {{{2
 let NERDTreeIgnore=['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git$', '\.hg', '\.svn', '\.bzr']
 let NERDTreeChDirMode=0
@@ -369,6 +380,14 @@ let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_global_ycm_extra_conf = $HOME . '/.ycm_extra_conf.py'
 let g:ycm_key_detailed_diagnostics = '<leader>yd'
+let g:ycm_semantic_triggers =  {
+\   'c' : ['->', '.'],
+\   'cpp' : ['->', '.', '::'],
+\   'php' : ['->', '::'],
+\   'java,javascript,python,scala,haskell' : ['.'],
+\   'vim' : ['re![_a-zA-Z]+[_\w]*\.'],
+\   'ruby' : ['.', '::'],
+\ }
 " }}}2
 
 " UltiSnips {{{2
@@ -494,6 +513,13 @@ augroup END
 augroup ft_markdown
     autocmd!
     autocmd FileType {pandoc,markdown} setlocal nospell
+augroup END
+" }}}2
+
+" Haskell {{{2
+augroup ft_haskell
+    autocmd!
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 augroup END
 " }}}2
 
