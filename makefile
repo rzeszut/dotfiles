@@ -4,14 +4,7 @@ RM = rm -rf
 # ------------------
 # Config intallation
 # ------------------
-all: emacs bash vim wm mplayer octave git sqlite
-
-
-# emacs configuration
-emacs:
-	@echo "Installing emacs ..."
-	@ln -fs $(CFGROOT)/emacs ${HOME}/.emacs.d
-
+all: shell vim vimperator git
 
 # shell configuration
 shell: bash zsh tmux
@@ -21,17 +14,16 @@ bash: shell-scripts shell-common
 	@ln -fs $(CFGROOT)/shell/bashrc ${HOME}/.bashrc
 
 zsh: shell-scripts shell-common
-	@bash scripts/install/install_zsh.sh
+	@bash install/install_zsh.sh
 
 tmux:
 	@echo "Installing tmux ..."
-	@ln -fs $(CFGROOT)/tmux/tmux.conf ${HOME}/.tmux.conf
+	@ln -fs $(CFGROOT)/config/tmux.conf ${HOME}/.tmux.conf
 
 shell-scripts:
 	@echo "Installing shell scripts ..."
-	@mkdir -p ${HOME}/.local/bin
-	# TODO: link all scripts -- maybe separate script for installing those?
-	#@ln -fs $(CFGROOT)/scripts ${HOME}/bin/scripts
+	@mkdir -p ${HOME}/bin
+	@ln -fs $(CFGROOT)/scripts ${HOME}/bin/scripts
 
 shell-common:
 	@echo "Installing common shell config ..."
@@ -42,7 +34,7 @@ shell-common:
 
 # Vim configuration
 vim: vim-xmodmap vim-ctags
-	@bash scripts/install/install_vim.sh
+	@bash install/install_vim.sh
 
 vim-xmodmap:
 	@echo "Installing Xmodmap ..."
@@ -55,67 +47,19 @@ vim-ctags:
 
 # Vimperator configuration
 vimperator:
-	@bash scripts/install/install_vimperator.sh
+	@bash install/install_vimperator.sh
 
 
-# WM - xmonad configuration
-wm: wm-xinitrc wm-xmonad wm-taffybar wm-xresources wm-fonts
-
-wm-xinitrc:
-	@echo "Installing xinitrc ..."
-	@ln -fs $(CFGROOT)/wm/xinitrc ${HOME}/.xinitrc
-	@ln -fs $(CFGROOT)/wm/xinitrc ${HOME}/.xsession
-
-wm-taffybar:
-	@echo "Installing taffybar ..."
-	@mkdir -p ${HOME}/.config
-	@ln -fs $(CFGROOT)/wm/taffybar ${HOME}/.config/taffybar
-
-wm-xmonad: wm-taffybar wm-xinitrc
-	@echo "Installing xmonad ..."
-	@ln -fs $(CFGROOT)/wm/xmonad ${HOME}/.xmonad
-
-wm-xresources:
-	@echo "Installing Xresources ..."
-	@ln -fs $(CFGROOT)/wm/xresources ${HOME}/.Xresources
-	@xrdb ${HOME}/.Xresources
-
-wm-fonts:
-	@echo "Installing fonts.conf ..."
-	@ln -fs $(CFGROOT)/wm/fonts.conf ${HOME}/.fonts.conf
-
-
-# various
+# Git configuration
 git:
 	@echo "Installing gitconfig ..."
-	@ln -fs $(CFGROOT)/various/gitconfig ${HOME}/.gitconfig
-
-mplayer:
-	@echo "Installing mplayer ..."
-	@ln -fs $(CFGROOT)/various/mplayer ${HOME}/.mplayer
-
-octave:
-	@echo "Installing octave ..."
-	@ln -fs $(CFGROOT)/various/octaverc ${HOME}/.octaverc
-
-sqlite:
-	@echo "Installing sqlite ..."
-	@ln -fs $(CFGROOT)/various/sqliterc ${HOME}/.sqliterc
+	@ln -fs $(CFGROOT)/config/gitconfig ${HOME}/.gitconfig
 
 
 # -----------------------
 # UNINSTALL configrations
 # -----------------------
-uninstall: uninstall-wm uninstall-vim uninstall-shell uninstall-emacs uninstall-various
-
-uninstall-wm:
-	@echo "Uninstalling WM config ..."
-	@unlink ${HOME}/.xinitrc
-	@unlink ${HOME}/.xsession
-	@unlink ${HOME}/.config/taffybar
-	@unlink ${HOME}/.xmonad
-	@unlink ${HOME}/.Xresources
-	@unlink ${HOME}/.fonts.conf
+uninstall: uninstall-vim uninstall-vimperator uninstall-shell uninstall-git
 
 uninstall-vim:
 	@echo "Uninstalling Vim config ..."
@@ -123,6 +67,12 @@ uninstall-vim:
 	@unlink ${HOME}/.vimrc
 	@unlink ${HOME}/.Xmodmap
 	@unlink ${HOME}/.ctags
+	@unlink ${HOME}/.ycm_extra_conf.py
+
+uninstall-vimperator:
+	@echo "Uninstalling Vimperator config ..."
+	@${RM} ${HOME}/.vimperator
+	@unlink ${HOME}/.vimperatorrc
 
 uninstall-shell:
 	@echo "Uninstalling shell config ..."
@@ -135,34 +85,7 @@ uninstall-shell:
 	@unlink ${HOME}/.shell-env
 	@unlink ${HOME}/bin/scripts
 
-uninstall-emacs:
-	@echo "Uninstalling Emacs config ..."
-	@unlink ${HOME}/.emacs.d
-
-uninstall-various:
+uninstall-git:
 	@echo "Uninstalling various configs ..."
 	@unlink ${HOME}/.gitconfig
-	@unlink ${HOME}/.octaverc
-	@unlink ${HOME}/.sqliterc
-	@unlink ${HOME}/.mplayer
-
-
-# ----------------
-# Phony WM targets
-# ----------------
-.PHONY: restart-xmonad restart-taffybar update-xresources
-
-restart-xmonad:
-	@echo "Restarting xmonad ..."
-	@kill -9 `ps -e | grep taffybar | cut -d ' ' -f2`
-	@xmonad --recompile && xmonad --restart
-
-restart-taffybar:
-	@echo "Restarting taffybar ..."
-	@kill -9 `ps -e | grep taffybar | cut -d ' ' -f2`
-	@taffybar &
-
-update-xresources:
-	@echo "Updating Xresources ..."
-	@xrdb ${HOME}/.Xresources
 

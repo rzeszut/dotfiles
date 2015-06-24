@@ -1,5 +1,6 @@
 # user scripts and application directory
 PATH=$PATH:$HOME/.local/bin
+PATH=$PATH:$HOME/bin/scripts
 
 # cabal and haskell applications
 if [ -e $HOME/.cabal ]; then
@@ -38,11 +39,6 @@ if [ -e $HOME/bin/pycharm ]; then
     PATH=$PATH:$HOME/bin/pycharm/bin
 fi
 
-# matlab path
-if [ -e /usr/local/MATLAB/R2011a/bin ]; then
-    PATH=$PATH:/usr/local/MATLAB/R2011a/bin
-fi
-
 # nvidia cuda
 if [ -e /usr/local/cuda/bin ]; then
     PATH=$PATH:/usr/local/cuda/bin
@@ -64,3 +60,4 @@ if [[ -e $HOME/bin/teamspeak ]]; then
 fi
 
 export PATH
+
