@@ -24,10 +24,14 @@ Plugin 'honza/vim-snippets'
 Plugin 'kana/vim-smartinput'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'mbbill/undotree'
 
 " programming
-Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
+if !is_windows
+    " YCM does not work on windows
+    Plugin 'scrooloose/syntastic'
+    Plugin 'Valloric/YouCompleteMe'
+endif
 if executable('ctags')
     Plugin 'majutsushi/tagbar'
 endif
@@ -49,16 +53,19 @@ if executable('node')
 endif
 
 " Haskell
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'eagletmt/neco-ghc'
-Plugin 'Shougo/vimproc.vim'
+if executable('cabal')
+    Plugin 'eagletmt/ghcmod-vim'
+    Plugin 'eagletmt/neco-ghc'
+    Plugin 'Shougo/vimproc.vim'
+endif
 
 " }}}3
 
 " editing
 Plugin 'vim-pandoc/vim-pandoc-syntax'
 Plugin 'vim-pandoc/vim-pantondoc'
-Plugin 'vitalk/vim-simple-todo'
+" TODO: Write new task/close task commands manually for *.md files
+"Plugin 'vitalk/vim-simple-todo'
 
 " }}}2
 
@@ -183,12 +190,10 @@ set backup
 set wb
 set swapfile
 
-" Persistent undo
-try
+if has("persistent_undo")
     set undodir=~/.vim_runtime/undodir
     set undofile
-catch
-endtry
+endif
 "}}}1
 
 "" Additional config {{{1
@@ -321,6 +326,10 @@ noremap <silent><F1> :NERDTreeToggle<cr>
 noremap <silent><F2> :TagbarToggle<cr>
 " }}}2
 
+" Undotree {{{2
+nnoremap <silent><F3> :UndotreeToggle<cr>
+" }}}2
+
 "}}}1
 
 "" Command mappings {{{1
@@ -365,7 +374,7 @@ let g:ctrlp_cmd = 'CtrlPMixed'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\.(git|hg|svn)$',
-  \ 'file': '(\.so|\.pyc|\.swo|\.swp|\~)$',
+  \ 'file': '(\.o|\.so|\.pyc|\.swo|\.swp|\~|\.class|\.jar)$',
   \ }
 " }}}2
 
@@ -411,6 +420,11 @@ let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
 " vim-pandoc-syntax {{{2
 " Turn off ugly conceal characters
 let g:pandoc#syntax#conceal#use = 0
+" }}}2
+
+" Undotree {{{2
+let g:undotree_SetFocusWhenToggle = 1
+let g:undotree_WindowLayout = 2
 " }}}2
 
 "}}}1
@@ -459,8 +473,8 @@ augroup END
 " XML/HTML {{{2
 augroup ft_xml
     autocmd!
-    autocmd FileType {xml,html,play2-html} inoremap <buffer> <leader>/ </<c-x><c-o>
-    autocmd FileType {xml,html,play2-html} setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType {xml,html,xslt,xsd,play2-html} inoremap <buffer> <leader>/ </<c-x><c-o>
+    autocmd FileType {xml,html,xslt,xsd,play2-html} setlocal omnifunc=htmlcomplete#CompleteTags
 augroup END
 " }}}2
 

@@ -39,8 +39,10 @@ Note: when using emacs with clojure, start it from terminal by hand (no dmenu!).
 ### haskell-platform
 For xmonad and taffybar you're gonna need ghc and cabal. Run
 
-    sudo apt-get install ghc cabal-install
+    sudo apt-get install ghc cabal-install happy
     sudo cabal update
+
+Happy is required for ghc-mod support in vim.
 
 ### Java from Oracle
 Instructions for Ubuntu:
