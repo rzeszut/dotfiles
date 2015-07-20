@@ -6,54 +6,17 @@ RM = rm -rf
 # ------------------
 all: shell vim vimperator git
 
-# shell configuration
-shell: bash zsh tmux
+shell:
+	@bash install/install_shell.sh
 
-bash: shell-scripts shell-common
-	@echo "Installing bashrc ..."
-	@ln -fs $(CFGROOT)/shell/bashrc ${HOME}/.bashrc
-
-zsh: shell-scripts shell-common
-	@bash install/install_zsh.sh
-
-tmux:
-	@echo "Installing tmux ..."
-	@ln -fs $(CFGROOT)/config/tmux.conf ${HOME}/.tmux.conf
-
-shell-scripts:
-	@echo "Installing shell scripts ..."
-	@mkdir -p ${HOME}/bin
-	@ln -fs $(CFGROOT)/scripts ${HOME}/bin/scripts
-
-shell-common:
-	@echo "Installing common shell config ..."
-	@ln -fs $(CFGROOT)/shell/shell-path.sh ${HOME}/.shell-path
-	@ln -fs $(CFGROOT)/shell/shell-aliases.sh ${HOME}/.shell-aliases
-	@ln -fs $(CFGROOT)/shell/shell-env.sh ${HOME}/.shell-env
-
-
-# Vim configuration
-vim: vim-xmodmap vim-ctags
+vim:
 	@bash install/install_vim.sh
 
-vim-xmodmap:
-	@echo "Installing Xmodmap ..."
-	@ln -fs $(CFGROOT)/vim/xmodmap ${HOME}/.Xmodmap
-
-vim-ctags:
-	@echo "Installing ctags ..."
-	@ln -fs $(CFGROOT)/vim/ctags ${HOME}/.ctags
-
-
-# Vimperator configuration
 vimperator:
 	@bash install/install_vimperator.sh
 
-
-# Git configuration
 git:
-	@echo "Installing gitconfig ..."
-	@ln -fs $(CFGROOT)/config/gitconfig ${HOME}/.gitconfig
+	@bash install/install_git.sh
 
 
 # -----------------------
@@ -86,6 +49,6 @@ uninstall-shell:
 	@unlink ${HOME}/bin/scripts
 
 uninstall-git:
-	@echo "Uninstalling various configs ..."
+	@echo "Uninstalling git config ..."
 	@unlink ${HOME}/.gitconfig
 

@@ -13,8 +13,8 @@ Plugin 'gmarik/vundle'
 
 " Plugins {{{2
 " appearance
-Plugin 'nanotech/jellybeans.vim'
 Plugin 'bling/vim-airline'
+Plugin 'nanotech/jellybeans.vim'
 
 " general utilities
 Plugin 'scrooloose/nerdtree'
@@ -153,9 +153,12 @@ endif
 set number numberwidth=4
 set cursorline
 
-" colors and fonts
 set background=dark
-colorscheme jellybeans
+try
+    colorscheme jellybeans
+catch
+    colorscheme desert
+endtry
 
 " gui settings
 if has("gui_running")
@@ -473,8 +476,8 @@ augroup END
 " XML/HTML {{{2
 augroup ft_xml
     autocmd!
-    autocmd FileType {xml,html,xslt,xsd,play2-html} inoremap <buffer> <leader>/ </<c-x><c-o>
-    autocmd FileType {xml,html,xslt,xsd,play2-html} setlocal omnifunc=htmlcomplete#CompleteTags
+    autocmd FileType {xml,html,xslt,xsd,htmldjango,play2-html} inoremap <buffer> <leader>/ </<c-x><c-o>
+    autocmd FileType {xml,html,xslt,xsd,htmldjango,play2-html} setlocal omnifunc=htmlcomplete#CompleteTags
 augroup END
 " }}}2
 

@@ -2,7 +2,11 @@
 
 CFGROOT=$(pwd)
 
-echo "Installing vimperator..."
+echo 'Please install Vimperator addon in Firefox.'
+read -n1 -r -p 'Press any key to continue...'
+
+echo ''
+echo 'Installing vimperator...'
 ln -fs $CFGROOT/vimperator/vimperatorrc $HOME/.vimperatorrc
 
 mkdir -p $HOME/.vimperator/colors
