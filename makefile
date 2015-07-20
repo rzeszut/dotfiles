@@ -4,7 +4,7 @@ RM = rm -rf
 # ------------------
 # Config intallation
 # ------------------
-all: shell vim vimperator git
+all: shell vim vimperator git ranger
 
 shell:
 	@bash install/install_shell.sh
@@ -18,11 +18,14 @@ vimperator:
 git:
 	@bash install/install_git.sh
 
+ranger:
+	@bash install/install_ranger.sh
+
 
 # -----------------------
 # UNINSTALL configrations
 # -----------------------
-uninstall: uninstall-vim uninstall-vimperator uninstall-shell uninstall-git
+uninstall: uninstall-vim uninstall-vimperator uninstall-shell uninstall-git uninstall-ranger
 
 uninstall-vim:
 	@echo "Uninstalling Vim config ..."
@@ -51,4 +54,8 @@ uninstall-shell:
 uninstall-git:
 	@echo "Uninstalling git config ..."
 	@unlink ${HOME}/.gitconfig
+
+uninstall-ranger:
+	@echo "Uninstalling ranger config ..."
+	@${RM} ${HOME}/.config/ranger
 
