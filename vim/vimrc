@@ -14,7 +14,7 @@ Plugin 'gmarik/vundle'
 " Plugins {{{2
 " appearance
 Plugin 'bling/vim-airline'
-Plugin 'nanotech/jellybeans.vim'
+Plugin 'w0ng/vim-hybrid'
 
 " general utilities
 Plugin 'scrooloose/nerdtree'
@@ -155,7 +155,7 @@ set cursorline
 
 set background=dark
 try
-    colorscheme jellybeans
+    colorscheme hybrid
 catch
     colorscheme desert
 endtry
