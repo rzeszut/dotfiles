@@ -1,0 +1,45 @@
+# vim: ft=conf
+
+general {
+    output_format = "i3bar"
+    color_good      = '#b5bd68'
+    color_degraded  = '#de935f'
+    color_bad       = '#a54242'
+    colors = true
+    interval = 5
+}
+
+order += "wireless wlan0"
+order += "volume master"
+order += "battery 0"
+order += "cpu_usage"
+order += "tztime local"
+
+wireless wlan0 {
+    format_up = " (%quality at %essid) %ip"
+    format_down = " down"
+}
+
+volume master {
+    format = " %volume"
+    format_muted = "  %volume"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
+}
+
+battery 0 {
+    format = "⚡ %percentage"
+    format_down = "⚡ no battery"
+    path = "/sys/class/power_supply/BAT%d/uevent"
+    low_threshold = 20
+}
+
+tztime local {
+    format = "%Y-%m-%d  %H:%M:%S"
+}
+
+cpu_usage {
+    format = " %usage "
+}
+

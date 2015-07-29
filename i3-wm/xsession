@@ -1,0 +1,45 @@
+#!/bin/bash
+# vim: ft=sh
+
+# set key mapping
+setxkbmap pl
+xmodmap $HOME/.Xmodmap
+
+# Load resources
+xrdb -merge $HOME/.Xresources
+
+# turn off that annoying beep
+xset b off
+
+is_executable () {
+    [[ ! -z  `command -v $1` ]] && return 0 || return 1
+}
+
+# Set the background color
+if ( is_executable feh ); then
+    if [[ -e $HOME/.wallpaper ]]; then
+        feh --bg-scale $HOME/.wallpaper
+    fi
+fi
+
+# urxvt daemon
+urxvtd -q -o -f
+
+# start pulseaudio
+if ( is_executable start-pulseaudio-x11 ); then
+    start-pulseaudio-x11 &
+fi
+
+# network manager
+if ( is_executable nm-applet ); then
+   nm-applet --sm-disable &
+fi
+
+# redshift - Kraków coordinates
+if ( is_executable gtk-redshift ); then
+    gtk-redshift -l 50.0614:19.9372 &
+fi
+
+# run window manager
+exec i3 --force-xinerama -V >>~/.i3/i3log 2>&1
+

@@ -23,8 +23,6 @@ source $ZSH/oh-my-zsh.sh
 # User configuration
 ####################
 
-export EDITOR='vim'
-
 # History settings
 HISTSIZE=1000
 SAVEHIST=2000

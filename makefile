@@ -4,7 +4,7 @@ RM = rm -rf
 # ------------------
 # Config intallation
 # ------------------
-all: shell vim vimperator git ranger
+all: shell vim vimperator git ranger i3
 
 shell:
 	@bash install/install_shell.sh
@@ -21,11 +21,14 @@ git:
 ranger:
 	@bash install/install_ranger.sh
 
+i3:
+	@bash install/install_i3.sh
+
 
 # -----------------------
 # UNINSTALL configrations
 # -----------------------
-uninstall: uninstall-vim uninstall-vimperator uninstall-shell uninstall-git uninstall-ranger
+uninstall: uninstall-vim uninstall-vimperator uninstall-shell uninstall-git uninstall-ranger uninstall-i3
 
 uninstall-vim:
 	@echo "Uninstalling Vim config ..."
@@ -58,4 +61,11 @@ uninstall-git:
 uninstall-ranger:
 	@echo "Uninstalling ranger config ..."
 	@${RM} ${HOME}/.config/ranger
+
+uninstall-i3:
+	@echo "Uninstalling i3 config ..."
+	@unlink ${HOME}/.Xresources
+	@${RM} ${HOME}/.i3
+	@unlink ${HOME}/.i3status.conf
+	@unlink ${HOME}/.xsession
 
