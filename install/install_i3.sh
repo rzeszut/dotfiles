@@ -5,7 +5,7 @@ CFGROOT=$(pwd)
 cat << EOF
 Please install i3 and required applications:
 
-    sudo apt-get install i3-wm i3status rxvt-unicode suckless-tools
+    sudo apt-get install i3-wm i3status rxvt-unicode suckless-tools i3lock
 
 Install some nice fonts for dmenu:
 
