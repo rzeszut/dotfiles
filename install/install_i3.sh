@@ -25,6 +25,6 @@ ln -fs $CFGROOT/i3-wm/xresources $HOME/.Xresources
 echo 'Installing i3 config ...'
 mkdir -p $HOME/.i3
 ln -fs $CFGROOT/i3-wm/config $HOME/.i3/config
+ln -fs $CFGROOT/i3-wm/autostart $HOME/.i3/autostart
 ln -fs $CFGROOT/i3-wm/status $HOME/.i3status.conf
-ln -fs $CFGROOT/i3-wm/xsession $HOME/.xsession
 

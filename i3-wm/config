@@ -130,3 +130,5 @@ bar {
     }
 }
 
+# execute autostart script
+exec ~/.i3/autostart 

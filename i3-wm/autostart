@@ -40,6 +40,3 @@ if ( is_executable gtk-redshift ); then
     gtk-redshift -l 50.0614:19.9372 &
 fi
 
-# run window manager
-exec i3 --force-xinerama -V >>~/.i3/i3log 2>&1
-
