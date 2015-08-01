@@ -2,7 +2,7 @@
 
 CFGROOT=$(pwd)
 
-source $CFGROOT/install/common.sh
+source $CFGROOT/shell/shell-functions.sh
 
 cat << EOF
 This installation requires git. Make sure to run 'make git' beforehand.

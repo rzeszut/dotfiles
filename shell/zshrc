@@ -40,3 +40,6 @@ source $HOME/.shell-aliases
 # Environment variables
 source $HOME/.shell-env
 
+# Additional functions
+source $HOME/.shell-functions
+

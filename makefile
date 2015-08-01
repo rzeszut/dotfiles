@@ -48,10 +48,10 @@ uninstall-shell:
 	@unlink ${HOME}/.bashrc
 	@unlink ${HOME}/.zshrc
 	@unlink ${HOME}/.oh-my-zsh
-	@unlink ${HOME}/.tmux.conf
 	@unlink ${HOME}/.shell-path
 	@unlink ${HOME}/.shell-aliases
 	@unlink ${HOME}/.shell-env
+	@unlink ${HOME}/.shell-functions
 	@unlink ${HOME}/bin/scripts
 
 uninstall-git:

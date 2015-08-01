@@ -2,7 +2,7 @@
 
 CFGROOT=$(pwd)
 
-source $CFGROOT/install/common.sh
+source $CFGROOT/shell/shell-functions.sh
 
 echo "Installing shell scripts ..."
 mkdir -p ${HOME}/bin
@@ -12,6 +12,7 @@ echo "Installing common shell config ..."
 ln -fs $CFGROOT/shell/shell-path.sh ${HOME}/.shell-path
 ln -fs $CFGROOT/shell/shell-aliases.sh ${HOME}/.shell-aliases
 ln -fs $CFGROOT/shell/shell-env.sh ${HOME}/.shell-env
+ln -fs $CFGROOT/shell/shell-functions.sh ${HOME}/.shell-functions
 
 # Bash-specific section
 echo "Installing bashrc ..."

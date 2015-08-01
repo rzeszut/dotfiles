@@ -11,10 +11,6 @@ xrdb -merge $HOME/.Xresources
 # turn off that annoying beep
 xset b off
 
-is_executable () {
-    [[ ! -z  `command -v $1` ]] && return 0 || return 1
-}
-
 # Set the background color
 if ( is_executable feh ); then
     if [[ -e $HOME/.wallpaper ]]; then

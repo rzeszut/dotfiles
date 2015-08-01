@@ -1,5 +1,10 @@
 #!/bin/bash
 
+if ( is_not_executable xbacklight ); then
+    echo "This script requires xbacklight to work."
+    exit 1
+fi
+
 HOSTNAME=$(hostname)
 if [[ $HOSTNAME == *netbook* ]]; then
     # Intel graphics card on netbook can only change its brightness by ~15%
