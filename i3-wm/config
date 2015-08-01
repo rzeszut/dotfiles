@@ -98,8 +98,8 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # backlight control
-bindsym XF86MonBrightnessUp exec xbacklight + 15
-bindsym XF86MonBrightnessDown exec xbacklight - 15
+bindsym XF86MonBrightnessUp exec ~/bin/scripts/backlight.sh up
+bindsym XF86MonBrightnessDown exec ~/bin/scripts/backlight.sh down
 # audio control
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
@@ -132,6 +132,9 @@ bar {
     status_command i3status
     position top
     tray_output primary
+
+    mode hide
+    modifier $mod
 
     colors {
         background #1d1f21
