@@ -18,7 +18,7 @@ is_executable () {
 # Set the background color
 if ( is_executable feh ); then
     if [[ -e $HOME/.wallpaper ]]; then
-        feh --bg-scale $HOME/.wallpaper
+        feh --bg-fill $HOME/.wallpaper
     fi
 fi
 
