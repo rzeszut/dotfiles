@@ -1,17 +1,20 @@
 #!/bin/bash
 # vim: ft=sh
 
+# include shell functions -- i3 does not load .bashrc, unfortunately
+source $HOME/.shell-functions
+
 # set key mapping
 setxkbmap pl
 xmodmap $HOME/.Xmodmap
 
-# Load resources
+# load resources
 xrdb -merge $HOME/.Xresources
 
 # turn off that annoying beep
 xset b off
 
-# Set the background color
+# set the background color
 if ( is_executable feh ); then
     if [[ -e $HOME/.wallpaper ]]; then
         feh --bg-fill $HOME/.wallpaper
@@ -34,5 +37,10 @@ fi
 # redshift - Kraków coordinates
 if ( is_executable gtk-redshift ); then
     gtk-redshift -l 50.0614:19.9372 &
+fi
+
+# dunst notification manager
+if ( is_executable dunst ); then
+    dunst &
 fi
 

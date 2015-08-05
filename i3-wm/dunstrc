@@ -1,0 +1,77 @@
+# vim: ft=conf
+
+[global]
+    font = DejaVu Sans Mono 9
+    allow_markup = yes
+    format = "<b>%s</b>\n%b"
+    sort = yes
+    indicate_hidden = yes
+    alignment = left
+    bounce_freq = 0
+    show_age_threshold = 60
+    word_wrap = yes
+    ignore_newline = no
+    # geometry [{width}]x{height}[+/-{x}+/-{y}]
+    geometry = "300x5-30+30"
+    shrink = no
+    transparency = 0
+    idle_threshold = 120
+    monitor = 0
+    follow = none
+    sticky_history = yes
+    history_length = 20
+    show_indicators = yes
+    line_height = 0
+    separator_height = 2
+    padding = 8
+    horizontal_padding = 8
+    separator_color = frame
+    startup_notification = false
+    dmenu = /usr/bin/dmenu -p dunst:
+    browser = /usr/bin/firefox -new-tab
+    icon_position = off
+    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+
+[frame]
+    width = 3
+    color = "#aaaaaa"
+
+[shortcuts]
+    close = mod4+n
+    history = mod4+shift+n
+
+[urgency_low]
+    background = "#1d1f21"
+    foreground = "#c5c6c8"
+    timeout = 10
+
+[urgency_normal]
+    background = "#285577"
+    foreground = "#ffffff"
+    timeout = 10
+
+[urgency_critical]
+    background = "#900000"
+    foreground = "#ffffff"
+    timeout = 10
+
+# Every section that isn't one of the above is interpreted as a rules
+# to override settings for certain messages.
+# Messages can be matched by 'appname', 'summary', 'body' or 'icon'
+# and you can override the 'timeout', 'urgency', 'foreground', 'background'
+# and 'format'.
+# Shell-like globbing will get expanded.
+[signed_on]
+    appname = Pidgin
+    summary = "*signed on*"
+    urgency = low
+
+[signed_off]
+    appname = Pidgin
+    summary = *signed off*
+    urgency = low
+
+[says]
+    appname = Pidgin
+    summary = *says*
+    urgency = critical

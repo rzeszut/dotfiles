@@ -67,4 +67,5 @@ uninstall-i3:
 	@unlink ${HOME}/.Xresources
 	@${RM} ${HOME}/.i3
 	@unlink ${HOME}/.i3status.conf
+	@${RM} ${HOME}/.config/dunst
 
