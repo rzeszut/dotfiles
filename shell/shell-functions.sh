@@ -6,3 +6,8 @@ is_not_executable () {
     [[ -z `command -v $1` ]] && return 0 || return 1
 }
 
+rmtrash () {
+    find $HOME/.local/share/Trash/files -mindepth 1 -exec rm -r "{}" \;
+    find $HOME/.local/share/Trash/info  -mindepth 1 -exec rm -r "{}" \;
+}
+

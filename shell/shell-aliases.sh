@@ -7,3 +7,5 @@ alias lsd='ls -h --color=auto -d */'
 alias ll='ls -lhF'
 alias la='ls -lahF'
 
+alias cdtrash='cd ~/.local/share/Trash/files'
+

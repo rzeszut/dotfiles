@@ -1,0 +1,73 @@
+#!/bin/bash
+# vim: ft=sh
+
+# load basic functions library
+source ~/.shell-functions
+
+print_install_message () {
+cat << EOF
+Using this script requires eCryptfs to be installed and set up.
+
+    sudo apt-get install ecryptfs-utils
+    $(basename $0) setup
+
+EOF
+}
+
+install_symlink () {
+    local encDir=$1
+
+    if [[ -d $HOME/$encDir ]]; then
+        echo "WARNING: ~/$encDir already exists, will not symlink."
+    else
+        ln -s $HOME/private/$encDir $HOME/$encDir
+    fi
+}
+
+setup_ecrypt () {
+    if (is_not_executable ecryptfs-setup-private); then
+        print_install_message
+        exit 1
+    fi
+
+    ecryptfs-setup-private --noautomount
+    sed -i 's/Private/private/g' $HOME/.ecryptfs/Private.mnt
+
+    install_symlink .purple
+}
+
+mount_ecrypt () {
+    if (is_not_executable ecryptfs-mount-private); then
+        print_install_message
+        exit 1
+    fi
+
+    ecryptfs-mount-private
+}
+
+umount_ecrypt () {
+    if (is_not_executable ecryptfs-umount-private); then
+        print_install_message
+        exit 1
+    fi
+
+    ecryptfs-umount-private
+}
+
+case $1 in
+    mount)
+        mount_ecrypt
+        ;;
+
+    umount)
+        umount_ecrypt
+        ;;
+
+    setup)
+        setup_ecrypt
+        ;;
+
+    *)
+        echo "Usage $(basename $0) (setup|mount|umount)"
+esac
+

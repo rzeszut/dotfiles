@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# load basic functions library
+source ~/.shell-functions
+
 if ( is_not_executable xbacklight ); then
     echo "This script requires xbacklight to work."
     exit 1
