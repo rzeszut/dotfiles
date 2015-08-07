@@ -15,13 +15,20 @@ else
     BACKLIGHT_STEP_DOWN=3
 fi
 
+backlight_notify () {
+    local currentBacklight=$(xbacklight -get)
+    notify-send -u low Backlight "Current backlight: $currentBacklight"
+}
+
 case $1 in
     up)
         xbacklight + $BACKLIGHT_STEP_UP
+        backlight_notify
         ;;
 
     down)
         xbacklight - $BACKLIGHT_STEP_DOWN
+        backlight_notify
         ;;
 
     *)

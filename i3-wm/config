@@ -101,9 +101,9 @@ bindsym $mod+Shift+r restart
 bindsym XF86MonBrightnessUp exec ~/bin/scripts/backlight.sh up
 bindsym XF86MonBrightnessDown exec ~/bin/scripts/backlight.sh down
 # audio control
-bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
-bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
-bindsym XF86AudioMute exec amixer set Master toggle
+bindsym XF86AudioRaiseVolume exec amixer -D pulse -M set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer -D pulse -M set Master 5%- unmute
+bindsym XF86AudioMute exec amixer -D pulse -M set Master toggle
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
