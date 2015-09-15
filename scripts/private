@@ -4,23 +4,26 @@
 # load basic functions library
 source ~/.shell-functions
 
+PROGRAM_NAME=$(basename $0)
+
 print_install_message () {
 cat << EOF
 Using this script requires eCryptfs to be installed and set up.
 
     sudo apt-get install ecryptfs-utils
-    $(basename $0) setup
+    $PROGRAM_NAME setup
 
 EOF
 }
 
 install_symlink () {
-    local encDir=$1
+    local from=$1
+    local to=$2
 
-    if [[ -d $HOME/$encDir ]]; then
-        echo "WARNING: ~/$encDir already exists, will not symlink."
+    if [[ -d $HOME/$to ]]; then
+        echo "WARNING: ~/$to already exists, will not symlink."
     else
-        ln -s $HOME/private/$encDir $HOME/$encDir
+        ln -s $HOME/private/$from $HOME/$to
     fi
 }
 
@@ -33,7 +36,10 @@ setup_ecrypt () {
     ecryptfs-setup-private --noautomount
     sed -i 's/Private/private/g' $HOME/.ecryptfs/Private.mnt
 
-    install_symlink .purple
+    mkdir -p $HOME/.config
+
+    install_symlink purple .purple
+    install_symlink filezilla .config/filezilla
 }
 
 mount_ecrypt () {
@@ -68,6 +74,6 @@ case $1 in
         ;;
 
     *)
-        echo "Usage $(basename $0) (setup|mount|umount)"
+        echo "Usage $PROGRAM_NAME (setup|mount|umount)"
 esac
 
