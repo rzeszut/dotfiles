@@ -9,10 +9,14 @@
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     st = status
-    stat = status
-    cm = commit
+    fe = fetch
     re = rebase
+    me = merge
+    ci = commit
     co = checkout
+    br = branch
+
     sf = svn fetch
     sr = svn rebase
+    sp = svn dcommit
 
