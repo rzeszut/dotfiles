@@ -51,23 +51,23 @@ install_zsh () {
 }
 
 uninstall_common_shell () {
-	echo 'Uninstalling common shell config ...'
-	unlink $HOME/.shell-path
-	unlink $HOME/.shell-aliases
-	unlink $HOME/.shell-env
-	unlink $HOME/.shell-functions
-	unlink $HOME/bin/scripts
+    echo 'Uninstalling common shell config ...'
+    unlink $HOME/.shell-path
+    unlink $HOME/.shell-aliases
+    unlink $HOME/.shell-env
+    unlink $HOME/.shell-functions
+    unlink $HOME/bin/scripts
 }
 
 uninstall_bash () {
-	echo 'Uninstalling bash config ...'
-	unlink $HOME/.bashrc
+    echo 'Uninstalling bash config ...'
+    unlink $HOME/.bashrc
 }
 
 uninstall_zsh () {
-	echo 'Uninstalling zsh config ...'
-	unlink $HOME/.zshrc
-	unlink $HOME/.oh-my-zsh
+    echo 'Uninstalling zsh config ...'
+    unlink $HOME/.zshrc
+    unlink $HOME/.oh-my-zsh
 }
 
 case $1 in

@@ -18,9 +18,9 @@ install_vimperator () {
 }
 
 uninstall_vimperator () {
-	echo 'Uninstalling Vimperator config ...'
-	rm -rf $HOME/.vimperator
-	unlink $HOME/.vimperatorrc
+    echo 'Uninstalling Vimperator config ...'
+    rm -rf $HOME/.vimperator
+    unlink $HOME/.vimperatorrc
 }
 
 case $1 in

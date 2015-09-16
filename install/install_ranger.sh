@@ -21,8 +21,8 @@ EOF
 }
 
 uninstall_ranger () {
-	echo 'Uninstalling ranger config ...'
-	rm -rf $HOME/.config/ranger
+    echo 'Uninstalling ranger config ...'
+    rm -rf $HOME/.config/ranger
 }
 
 case $1 in

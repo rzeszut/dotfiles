@@ -22,8 +22,8 @@ EOF
 }
 
 uninstall_git () {
-	echo 'Uninstalling git config ...'
-	unlink $HOME/.gitconfig
+    echo 'Uninstalling git config ...'
+    unlink $HOME/.gitconfig
 }
 
 case $1 in

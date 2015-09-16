@@ -36,11 +36,11 @@ EOF
 }
 
 uninstall_i3 () {
-	echo 'Uninstalling i3 config ...'
-	unlink $HOME/.Xresources
-	rm -rf $HOME/.i3
-	unlink $HOME/.i3status.conf
-	rm -rf $HOME/.config/dunst
+    echo 'Uninstalling i3 config ...'
+    unlink $HOME/.Xresources
+    rm -rf $HOME/.i3
+    unlink $HOME/.i3status.conf
+    rm -rf $HOME/.config/dunst
 }
 
 case $1 in

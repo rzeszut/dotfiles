@@ -87,12 +87,12 @@ install_tern_js () {
 }
 
 uninstall_vim () {
-	echo 'Uninstalling Vim config ...'
-	rm -rf $HOME/.vim
-	unlink $HOME/.vimrc
-	unlink $HOME/.Xmodmap
-	unlink $HOME/.ctags
-	unlink $HOME/.ycm_extra_conf.py
+    echo 'Uninstalling Vim config ...'
+    rm -rf $HOME/.vim
+    unlink $HOME/.vimrc
+    unlink $HOME/.Xmodmap
+    unlink $HOME/.ctags
+    unlink $HOME/.ycm_extra_conf.py
 }
 
 case $1 in
