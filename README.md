@@ -1,17 +1,11 @@
 Installing
 ==========
-For installing all the dotfiles just type
+Use `config.sh` script for installing the dotfiles.
+Examples:
 
-    make
-
-For installing one specific configuration, e.g.
-
-    make -B vim
-
-To uninstall the config
-
-    make -B uninstall
-
+    ./config.sh vim install
+    ./config.sh shell uninstall
+    ./config.sh all install
 
 Prerequisites
 =============
