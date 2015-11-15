@@ -1,7 +1,10 @@
 #!/bin/bash
 
-CFGROOT=$(dirname $0)/..
-PROGRAM_NAME=$(basename $0)
+if [[ $(uname -a) = *Debian* ]]; then
+    DEPENDENCIES_VIMPERATOR="iceweasel"
+else
+    DEPENDENCIES_VIMPERATOR="firefox"
+fi
 
 install_vimperator () {
     echo 'Please install Vimperator addon in Firefox.'
@@ -22,17 +25,4 @@ uninstall_vimperator () {
     rm -rf $HOME/.vimperator
     unlink $HOME/.vimperatorrc
 }
-
-case $1 in
-    install)
-        install_vimperator
-        ;;
-
-    uninstall)
-        uninstall_vimperator
-        ;;
-
-    *)
-        echo "Usage $PROGRAM_NAME (install|uninstall)"
-esac
 

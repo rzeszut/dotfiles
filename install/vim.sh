@@ -1,20 +1,13 @@
 #!/bin/bash
 
-CFGROOT=$(dirname $0)/..
-PROGRAM_NAME=$(basename $0)
-
-source $CFGROOT/shell/shell-functions.sh
+DEPENDENCIES_VIM="vim-gtk exuberant-ctags build-essential cmake python-dev"
 
 print_install_message () {
     cat << EOF
 This installation requires git. Make sure to run 'make git' beforehand.
 Please install vim 7.4:
 
-    sudo apt-get install vim-gtk exuberant-ctags
-
-Install libraries required by YCM:
-
-    sudo apt-get install build-essential cmake python-dev
+    sudo apt-get install $DEPENDENCIES_VIM
 
 Optionally install mupdf and rubber for editing LaTeX files:
 
@@ -23,10 +16,6 @@ Optionally install mupdf and rubber for editing LaTeX files:
 Optionally install cabal and happy for Haskell support via ghc-mod:
 
     sudo apt-get install cabal-install happy
-
-Optionally install jshint:
-
-    sudo npm install -g jshint
 
 EOF
     read -n1 -r -p 'Press any key to continue...'
@@ -78,12 +67,13 @@ install_haskell_ext () {
     fi
 }
 
-install_tern_js () {
-    if (is_executable npm); then
-        echo 'Installing tern-js ...'
-        cd $HOME/.vim/bundle/tern_for_vim
-        npm install
-    fi
+install_vim () {
+    print_install_message
+    check_vim_installation
+    install_config
+    install_plugins
+    install_ycm
+    install_haskell_ext
 }
 
 uninstall_vim () {
@@ -94,23 +84,4 @@ uninstall_vim () {
     unlink $HOME/.ctags
     unlink $HOME/.ycm_extra_conf.py
 }
-
-case $1 in
-    install)
-        print_install_message
-        check_vim_installation
-        install_config
-        install_plugins
-        install_ycm
-        install_haskell_ext
-        install_tern_js
-        ;;
-
-    uninstall)
-        uninstall_vim
-        ;;
-
-    *)
-        echo "Usage $PROGRAM_NAME (install|uninstall)"
-esac
 

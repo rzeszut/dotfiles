@@ -1,14 +1,25 @@
 #!/bin/bash
 
-CFGROOT=$(dirname $0)/..
-PROGRAM_NAME=$(basename $0)
+#
+# Exported dependencies list
+#
+DEPENDENCIES_SHELL="zsh zsh-doc"
 
-source $CFGROOT/shell/shell-functions.sh
+#
+# Exported installation function.
+#
+install_shell () {
+    install_common_shell
+    install_bash
+    install_zsh
+}
 
 install_common_shell () {
     echo 'Installing shell scripts ...'
     mkdir -p $HOME/bin
-    ln -fs $CFGROOT/scripts $HOME/bin/scripts
+    if [[ ! -e $HOME/bin/scripts ]]; then
+        ln -fs $CFGROOT/scripts $HOME/bin/scripts
+    fi
 
     echo 'Installing common shell config ...'
     ln -fs $CFGROOT/shell/shell-path.sh $HOME/.shell-path
@@ -26,14 +37,16 @@ print_zsh_install_message () {
     cat << EOF
 Optionally install zsh:
 
-sudo apt-get install zsh zsh-doc
+sudo apt-get install $DEPENDENCIES_SHELL
 
 EOF
     read -n1 -r -p 'Press any key to continue...'
 }
 
 install_zsh () {
-    print_zsh_install_message
+    if (is_not_executable zsh); then
+        print_zsh_install_message
+    fi
 
     if (is_executable zsh); then
         if [[ ! -e $HOME/.oh-my-zsh ]]; then
@@ -48,6 +61,15 @@ install_zsh () {
         echo 'Installing zsh config ...'
         ln -fs $CFGROOT/shell/zshrc $HOME/.zshrc
     fi
+}
+
+#
+# Exported uninstallation function.
+#
+uninstall_shell () {
+    uninstall_common_shell
+    uninstall_bash
+    uninstall_zsh
 }
 
 uninstall_common_shell () {
@@ -69,21 +91,4 @@ uninstall_zsh () {
     unlink $HOME/.zshrc
     unlink $HOME/.oh-my-zsh
 }
-
-case $1 in
-    install)
-        install_common_shell
-        install_bash
-        install_zsh
-        ;;
-
-    uninstall)
-        uninstall_zsh
-        uninstall_bash
-        uninstall_common_shell
-        ;;
-
-    *)
-        echo "Usage $PROGRAM_NAME (install|uninstall)"
-esac
 

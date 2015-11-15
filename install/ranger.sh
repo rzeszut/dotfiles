@@ -1,13 +1,12 @@
 #!/bin/bash
 
-CFGROOT=$(dirname $0)/..
-PROGRAM_NAME=$(basename $0)
+DEPENDENCIES_RANGER="ranger atool w3m highlight mediainfo caca-utils"
 
 install_ranger () {
     cat << EOF
 Install ranger and additional tools:
 
-    sudo apt-get install ranger atool w3m highlight mediainfo caca-utils
+    sudo apt-get install $DEPENDENCIES_RANGER
 
 Ranger requires xterm or rxvt to work correctly.
 EOF
@@ -24,17 +23,4 @@ uninstall_ranger () {
     echo 'Uninstalling ranger config ...'
     rm -rf $HOME/.config/ranger
 }
-
-case $1 in
-    install)
-        install_ranger
-        ;;
-
-    uninstall)
-        uninstall_ranger
-        ;;
-
-    *)
-        echo "Usage $PROGRAM_NAME (install|uninstall)"
-esac
 
