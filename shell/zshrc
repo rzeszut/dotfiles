@@ -31,6 +31,9 @@ setopt appendhistory
 # don't beep
 unsetopt beep
 
+# Additional functions
+source $HOME/.shell-functions
+
 # PATH settings
 source $HOME/.shell-path
 
@@ -39,7 +42,4 @@ source $HOME/.shell-aliases
 
 # Environment variables
 source $HOME/.shell-env
-
-# Additional functions
-source $HOME/.shell-functions
 

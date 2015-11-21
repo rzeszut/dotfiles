@@ -9,3 +9,7 @@ alias la='ls -lahF'
 
 alias cdtrash='cd ~/.local/share/Trash/files'
 
+if (is_executable thefuck); then
+    eval "$(thefuck --alias)"
+fi
+
