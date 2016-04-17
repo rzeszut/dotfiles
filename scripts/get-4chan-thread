@@ -5,6 +5,16 @@
 require 'net/http'
 require 'json'
 
+def get_filename(basename, ext)
+  filename = basename + ext
+  counter = 1
+  while File.exists?(filename)
+    filename = "#{basename}.#{counter.to_s}#{ext}"
+    counter += 1
+  end
+  return filename
+end
+
 if ARGV.length < 1
   puts "usage: ruby 4chan_get_thread.rb thread_url"
   exit
@@ -35,7 +45,7 @@ Dir.chdir(thread_id) do
   data["posts"].each do |post|
     if post["filename"] then
       im_url = "http://images.4chan.org/#{board_name}/src/#{post["tim"].to_s + post["ext"]}"
-      im_filename = post["filename"] + post["ext"]
+      im_filename = get_filename(post["filename"], post["ext"])
 
       puts "Getting #{im_url} ..."
       im_data = Net::HTTP.get(URI(im_url))
