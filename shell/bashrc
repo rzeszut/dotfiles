@@ -28,6 +28,9 @@ if [ -e /etc/bash.bashrc ]; then
     source /etc/bash.bashrc
 fi
 
+# Additional functions
+source $HOME/.shell-functions
+
 # Aliases
 source $HOME/.shell-aliases
 
@@ -36,9 +39,6 @@ source $HOME/.shell-path
 
 # Environment variables
 source $HOME/.shell-env
-
-# Additional functions
-source $HOME/.shell-functions
 
 PS1="\[\e[1;32m\]${debian_chroot:+($debian_chroot)}\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
 

@@ -38,6 +38,9 @@ fi
 if [ -e $HOME/bin/pycharm ]; then
     PATH=$PATH:$HOME/bin/pycharm/bin
 fi
+if [ -e $HOME/bin/clion ]; then
+    PATH=$PATH:$HOME/bin/clion/bin
+fi
 
 # nvidia cuda
 if [ -e /usr/local/cuda/bin ]; then
