@@ -11,3 +11,16 @@ rmtrash () {
     find $HOME/.local/share/Trash/info  -mindepth 1 -exec rm -r "{}" \;
 }
 
+use_java () {
+    export JAVA_HOME=$1
+    export PATH=$JAVA_HOME/bin:$PATH
+    java -version
+}
+
+j7 () {
+    use_java $JAVA7_HOME
+}
+
+j8 () {
+    use_java $JAVA8_HOME
+}

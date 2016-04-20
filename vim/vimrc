@@ -16,6 +16,9 @@ Plugin 'gmarik/vundle'
 Plugin 'bling/vim-airline'
 Plugin 'w0ng/vim-hybrid'
 
+" personal wiki
+Plugin 'vimwiki/vimwiki'
+
 " general utilities
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -154,14 +157,15 @@ set number numberwidth=4
 set cursorline
 
 set background=dark
-try
-    colorscheme hybrid
-catch
-    colorscheme desert
-endtry
 
 " gui settings
 if has("gui_running")
+    try
+        colorscheme hybrid
+    catch
+        colorscheme desert
+    endtry
+
     set guioptions-=T
     set guioptions-=L
     set guioptions-=l
@@ -171,6 +175,8 @@ if has("gui_running")
     set t_Co=256
     set mouse=a
     set guifont=DejaVu\ Sans\ Mono\ 10
+else
+    colorscheme desert
 endif
 "}}}1
 
