@@ -8,6 +8,7 @@
 
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    lf = ls-files
     st = status
     fe = fetch
     re = rebase
@@ -20,3 +21,5 @@
     sr = svn rebase
     sp = svn dcommit
 
+[push]
+	default = simple

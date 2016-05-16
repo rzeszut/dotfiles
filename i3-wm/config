@@ -18,7 +18,7 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 bindsym $mod+p exec dmenu_run -fn "-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"
-bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+Shift+p exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -fn "-*-terminus-medium-*-*-*-14-*-*-*-*-*-*-*"'
 
 # change focus
 bindsym $mod+h focus left
@@ -108,6 +108,10 @@ bindsym XF86MonBrightnessDown exec ~/bin/scripts/backlight.sh down
 bindsym XF86AudioRaiseVolume exec amixer -D pulse -M set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -D pulse -M set Master 5%- unmute
 bindsym XF86AudioMute exec amixer -D pulse -M set Master toggle
+
+# screenshot
+bindsym Print exec scrot -e 'mv $f ~/Obrazy/screenshots/'
+bindsym $mod+Print exec scrot -s -e 'mv $f ~/Obrazy/screenshots/'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

@@ -208,6 +208,9 @@ endif
 "" Additional config {{{1
 " default rsync server for interactive rsync
 let g:default_rsync_server = "rzeszut@student.agh.edu.pl:~/public_html/"
+
+" enable doxygen globally
+let g:load_doxygen_syntax = 1
 "}}}1
 
 "" Functions {{{1
