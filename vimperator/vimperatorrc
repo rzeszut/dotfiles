@@ -8,8 +8,8 @@ set wildmode='list:full'
 " no beeping
 set noerrorbells
 
-" duckduckgo as default search engine
-set defsearch=duckduckgo
+" startpage as default search engine
+set defsearch=startpage
 
 " use JIT
 set! javascript.option.jit.chrome=true
