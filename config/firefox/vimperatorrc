@@ -10,9 +10,6 @@ set noerrorbells
 
 " startpage as default search engine
 set defsearch=startpage
-
-" use JIT
-set! javascript.option.jit.chrome=true
 " }}}1
 
 " Appearance {{{1
