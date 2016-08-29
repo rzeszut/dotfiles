@@ -42,6 +42,11 @@ if [ -e $HOME/bin/clion ]; then
     PATH=$PATH:$HOME/bin/clion/bin
 fi
 
+# Eclipse memory analyzer tool
+if [ -e $HOME/bin/mat ]; then
+    PATH=$PATH:$HOME/bin/mat
+fi
+
 # nvidia cuda
 if [ -e /usr/local/cuda/bin ]; then
     PATH=$PATH:/usr/local/cuda/bin

@@ -18,3 +18,6 @@ alias mute="amixer -q sset 'Master' 0%"
 alias quiet="amixer -q sset 'Master' 35%"
 alias maxvol="amixer -q sset 'Master' 100%"
 
+alias mvnci="mvn clean install"
+alias mvnct="mvn clean test"
+
