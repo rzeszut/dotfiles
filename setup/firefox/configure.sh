@@ -6,7 +6,7 @@ source ${CFGROOT}/config/shell/shell-functions.sh
 # Constants
 FIREFOX_PATH=${HOME}/.mozilla/firefox
 FIREFOX_PROFILE=$(cat ${FIREFOX_PATH}/profiles.ini | grep "Path=" | cut -d= -f2)
-FIREFOX_PROFILE_PATH=${FIREFOX_PATH}/{$FIREFOX_PROFILE}
+FIREFOX_PROFILE_PATH=${FIREFOX_PATH}/${FIREFOX_PROFILE}
 FIREFOX_EXT_PATH=${FIREFOX_PROFILE_PATH}/extensions
 
 # Functions
@@ -62,9 +62,7 @@ install_extension () {
 configure_vimperator
 install_user_js
 
-font_yellow &&\
-    prompt ">>> Do you want to install Firefox extensions?" &&\
-    font_normal &&\
+prompt ">>> Do you want to install Firefox extensions?" font_yellow font_normal &&\
     install_firefox_extensions
 
 exit 0

@@ -34,19 +34,13 @@ install_java9 () {
 purge_openjdk
 add_oracle_repo
 
-font_yellow &&\
-    prompt ">>> Do you want to install Java 7?" &&\
-    font_normal &&\
+prompt ">>> Do you want to install Java 7?" font_yellow font_normal &&\
     install_java7
 
-font_yellow &&\
-    prompt ">>> Do you want to install Java 8?" &&\
-    font_normal &&\
+prompt ">>> Do you want to install Java 8?" font_yellow font_normal &&\
     install_java8
 
-font_yellow &&\
-    prompt ">>> Do you want to install Java 9?" &&\
-    font_normal &&\
+prompt ">>> Do you want to install Java 9?" font_yellow font_normal &&\
     install_java9
 
 exit 0

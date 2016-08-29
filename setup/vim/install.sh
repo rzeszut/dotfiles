@@ -17,9 +17,7 @@ install_vim_gui () {
 # Main
 install_vim
 
-font_yellow &&\
-    prompt ">>> Do you want to install vim GUI frontend?" &&\
-    font_normal &&\
+prompt ">>> Do you want to install vim GUI frontend?" font_yellow font_normal &&\
     install_vim_gui
 
 exit 0

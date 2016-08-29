@@ -38,14 +38,20 @@ configure_zsh () {
     ln -fs $CFGROOT/config/shell/zshrc $HOME/.zshrc
 }
 
+set_zsh_as_default () {
+    echo_yellow ">>> Setting zsh as default shell ..."
+    chsh -s $(which zsh)
+}
+
 # Main
 configure_common_shell
 configure_bash
 
-font_yellow &&\
-    prompt ">>> Do you want to configure zsh?" &&\
-    font_normal &&\
+prompt ">>> Do you want to configure zsh?" font_yellow font_normal &&\
     configure_zsh
+
+prompt ">>> Do you want to set zsh as default shell?" font_yellow font_normal &&\
+    set_zsh_as_default
 
 exit 0
 

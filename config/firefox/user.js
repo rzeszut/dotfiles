@@ -1,4 +1,4 @@
-// HTML, APIs, DOM {{{
+// HTML, APIs, DOM {
 
 user_pref("dom.battery.enabled", false);
 user_pref("dom.event.clipboardevents.enabled", false);
@@ -29,10 +29,10 @@ user_pref("media.peerconnection.use_document_iceservers", false);
 user_pref("media.peerconnection.video.enabled", false);
 user_pref("media.peerconnection.identity.timeout", 1);
 
-// }}}
+// }
 
 
-// Browser settings & features {{{
+// Browser settings & features {
 
 // Disable Pocket
 user_pref("browser.pocket.enabled", false);
@@ -85,10 +85,10 @@ user_pref("devtools.webide.enabled", false);
 user_pref("devtools.webide.autoinstallADBHelper", false);
 user_pref("devtools.webide.autoinstallFxdtAdapters", false);
 
-// }}}
+// }
 
 
-// Network {{{
+// Network {
 
 // Disable page prefetching
 user_pref("network.prefetch-next", false);
@@ -127,10 +127,10 @@ user_pref("security.ssl.disable_session_identifiers", true);
 user_pref("security.ssl.treat_unsafe_negotiation_as_broken", true);
 user_pref("security.ssl.errorReporting.automatic", false);
 
-// }}}
+// }
 
 
-// Crypto {{{
+// Crypto {
 
 // Disable null ciphers
 user_pref("security.ssl3.rsa_null_sha", false);
@@ -140,10 +140,10 @@ user_pref("security.ssl3.ecdhe_ecdsa_null_sha", false);
 user_pref("security.ssl3.ecdh_rsa_null_sha", false);
 user_pref("security.ssl3.ecdh_ecdsa_null_sha", false);
 
-// }}}
+// }
 
 
-// Misc {{{
+// Misc {
 
 user_pref("camera.control.face_detection.enabled", false);
 user_pref("camera.control.autofocus_moving_callback.enabled", false);
@@ -164,5 +164,5 @@ user_pref("javascript.options.asmjs", false);
 // Prevent font fingerprinting
 user_pref("browser.display.use_document_fonts", 0);
 
-// }}}
+// }
 

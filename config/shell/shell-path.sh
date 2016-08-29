@@ -3,57 +3,57 @@ PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$HOME/bin/scripts
 
 # cabal and haskell applications
-if [ -e $HOME/.cabal ]; then
+if [[ -e $HOME/.cabal ]]; then
     PATH=$PATH:/$HOME/.cabal/bin
 fi
 
 # scala & sbt
-if [ -e $HOME/bin/scala ]; then
+if [[ -e $HOME/bin/scala ]]; then
     PATH=$PATH:$HOME/bin/scala/bin
 fi
-if [ -d $HOME/bin/sbt ]; then
+if [[ -d $HOME/bin/sbt ]]; then
     PATH=$PATH:$HOME/bin/sbt/bin
 fi
 
 # play framework
-if [ -e $HOME/bin/play ] ; then
+if [[ -e $HOME/bin/play ]] ; then
     PATH=$PATH:$HOME/bin/play
 fi
 
 # maven and gradle
-if [ -e $HOME/bin/maven ]; then
+if [[ -e $HOME/bin/maven ]]; then
     PATH=$PATH:$HOME/bin/maven/bin
 fi
-if [ -e $HOME/bin/gradle ]; then
+if [[ -e $HOME/bin/gradle ]]; then
     PATH=$PATH:$HOME/bin/gradle/bin
 fi
 
 # IDEs
-if [ -e $HOME/bin/eclipse ]; then
+if [[ -e $HOME/bin/eclipse ]]; then
     PATH=$PATH:$HOME/bin/eclipse
 fi
-if [ -e $HOME/bin/idea ]; then
+if [[ -e $HOME/bin/idea ]]; then
     PATH=$PATH:$HOME/bin/idea/bin
 fi
-if [ -e $HOME/bin/pycharm ]; then
+if [[ -e $HOME/bin/pycharm ]]; then
     PATH=$PATH:$HOME/bin/pycharm/bin
 fi
-if [ -e $HOME/bin/clion ]; then
+if [[ -e $HOME/bin/clion ]]; then
     PATH=$PATH:$HOME/bin/clion/bin
 fi
 
 # Eclipse memory analyzer tool
-if [ -e $HOME/bin/mat ]; then
+if [[ -e $HOME/bin/mat ]]; then
     PATH=$PATH:$HOME/bin/mat
 fi
 
 # nvidia cuda
-if [ -e /usr/local/cuda/bin ]; then
+if [[ -e /usr/local/cuda/bin ]]; then
     PATH=$PATH:/usr/local/cuda/bin
 fi
 
 # heroku
-if [ -e /usr/local/heroku ]; then
+if [[ -e /usr/local/heroku ]]; then
     PATH=$PATH:/usr/local/heroku/bin
 fi
 

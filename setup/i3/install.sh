@@ -18,9 +18,7 @@ install_dunst () {
 # Main
 install_i3
 
-font_yellow &&\
-    prompt '>>> Do you want to install dunst (notification manager)?' &&\
-    font_normal &&\
+prompt '>>> Do you want to install dunst (notification manager)?' font_yellow font_normal &&\
     install_dunst
 
 exit 0

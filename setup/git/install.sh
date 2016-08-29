@@ -17,9 +17,7 @@ install_git_ui () {
 # Main
 install_git
 
-font_yellow &&\
-    prompt ">>> Do you want to install GUI tools for git?" &&\
-    font_normal &&\
+prompt ">>> Do you want to install GUI tools for git?" font_yellow font_normal &&\
     install_git_ui
 
 exit 0

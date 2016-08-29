@@ -36,14 +36,10 @@ compile_ycm () {
 # Main
 configure_vim
 
-font_yellow &&\
-    prompt ">>> Do you want to download vim plugins?" &&\
-    font_normal &&\
+prompt ">>> Do you want to download vim plugins?" font_yellow font_normal &&\
     download_plugins
 
-font_yellow &&\
-    prompt ">>> Do you want to compile YouCompleteMe?" &&\
-    font_normal &&\
+prompt ">>> Do you want to compile YouCompleteMe?" font_yellow font_normal &&\
     compile_ycm
 
 exit 0

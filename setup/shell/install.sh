@@ -10,9 +10,7 @@ install_zsh () {
 }
 
 # Main
-font_yellow &&\
-    prompt ">>> Do you want to install zsh?" &&\
-    font_normal &&\
+prompt ">>> Do you want to install zsh?" font_yellow font_normal &&\
     install_zsh
 
 exit 0

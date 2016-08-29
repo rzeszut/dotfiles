@@ -1,31 +1,3 @@
-# Check if command is executable
-# 0 is True, 1 is False -- 0 is a normal return code
-is_executable () {
-    [[ ! -z `command -v $1` ]] && return 0 || return 1
-}
-is_not_executable () {
-    [[ -z `command -v $1` ]] && return 0 || return 1
-}
-
-prompt () {
-    local question=$1
-    if [[ ! -z "$ZSH_VERSION" ]]; then
-        read -k1 -s "answer?$question [y/N]"
-    else
-        read -n1 -s -p "$question [y/N]" answer
-    fi
-    echo ''
-    case $answer in
-        y|Y)
-            return 0
-            ;;
-
-        *)
-            return 1
-            ;;
-    esac
-}
-
 # A set of functions for manipulating fonts
 font_normal () {
     echo -n -e "\033[0m"
@@ -54,6 +26,47 @@ echo_blue () {
 }
 echo_yellow () {
     font_yellow; echo $@; font_normal
+}
+
+# Check if command is executable
+# 0 is True, 1 is False -- 0 is a normal return code
+is_executable () {
+    [[ ! -z `command -v $1` ]] && return 0 || return 1
+}
+is_not_executable () {
+    [[ -z `command -v $1` ]] && return 0 || return 1
+}
+
+# Prompt function, can specify what happens before and after -- useful for coloring
+prompt () {
+    local question=$1
+    local before=$2
+    local after=$3
+
+    if [[ ! -z "$before" ]]; then
+        $before
+    fi
+
+    if [[ ! -z "$ZSH_VERSION" ]]; then
+        read -k1 -s "answer?$question [y/N]"
+    else
+        read -n1 -s -p "$question [y/N]" answer
+    fi
+
+    if [[ ! -z "$after" ]]; then
+        $after
+    fi
+
+    echo
+    case $answer in
+        y|Y)
+            return 0
+            ;;
+
+        *)
+            return 1
+            ;;
+    esac
 }
 
 # Utility functions
