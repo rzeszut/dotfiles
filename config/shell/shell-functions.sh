@@ -9,7 +9,11 @@ is_not_executable () {
 
 prompt () {
     local question=$1
-    read -n1 -s -p "$question (y/n)" answer
+    if [[ ! -z "$ZSH_VERSION" ]]; then
+        read -k1 -s "answer?$question [y/N]"
+    else
+        read -n1 -s -p "$question [y/N]" answer
+    fi
     echo ''
     case $answer in
         y|Y)

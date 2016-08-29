@@ -10,6 +10,14 @@ PROGRAM_NAME=$(basename $0)
 source ${CFGROOT}/config/shell/shell-functions.sh
 
 # Functions
+print_usage_basic () {
+    local message=$1
+
+    echo_red $message
+    echo
+    echo "Usage $PROGRAM_NAME <application> <operation>"
+}
+
 print_usage_applications () {
     echo
     echo "Applications supported:"
@@ -26,14 +34,6 @@ print_usage_operations () {
     for op in $(ls $CFGROOT/setup/${application}); do
         echo "* $(basename $op .sh)"
     done
-}
-
-print_usage_basic () {
-    local message=$1
-
-    echo_red $message
-    echo
-    echo "Usage $PROGRAM_NAME <application> <operation>"
 }
 
 # Main
