@@ -102,3 +102,17 @@ weather () {
     local city=${1:-$WEATHER_DEFAULT_CITY}
     curl --silent http://wttr.in/$city | head -7
 }
+
+# Do not use proxy in this shell session
+noproxy () {
+    unset http_proxy
+    unset https_proxy
+    unset ftp_proxy
+    unset socks_proxy
+    unset no_proxy
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+    unset FTP_PROXY
+    unset SOCKS_PROXY
+    unset NO_PROXY
+}

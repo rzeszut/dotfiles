@@ -1,7 +1,6 @@
 // HTML, APIs, DOM {
 
 user_pref("dom.battery.enabled", false);
-user_pref("dom.event.clipboardevents.enabled", false);
 user_pref("dom.push.enabled", false);
 user_pref("geo.enabled", false);
 user_pref("webgl.disabled", true);

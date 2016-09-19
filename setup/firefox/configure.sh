@@ -40,6 +40,8 @@ install_firefox_extensions () {
         https://addons.mozilla.org/firefox/downloads/latest/tab-groups-panorama/addon-671381-latest.xpi
     install_extension "Cookies Manager+"\
         https://addons.mozilla.org/firefox/downloads/latest/cookies-manager-plus/addon-92079-latest.xpi
+    install_extension "Polish dictionary"\
+        https://addons.mozilla.org/firefox/downloads/latest/polish-spellchecker-dictionary/addon-3052-latest.xpi
 
     rm -rf /tmp/firefox-install-extensions
 }
