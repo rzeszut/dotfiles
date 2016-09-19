@@ -116,3 +116,42 @@ noproxy () {
     unset SOCKS_PROXY
     unset NO_PROXY
 }
+
+extract () {
+    local file=$1
+
+    if [[ ! -f $file ]]; then
+        echo "Invalid file $file"
+        return 1
+    fi
+
+    case $file in
+        *.zip)
+            unzip $file
+            ;;
+        *.rar)
+            unrar x $file
+            ;;
+        *.7z)
+            7z x $file
+            ;;
+        *.tar.gz|*.tgz)
+            tar xvzf $file
+            ;;
+        *.tar.bz2|*.tbz2)
+            tar xvjf $file
+            ;;
+        *.gz)
+            gunzip $file
+            ;;
+        *.bz2)
+            bunzip2 $file
+            ;;
+
+        *)
+            echo "Unsupported file format"
+            return 2
+            ;;
+    esac
+}
+
