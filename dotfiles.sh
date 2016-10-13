@@ -31,7 +31,7 @@ print_usage_operations () {
 
     echo
     echo "Operations supported:"
-    for op in $(ls $CFGROOT/setup/${application}); do
+    for op in $(ls $CFGROOT/setup/${application}/*.sh); do
         echo "* $(basename $op .sh)"
     done
 }

@@ -155,7 +155,6 @@ user_pref("browser.fixup.alternate.enabled", false);
 
 // Mixed content
 user_pref("security.mixed_content.block_active_content", true);
-user_pref("security.mixed_content.block_display_content", true);
 
 // Disable asm.js
 user_pref("javascript.options.asmjs", false);

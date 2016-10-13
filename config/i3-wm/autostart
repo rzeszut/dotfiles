@@ -17,7 +17,7 @@ xset b off
 # set the background color
 if ( is_executable feh ); then
     if [[ -e $HOME/.wallpaper ]]; then
-        feh --bg-center $HOME/.wallpaper
+        feh --bg-fill $HOME/.wallpaper
     fi
 fi
 
