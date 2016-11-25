@@ -6,7 +6,7 @@ source ${CFGROOT}/config/shell/shell-functions.sh
 # Functions
 install_git () {
     echo_yellow ">>> Installing git ..."
-    sudo apt-get install -y git
+    sudo apt-get install -y git tig
 }
 
 install_git_ui () {

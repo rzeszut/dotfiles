@@ -28,7 +28,7 @@ compile_ycm () {
     if [[ -d $HOME/.vim/bundle/YouCompleteMe ]]; then
         echo_yellow '>>> Compiling YCM ...'
         cd $HOME/.vim/bundle/YouCompleteMe
-        ./install.sh --clang-completer
+        ./install.py --clang-completer
         ln -fs $CFGROOT/config/vim/ycm_extra_conf.py $HOME/.ycm_extra_conf.py
     fi
 }

@@ -4,6 +4,8 @@ export JAVA9_HOME='/usr/lib/jvm/java-9-oracle'
 
 export JAVA_HOME=$JAVA8_HOME
 
+export MVN_OPTIONS='-Djava.net.preferIPv4Stack'
+
 ANDROID_HOME='/home/mateusz/bin/android-sdk-linux'
 if [[ -d $ANDROID_HOME ]] ; then
     export ANDROID_HOME
