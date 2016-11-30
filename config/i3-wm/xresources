@@ -36,12 +36,12 @@ Xft.antialias: true
 Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.font: xft:DejaVu Sans Mono
-Xft.size: 10
+Xft.size: 9
 
 !! URxvt resources
 URxvt*.buffered: true
 URxvt*.scrollBar: false
-URxvt*.font: xft:DejaVu Sans Mono:size=10:antialias=true,xft:Droid Sans Mono:size=10:antialias=true
+URxvt*.font: xft:DejaVu Sans Mono:size=9:antialias=true,xft:Droid Sans Mono:size=9:antialias=true
 ! ctrl+arrows fix
 URxvt*.keysym.C-Up: \033[1;5A
 URxvt*.keysym.C-Down: \033[1;5B

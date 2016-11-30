@@ -42,6 +42,8 @@ install_firefox_extensions () {
         https://addons.mozilla.org/firefox/downloads/latest/cookies-manager-plus/addon-92079-latest.xpi
     install_extension "Polish dictionary"\
         https://addons.mozilla.org/firefox/downloads/latest/polish-spellchecker-dictionary/addon-3052-latest.xpi
+    install_extension "Tree Style Tabs"\
+        https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/addon-5890-latest.xpi
 
     rm -rf /tmp/firefox-install-extensions
 }

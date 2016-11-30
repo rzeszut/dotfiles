@@ -112,7 +112,7 @@ user_pref("security.csp.enable", true);
 // Block third-party cookies
 user_pref("network.cookie.cookieBehavior", 1);
 // Accept cookies for current session only
-user_pref("network.cookie.lifetimePolicy", 2);
+//user_pref("network.cookie.lifetimePolicy", 2);
 // Third-party cookies for current session only (if enabled at all)
 user_pref("network.cookie.thirdparty.sessionOnly", true);
 
