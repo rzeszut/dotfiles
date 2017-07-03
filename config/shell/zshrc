@@ -15,7 +15,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode history debian gitignore mvn)
+plugins=(git vi-mode history debian gitignore mvn docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -42,4 +42,9 @@ source $HOME/.shell-aliases
 
 # Environment variables
 source $HOME/.shell-env
+
+# Machine specific settings
+if [[ -f $HOME/.shell-machine-specific ]]; then
+    source $HOME/.shell-machine-specific
+fi
 

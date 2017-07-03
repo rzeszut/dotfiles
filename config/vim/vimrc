@@ -366,6 +366,9 @@ nnoremap <silent><F3> :UndotreeToggle<cr>
 
 "" Command mappings {{{1
 command! -nargs=* -complete=help Help vertical belowright help <args>
+
+command! -nargs=0 Smallfont set guifont=DejaVu\ Sans\ Mono\ 10
+command! -nargs=0 Bigfont   set guifont=DejaVu\ Sans\ Mono\ 20
 "}}}1
 
 "" Plugins config {{{1

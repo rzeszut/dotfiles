@@ -45,20 +45,21 @@ if [[ $# -lt 1 ]]; then
     print_usage_applications
     exit 0
 fi
+
+app_dir=${CFGROOT}/setup/${application}
+if [[ ! -d "$app_dir" ]]; then
+    print_usage_basic "Invalid application."
+    print_usage_applications
+    exit 1
+fi
+
 if [[ $# -lt 2 ]]; then
     print_usage_basic "Invalid number of arguments."
     print_usage_operations $application
     exit 0
 fi
 
-app_dir=${CFGROOT}/setup/${application}
 path=${app_dir}/${operation}.sh
-
-if [[ ! -d "$app_dir" ]]; then
-    print_usage_basic "Invalid application."
-    print_usage_applications
-    exit 1
-fi
 if [[ ! -f "$path" ]]; then
     print_usage $application "Invalid operation."
     print_usage_operations $application

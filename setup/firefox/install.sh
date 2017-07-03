@@ -11,7 +11,7 @@ install_firefox () {
         local appname="firefox"
     fi
 
-    echo_yellow
+    echo_yellow ">>> Installing ${appname} ..."
     sudo apt-get install -y $appname
 }
 

@@ -11,7 +11,7 @@ install_git () {
 
 install_git_ui () {
     echo_yellow ">>> Installing GUI tools for git ..."
-    sudo apt-get install -y gitk git-gui
+    sudo apt-get install -y gitk git-gui meld
 }
 
 # Main

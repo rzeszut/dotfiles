@@ -40,6 +40,11 @@ source $HOME/.shell-path
 # Environment variables
 source $HOME/.shell-env
 
+# Machine specific settings
+if [[ -f $HOME/.shell-machine-specific ]]; then
+    source $HOME/.shell-machine-specific
+fi
+
 PS1="\[\e[1;32m\]${debian_chroot:+($debian_chroot)}\u\[\e[0m\]@\[\e[1;32m\]\h\[\e[0m\]:\[\e[1;34m\]\w\[\e[0m\] \$ "
 
 export PS1
