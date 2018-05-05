@@ -3,12 +3,12 @@ PATH=$PATH:$HOME/.local/bin
 PATH=$PATH:$HOME/bin/scripts
 
 # cabal and haskell applications
-if [[ -e $HOME/.cabal ]]; then
+if [[ -d $HOME/.cabal ]]; then
     PATH=$PATH:/$HOME/.cabal/bin
 fi
 
 # scala & sbt
-if [[ -e $HOME/bin/scala ]]; then
+if [[ -d $HOME/bin/scala ]]; then
     PATH=$PATH:$HOME/bin/scala/bin
 fi
 if [[ -d $HOME/bin/sbt ]]; then
@@ -16,55 +16,60 @@ if [[ -d $HOME/bin/sbt ]]; then
 fi
 
 # play framework
-if [[ -e $HOME/bin/play ]] ; then
+if [[ -d $HOME/bin/play ]] ; then
     PATH=$PATH:$HOME/bin/play
 fi
 
 # maven and gradle
-if [[ -e $HOME/bin/maven ]]; then
+if [[ -d $HOME/bin/maven ]]; then
     PATH=$PATH:$HOME/bin/maven/bin
 fi
-if [[ -e $HOME/bin/gradle ]]; then
+if [[ -d $HOME/bin/gradle ]]; then
     PATH=$PATH:$HOME/bin/gradle/bin
 fi
 
 # IDEs
-if [[ -e $HOME/bin/eclipse ]]; then
+if [[ -d $HOME/bin/eclipse ]]; then
     PATH=$PATH:$HOME/bin/eclipse
 fi
-if [[ -e $HOME/bin/idea ]]; then
+if [[ -d $HOME/bin/idea ]]; then
     PATH=$PATH:$HOME/bin/idea/bin
 fi
-if [[ -e $HOME/bin/pycharm ]]; then
+if [[ -d $HOME/bin/pycharm ]]; then
     PATH=$PATH:$HOME/bin/pycharm/bin
 fi
-if [[ -e $HOME/bin/clion ]]; then
+if [[ -d $HOME/bin/clion ]]; then
     PATH=$PATH:$HOME/bin/clion/bin
 fi
 
 # Eclipse memory analyzer tool
-if [[ -e $HOME/bin/mat ]]; then
+if [[ -d $HOME/bin/mat ]]; then
     PATH=$PATH:$HOME/bin/mat
 fi
 
 # nvidia cuda
-if [[ -e /usr/local/cuda/bin ]]; then
+if [[ -d /usr/local/cuda/bin ]]; then
     PATH=$PATH:/usr/local/cuda/bin
 fi
 
 # heroku
-if [[ -e /usr/local/heroku ]]; then
+if [[ -d /usr/local/heroku ]]; then
     PATH=$PATH:/usr/local/heroku/bin
 fi
 
 # android sdk
-if [[ -e $HOME/bin/android-sdk-linux ]]; then
+if [[ -d $HOME/bin/android-sdk-linux ]]; then
     PATH=$PATH:$HOME/bin/android-sdk-linux/tools
 fi
 
 # Teamspeak
-if [[ -e $HOME/bin/teamspeak ]]; then
+if [[ -d $HOME/bin/teamspeak ]]; then
     PATH=$PATH:$HOME/bin/teamspeak
+fi
+
+# RSSOwl
+if [[ -d $HOME/bin/rssowl ]]; then
+    PATH=$PATH:$HOME/bin/rssowl
 fi
 
 export PATH
