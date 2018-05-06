@@ -14,6 +14,19 @@
 ;; Use helm for completion
 (use-package helm :ensure t
   :config
-  (helm-mode t))
+  (progn
+    ; open helm in current window
+    (setq helm-split-window-in-side-p t)
+
+    ; autoresize
+    (setq helm-autoresize-max-height 40
+          helm-autoresize-min-height 20)
+    (helm-autoresize-mode 1)
+
+    ; ignore backup files
+    (setq helm-ff-skip-boring-files t)
+    (add-to-list 'helm-boring-file-regexp-list "~$")
+
+    (helm-mode t)))
 
 (provide 'config-editor)

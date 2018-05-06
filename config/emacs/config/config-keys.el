@@ -21,10 +21,13 @@
     (general-nmap
       :prefix *leader-key*
       "q"     'evil-quit
-      "w"     'evil-write-all
+      "w"     'evil-write
+
+      ; helm keys
       "<SPC>" 'helm-M-x
       "b"     'helm-mini
-      "f"     'helm-find-files)))
+      "f"     'helm-find-files
+      "g"     'helm-grep-do-git-grep)))
 
 
 (provide 'config-keys)
