@@ -8,6 +8,7 @@ configure_emacs () {
     echo_yellow '>>> Configuring emacs ...'
     mkdir -p ${HOME}/.emacs.d
     ln -fs ${CFGROOT}/config/emacs/init.el ${HOME}/.emacs.d/init.el
+    ln -fs ${CFGROOT}/config/emacs/config ${HOME}/.emacs.d/config
 }
 
 # Main
