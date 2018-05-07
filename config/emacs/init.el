@@ -8,9 +8,10 @@
                          ("melpa" . "https://melpa.org/packages/")))
 (package-initialize)
 
-(unless (package-installed-p 'use-package)
-  (package-install 'use-package)
-  (require 'use-package))
+(eval-when-compile
+  (unless (package-installed-p 'use-package)
+    (package-install 'use-package)
+    (require 'use-package)))
 
 ;; Add custom configs to load path
 (add-to-list 'load-path *config-dir*)

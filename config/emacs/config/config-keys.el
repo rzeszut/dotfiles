@@ -21,13 +21,26 @@
     (general-nmap
       :prefix *leader-key*
       "q"     'evil-quit
-      "w"     'evil-write
-
-      ; helm keys
+      ; TODO: preferably this should run a multi-source search
       "<SPC>" 'helm-M-x
-      "b"     'helm-mini
-      "f"     'helm-find-files
-      "g"     'helm-grep-do-git-grep)))
+
+      ; files
+      "f w"   'evil-write
+      "f f"   'helm-find-files
+      "f g"   'helm-grep-do-git-grep
+
+      ; window management
+      "w v"   'evil-window-vsplit
+      "w s"   'evil-window-split
+      "w h"   'config/evil-window-left
+      "w j"   'config/evil-window-down
+      "w k"   'config/evil-window-up
+      "w l"   'config/evil-window-right
+
+      ; buffers
+      "b b"   'helm-mini
+      "b n"   'evil-next-buffer
+      "b p"   'evil-prev-buffer)))
 
 
 (provide 'config-keys)
