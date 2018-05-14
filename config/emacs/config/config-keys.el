@@ -40,7 +40,13 @@
       ; buffers
       "b b"   'helm-mini
       "b n"   'evil-next-buffer
-      "b p"   'evil-prev-buffer)))
+      "b p"   'evil-prev-buffer)
 
+    ; company mini window key bindings
+    (general-define-key
+     :keymaps 'company-active-map
+     [tab]    'company-complete
+     "C-n"    'company-select-next
+     "C-p"    'company-select-previous)))
 
 (provide 'config-keys)

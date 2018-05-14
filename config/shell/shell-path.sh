@@ -72,5 +72,10 @@ if [[ -d $HOME/bin/rssowl ]]; then
     PATH=$PATH:$HOME/bin/rssowl
 fi
 
+# Rust & Cargo
+if [[ -d $HOME/.cargo/bin ]]; then
+    PATH=$PATH:$HOME/.cargo/bin
+fi
+
 export PATH
 

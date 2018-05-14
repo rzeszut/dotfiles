@@ -21,6 +21,7 @@
 (require 'config-keys)
 (require 'config-ui)
 (require 'config-org)
+(require 'config-rust)
 
 ;; Make emacs write all generated code to custom.el file
 (setq custom-file (expand-file-name "custom.el" *root-dir*))

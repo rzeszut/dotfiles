@@ -44,4 +44,3 @@ prompt ">>> Do you want to install Java 9?" font_yellow font_normal &&\
     install_java9
 
 exit 0
-

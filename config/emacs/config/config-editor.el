@@ -11,7 +11,7 @@
   :config
   (electric-pair-mode t))
 
-;; Use helm for completion
+;; Use helm for completion window
 (use-package helm :ensure t
   :config
   (progn
@@ -28,5 +28,14 @@
     (add-to-list 'helm-boring-file-regexp-list "~$")
 
     (helm-mode t)))
+
+(use-package company :ensure t
+  :config
+  (progn
+    (global-company-mode)
+
+    (setq company-idle-delay 0.2)
+    ; cycle to the first selection after last
+    (setq company-selection-wrap-around t)))
 
 (provide 'config-editor)
