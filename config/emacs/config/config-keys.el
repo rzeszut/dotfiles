@@ -23,6 +23,7 @@
       "q"     'evil-quit
       ; TODO: preferably this should run a multi-source search
       "<SPC>" 'helm-M-x
+      "a"     'org-agenda
 
       ; files
       "f w"   'evil-write
@@ -42,11 +43,28 @@
       "b n"   'evil-next-buffer
       "b p"   'evil-prev-buffer)
 
+    ; escape quits helm
+    (general-define-key
+     :keymaps 'helm-map
+     [escape] 'helm-keyboard-quit)
+
     ; company mini window key bindings
     (general-define-key
      :keymaps 'company-active-map
      [tab]    'company-complete
      "C-n"    'company-select-next
-     "C-p"    'company-select-previous)))
+     "C-p"    'company-select-previous)
+
+    ; org mode
+    (general-nmap
+      :keymaps  'org-mode-map
+      "t"       'org-todo
+      "C-<SPC>" 'org-toggle-checkbox)
+    (general-nmap
+      :keymaps 'org-mode-map
+      :prefix  *leader-key*
+      "O"      'org-insert-heading
+      "o"      'org-insert-heading-after-current
+      "s"      'org-schedule)))
 
 (provide 'config-keys)

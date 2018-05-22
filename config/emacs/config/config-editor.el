@@ -6,6 +6,8 @@
  indent-tabs-mode nil
  tab-width 4)
 
+(fset 'yes-or-no-p 'y-or-n-p)
+
 ;; Auto-closing parenthesis
 (use-package rainbow-mode :ensure t
   :config
@@ -29,6 +31,7 @@
 
     (helm-mode t)))
 
+;; Auto completion
 (use-package company :ensure t
   :config
   (progn

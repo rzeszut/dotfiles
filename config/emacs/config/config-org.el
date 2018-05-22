@@ -1,6 +1,8 @@
-(use-package evil-org :ensure t
-  :after evil
-  :hook (org-mode . evil-org-mode))
+(use-package org-mode
+  :mode "\\.org\\'"
+  :init
+  (setq org-agenda-files '("~/org/")
+        org-todo-keywords '((sequence "TODO" "NEXT" "WAITING" "|" "DONE"))))
 
 (use-package org-bullets :ensure t
   :hook (org-mode . org-bullets-mode))
