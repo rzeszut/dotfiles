@@ -1,6 +1,6 @@
-(use-package darcula-theme :ensure t
+(use-package badger-theme :ensure t
   :config
-  (load-theme 'darcula t))
+  (load-theme 'badger t))
 
 ;; remove toolbar, menubar, scrollbars
 (if (fboundp 'tool-bar-mode)

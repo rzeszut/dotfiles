@@ -27,3 +27,4 @@ emacs/savefile
 emacs/auto-save-list
 # srecode; it should be in savefiles, but ...
 emacs/srecode-map.el
+*#

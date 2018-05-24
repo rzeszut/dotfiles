@@ -6,6 +6,10 @@
   (progn
     (general-evil-setup)
 
+    ; emacs compatibility
+    (general-define-key
+      "M-x" 'helm-M-x)
+
     (general-imap
       "C-h" 'evil-delete-backward-char
       "C-j" 'config/evil-append-line
@@ -29,6 +33,7 @@
       "f w"   'evil-write
       "f f"   'helm-find-files
       "f g"   'helm-grep-do-git-grep
+      "f t"   'neotree
 
       ; window management
       "w v"   'evil-window-vsplit
@@ -55,11 +60,22 @@
      "C-n"    'company-select-next
      "C-p"    'company-select-previous)
 
+    ; neotree bindings
+    (general-nmap
+      :keymaps 'neotree-mode-map
+      "q"      'neotree-hide
+      "o"      'neotree-enter
+      "C-j"    'neotree-enter)
+
     ; org mode
     (general-nmap
       :keymaps  'org-mode-map
       "t"       'org-todo
-      "C-<SPC>" 'org-toggle-checkbox)
+      "C-<SPC>" 'org-toggle-checkbox
+      "^"       'org-beginning-of-line
+      "$"       'org-end-of-line
+      ">"       'org-shiftmetaright
+      "<"       'org-shiftmetaleft)
     (general-nmap
       :keymaps 'org-mode-map
       :prefix  *leader-key*

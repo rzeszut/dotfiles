@@ -41,4 +41,9 @@
     ; cycle to the first selection after last
     (setq company-selection-wrap-around t)))
 
+(use-package neotree :ensure t
+  :commands (neotree)
+  :config
+  (setq neo-smart-open t))
+
 (provide 'config-editor)

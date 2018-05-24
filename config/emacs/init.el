@@ -5,11 +5,12 @@
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
-                         ("melpa" . "https://melpa.org/packages/")))
+                         ("melpa" . "http://melpa.org/packages/")))
 (package-initialize)
 
 (eval-when-compile
   (unless (package-installed-p 'use-package)
+    (package-refresh-contents)
     (package-install 'use-package)
     (require 'use-package)))
 

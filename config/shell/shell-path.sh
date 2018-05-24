@@ -47,6 +47,11 @@ if [[ -d $HOME/bin/mat ]]; then
     PATH=$PATH:$HOME/bin/mat
 fi
 
+# SQL Developer
+if [[ -e $HOME/bin/sqldeveloper ]]; then
+    PATH=$PATH:$HOME/bin/sqldeveloper
+fi
+
 # nvidia cuda
 if [[ -d /usr/local/cuda/bin ]]; then
     PATH=$PATH:/usr/local/cuda/bin
