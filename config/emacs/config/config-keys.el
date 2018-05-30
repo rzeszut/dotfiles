@@ -64,8 +64,9 @@
     (general-nmap
       :keymaps 'neotree-mode-map
       "q"      'neotree-hide
-      "o"      'neotree-enter
-      "C-j"    'neotree-enter)
+      "o"      'config/neotree-open-file-and-hide
+      "<RET>"  'config/neotree-open-file-and-hide
+      "C-j"    'config/neotree-open-file-and-hide)
 
     ; org mode
     (general-nmap

@@ -44,6 +44,13 @@
 (use-package neotree :ensure t
   :commands (neotree)
   :config
-  (setq neo-smart-open t))
+  (progn
+    (setq neo-smart-open t)
+
+    (defun config/neotree-open-file-and-hide ()
+      "Neotree: opens the currently highlighted file and hides Neotree panel"
+      (interactive)
+      (neotree-enter)
+      (neotree-hide))))
 
 (provide 'config-editor)

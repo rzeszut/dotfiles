@@ -3,7 +3,8 @@
   :init
   (setq org-agenda-files '("~/org/")
         org-todo-keywords '((sequence "TODO" "NEXT" "WAITING" "|" "DONE"))
-        org-export-html-postamble nil))
+        org-export-html-postamble nil
+        org-list-allow-alphabetical t))
 
 (use-package org-bullets :ensure t
   :hook (org-mode . org-bullets-mode))
