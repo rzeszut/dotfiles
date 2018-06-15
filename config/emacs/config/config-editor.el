@@ -41,6 +41,7 @@
     ; cycle to the first selection after last
     (setq company-selection-wrap-around t)))
 
+;; File manager
 (use-package neotree :ensure t
   :commands (neotree)
   :config
@@ -50,7 +51,12 @@
     (defun config/neotree-open-file-and-hide ()
       "Neotree: opens the currently highlighted file and hides Neotree panel"
       (interactive)
-      (neotree-enter)
-      (neotree-hide))))
+      (funcall (neotree-make-executor
+                ; in case of directory just expand it
+                :dir-fn 'neo-open-dir
+                ;; in case of file open it and hide the window
+                :file-fn (lambda (full-path &optional arg)
+                           (neo-open-file full-path arg)
+                           (neotree-hide)))))))
 
 (provide 'config-editor)
