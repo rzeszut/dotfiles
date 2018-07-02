@@ -33,4 +33,7 @@
       (interactive)
       (evil-window-right 1))))
 
+(use-package evil-numbers :ensure t
+  :after (evil))
+
 (provide 'config-evil)

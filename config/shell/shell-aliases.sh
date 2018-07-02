@@ -10,10 +10,6 @@ alias la='ls -lahF'
 
 alias cdtrash='cd ~/.local/share/Trash/files'
 
-if (is_executable thefuck); then
-    eval "$(thefuck --alias)"
-fi
-
 alias mute="amixer -q sset 'Master' 0%"
 alias quiet="amixer -q sset 'Master' 35%"
 alias maxvol="amixer -q sset 'Master' 100%"

@@ -15,8 +15,8 @@ if [[ -d $CATALINA_HOME ]] ; then
     export CATALINA_HOME
 fi
 
-export EDITOR='vim'
-export GUI_EDITOR='gvim'
+export EDITOR='emacsclient -t'
+export GUI_EDITOR='emacsclient -c'
 export TERMINAL='rxvt'
 export TERM='rxvt'
 

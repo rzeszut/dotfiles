@@ -33,6 +33,7 @@
 
 ;; Auto completion
 (use-package company :ensure t
+  :defer 2
   :config
   (progn
     (global-company-mode)

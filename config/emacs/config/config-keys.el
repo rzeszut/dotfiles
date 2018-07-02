@@ -22,6 +22,11 @@
       "C-k" 'config/evil-window-up
       "C-l" 'config/evil-window-right)
 
+    ; vim numbers
+    (general-nmap
+      "C-a" 'evil-numbers/inc-at-pt
+      "C-x" 'evil-numbers/dec-at-pt)
+
     (general-nmap
       :prefix *leader-key*
       "q"     'evil-quit
@@ -34,6 +39,9 @@
       "f f"   'helm-find-files
       "f g"   'helm-grep-do-git-grep
       "f t"   'neotree
+
+      ; git
+      "g s"   'magit-status
 
       ; window management
       "w v"   'evil-window-vsplit
@@ -80,8 +88,21 @@
     (general-nmap
       :keymaps 'org-mode-map
       :prefix  *leader-key*
+      "e s"    'org-edit-src-code
       "O"      'org-insert-heading
       "o"      'org-insert-heading-after-current
-      "s"      'org-schedule)))
+      "s"      'org-schedule)
+    (general-nmap
+      :keymaps 'org-src-mode-map
+      :prefix  *leader-key*
+      "e q"    'org-edit-src-exit)
+
+    ; elisp mode                                    ;
+    (general-nmap
+      :keymaps 'emacs-lisp-mode-map
+      :prefix  *leader-key*
+      "e e"    'eval-last-sexp
+      "e r"    'eval-region
+      "e b"    'eval-buffer)))
 
 (provide 'config-keys)

@@ -126,7 +126,7 @@ extract () {
     fi
 
     case $file in
-        *.zip)
+        *.zip|*.jar|*.war)
             unzip $file
             ;;
         *.rar)
