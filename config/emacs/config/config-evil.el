@@ -33,7 +33,9 @@
       (interactive)
       (evil-window-right 1))))
 
-(use-package evil-numbers :ensure t
-  :after (evil))
+(use-package evil-surround :ensure t
+  :after (evil)
+  :config
+  (global-evil-surround-mode 1))
 
 (provide 'config-evil)

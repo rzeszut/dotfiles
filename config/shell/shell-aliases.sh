@@ -14,7 +14,8 @@ alias mute="amixer -q sset 'Master' 0%"
 alias quiet="amixer -q sset 'Master' 35%"
 alias maxvol="amixer -q sset 'Master' 100%"
 
-alias emacsc="emacsclient -c"
-alias ec="emacsclient -c"
+alias emacsc="emacsclient -c --no-wait"
+alias ec=emacsc
+alias e=ec
 alias emacst="emacsclient -t"
-alias et="emacsclient -t"
+alias et=emacst

@@ -38,10 +38,11 @@
       "f w"   'evil-write
       "f f"   'helm-find-files
       "f g"   'helm-grep-do-git-grep
-      "f t"   'neotree
+      "f t"   'treemacs
 
       ; git
       "g s"   'magit-status
+      "g c"   'magit-commit
 
       ; window management
       "w v"   'evil-window-vsplit
@@ -67,14 +68,6 @@
      [tab]    'company-complete
      "C-n"    'company-select-next
      "C-p"    'company-select-previous)
-
-    ; neotree bindings
-    (general-nmap
-      :keymaps 'neotree-mode-map
-      "q"      'neotree-hide
-      "o"      'config/neotree-open-file-and-hide
-      "<RET>"  'config/neotree-open-file-and-hide
-      "C-j"    'config/neotree-open-file-and-hide)
 
     ; org mode
     (general-nmap

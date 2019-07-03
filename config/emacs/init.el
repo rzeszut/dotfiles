@@ -22,10 +22,12 @@
 (require 'config-keys)
 (require 'config-ui)
 (require 'config-org)
-(require 'config-rust)
 (require 'config-yaml)
 (require 'config-adoc)
 (require 'config-git)
+(require 'config-lisp)
+(require 'config-java)
+(require 'config-shell)
 
 ;; Make emacs write all generated code to custom.el file
 (setq custom-file (expand-file-name "custom.el" *root-dir*))
