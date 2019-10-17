@@ -79,24 +79,6 @@ isranger () {
     [[ -z "$RANGER_LEVEL" ]] && return 1 || return 0
 }
 
-use_java () {
-    if [[ -d $1 ]]; then
-        export JAVA_HOME=$1
-        export PATH=$JAVA_HOME/bin:$PATH
-        java -version
-    fi
-}
-
-j7 () {
-    use_java $JAVA7_HOME
-}
-j8 () {
-    use_java $JAVA8_HOME
-}
-j9 () {
-    use_java $JAVA9_HOME
-}
-
 WEATHER_DEFAULT_CITY=Krakow
 weather () {
     local city=${1:-$WEATHER_DEFAULT_CITY}
@@ -155,3 +137,10 @@ extract () {
     esac
 }
 
+# System detection
+is_macos () {
+    [[ "$(uname)" == "Darwin" ]] && return 0 || return 1
+}
+is_linux () {
+    [[ "$(uname)" == "Linux" ]] && return 0 || return 1
+}

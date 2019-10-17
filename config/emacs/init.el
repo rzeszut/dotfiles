@@ -28,6 +28,8 @@
 (require 'config-lisp)
 (require 'config-java)
 (require 'config-shell)
+(require 'config-docker)
+(require 'config-groovy)
 
 ;; Make emacs write all generated code to custom.el file
 (setq custom-file (expand-file-name "custom.el" *root-dir*))

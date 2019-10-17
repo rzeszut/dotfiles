@@ -6,6 +6,9 @@
  indent-tabs-mode nil
  tab-width 4)
 
+;; Do not create backup files
+(setq make-backup-files nil)
+
 (fset 'yes-or-no-p 'y-or-n-p)
 
 ;; Auto-closing parenthesis

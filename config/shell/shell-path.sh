@@ -7,27 +7,6 @@ if [[ -d $HOME/.cabal ]]; then
     PATH=$PATH:/$HOME/.cabal/bin
 fi
 
-# scala & sbt
-if [[ -d $HOME/bin/scala ]]; then
-    PATH=$PATH:$HOME/bin/scala/bin
-fi
-if [[ -d $HOME/bin/sbt ]]; then
-    PATH=$PATH:$HOME/bin/sbt/bin
-fi
-
-# play framework
-if [[ -d $HOME/bin/play ]] ; then
-    PATH=$PATH:$HOME/bin/play
-fi
-
-# maven and gradle
-if [[ -d $HOME/bin/maven ]]; then
-    PATH=$PATH:$HOME/bin/maven/bin
-fi
-if [[ -d $HOME/bin/gradle ]]; then
-    PATH=$PATH:$HOME/bin/gradle/bin
-fi
-
 # IDEs
 if [[ -d $HOME/bin/eclipse ]]; then
     PATH=$PATH:$HOME/bin/eclipse

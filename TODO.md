@@ -7,3 +7,6 @@ Ideas:
 * Maybe add ordering to scripts, e.g. `01-install.sh`, `02-install-ui.sh` etc.
     * This way it'll be possible to run `./dotfiles git` and just run all commands for a given application
 * Add a possibility to use different package manager than `apt-get`; e.g. `yum` in case of CentOs
+    * Or `brew` in MacOS
+    * Ideally it should be some function that decides by itself which package manager should be used by itself
+* MacOS support: BSD vs Linux coreutils, no wget, etc.

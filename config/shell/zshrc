@@ -12,10 +12,18 @@ COMPLETION_WAITING_DOTS="true"
 # yyyy-mm-dd
 HIST_STAMPS="yyyy-mm-dd"
 
+# Load additional functions first
+source $HOME/.shell-functions
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi-mode debian mvn)
+if (is_macos)
+then
+    plugins=(git vi-mode mvn osx brew)
+else
+    plugins=(git vi-mode mvn debian)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -31,9 +39,6 @@ setopt appendhistory
 # don't beep
 unsetopt beep
 
-# Additional functions
-source $HOME/.shell-functions
-
 # PATH settings
 source $HOME/.shell-path
 
@@ -48,3 +53,6 @@ if [[ -f $HOME/.shell-machine-specific ]]; then
     source $HOME/.shell-machine-specific
 fi
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="${HOME}/.sdkman"
+[[ -s "${HOME}/.sdkman/bin/sdkman-init.sh" ]] && source "${HOME}/.sdkman/bin/sdkman-init.sh"

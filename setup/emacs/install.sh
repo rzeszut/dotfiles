@@ -1,12 +1,13 @@
 #!/bin/bash
 
 # Imports
-source ${CFGROOT}/config/shell/shell-functions.sh
+source ${CFGROOT}/setup/setup-functions.sh
 
 # Functions
 install_emacs () {
     echo_yellow ">>> Installing emacs ..."
-    sudo apt-get install -y emacs
+    install_on_macos --cask emacs
+    install_on_linux emacs
 }
 
 # Main

@@ -22,11 +22,6 @@
       "C-k" 'config/evil-window-up
       "C-l" 'config/evil-window-right)
 
-    ; vim numbers
-    (general-nmap
-      "C-a" 'evil-numbers/inc-at-pt
-      "C-x" 'evil-numbers/dec-at-pt)
-
     (general-nmap
       :prefix *leader-key*
       "q"     'evil-quit

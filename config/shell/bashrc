@@ -49,7 +49,6 @@ PS1="\[\e[1;32m\]${debian_chroot:+($debian_chroot)}\u\[\e[0m\]@\[\e[1;32m\]\h\[\
 
 export PS1
 export GDK_USE_XFT=1
-export EDITOR="vim"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -61,4 +60,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
