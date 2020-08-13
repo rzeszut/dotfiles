@@ -18,6 +18,4 @@ install_maven () {
 install_java
 install_maven
 
-# TODO: gradle, scala, sbt
-
 exit 0

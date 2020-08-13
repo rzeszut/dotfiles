@@ -1,17 +1,18 @@
 #!/bin/bash
 
 # Imports
-source ${CFGROOT}/config/shell/shell-functions.sh
+source ${CFGROOT}/setup/setup-functions.sh
 
 # Functions
 install_pip () {
     echo_yellow ">>> Installing pip ..."
-    sudo apt-get install -y python-pip python3-pip
+    install_package python3
+    install_package python3-pip
 }
 
 install_virtualenv () {
     echo_yellow ">>> Installing virtualenv ..."
-    sudo pip install virtualenv
+    sudo pip3 install virtualenv
 }
 
 # Main
